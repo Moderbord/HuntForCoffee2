@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="moderbord.huntforcoffee.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/textborder"
+        android:layout_marginRight="2dp"
+        android:id="@+id/scrollView"
+        android:layout_marginLeft="28sp"
+        android:layout_toRightOf="@+id/statQui"
+        android:layout_toLeftOf="@+id/scrollView2"
+        android:layout_above="@+id/linearLayout"
+        android:layout_marginBottom="5sp"
+        android:fillViewport="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/mainText_string"
+            android:id="@+id/mainTextWindow"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="2dp" />
+
+    </ScrollView>
+
+    <EditText
+        android:layout_width="150sp"
+        android:layout_height="35sp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/nameInput"
+        android:visibility="invisible"
+        android:textSize="12sp"
+        android:typeface="serif"
+        android:hint="Name..."
+        android:layout_alignLeft="@+id/scrollView"
+        android:layout_marginTop="85dp"
+        android:layout_marginLeft="6sp" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentEnd="false"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/textborder"
+        android:layout_alignParentTop="true"
+        android:id="@+id/scrollView2"
+        android:layout_alignParentRight="true"
+        android:fillViewport="false"
+        android:minWidth="115sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/subText_string"
+            android:id="@+id/subTextWindow"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="3dp"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="2dp"
+            android:maxWidth="115sp" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:id="@+id/linearLayout"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignLeft="@+id/linearLayout2">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b0_string"
+            android:id="@+id/b0"
+            android:textSize="12sp"
+            android:layout_above="@+id/b5"
+            android:visibility="visible"
+            android:layout_alignLeft="@+id/b5"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b1_string"
+            android:id="@+id/b1"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            android:layout_alignBottom="@+id/b2"
+            android:layout_toLeftOf="@+id/b2"
+            android:layout_toStartOf="@id/b2"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b2_string"
+            android:id="@+id/b2"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            android:layout_alignBottom="@+id/b3"
+            android:layout_toLeftOf="@+id/b3"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b3_string"
+            android:id="@+id/b3"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            android:layout_toLeftOf="@+id/b4"
+            android:layout_alignBottom="@+id/b4"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b4_string"
+            android:id="@+id/b4"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_above="@+id/b9"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/timeDate"
+        android:layout_marginLeft="40sp"
+        android:id="@+id/linearLayout2">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b5_string"
+            android:id="@+id/b5"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/timeDate"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b6_string"
+            android:id="@+id/b6"
+            android:textSize="12sp"
+            android:layout_alignParentBottom="true"
+            android:visibility="invisible"
+            android:layout_toLeftOf="@+id/b7"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b7_string"
+            android:id="@+id/b7"
+            android:textSize="12sp"
+            android:layout_alignParentBottom="true"
+            android:visibility="invisible"
+            android:layout_alignParentLeft="false"
+            android:layout_toLeftOf="@+id/b8"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b8_string"
+            android:id="@+id/b8"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/b9"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="35sp"
+            android:text="@string/b9_string"
+            android:id="@+id/b9"
+            android:textSize="12sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="false"
+            android:visibility="invisible"
+            android:layout_alignParentRight="true"
+            android:layout_weight="0.2"
+            android:maxWidth="15sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statPhy_string"
+        android:id="@+id/statPhy"
+        android:layout_below="@+id/statClass"
+        android:layout_alignLeft="@+id/statInt"
+        android:layout_marginTop="11dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statInt_string"
+        android:id="@+id/statInt"
+        android:layout_below="@+id/statPhy"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statAgi_string"
+        android:id="@+id/statAgi"
+        android:layout_below="@+id/statInt"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statQui"
+        android:id="@+id/statQui"
+        android:layout_below="@+id/statAgi"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statCha"
+        android:id="@+id/statCha"
+        android:layout_below="@+id/statQui"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statLuck_string"
+        android:id="@+id/statLuck"
+        android:layout_below="@+id/statCha"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statLi_string"
+        android:id="@+id/statLi"
+        android:layout_below="@+id/statLuck"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statHealth_string"
+        android:id="@+id/statHealth"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/statLi"
+        android:layout_alignLeft="@+id/statMana" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statMana_string"
+        android:id="@+id/statMana"
+        android:layout_below="@+id/statHealth"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statFatigue_string"
+        android:id="@+id/statFatigue"
+        android:layout_below="@+id/statMana" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statLu_string"
+        android:id="@+id/statLu"
+        android:layout_below="@+id/statFatigue"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statLvl_string"
+        android:id="@+id/statLvl"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/statClass_string"
+        android:id="@+id/statClass"
+        android:layout_below="@+id/statLvl"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="23:15"
+        android:id="@+id/timeClock"
+        android:textSize="12sp"
+        android:layout_above="@+id/timeDate"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="12/12/12"
+        android:id="@+id/timeDate"
+        android:textSize="12sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="5sp" />
+
+</RelativeLayout>
