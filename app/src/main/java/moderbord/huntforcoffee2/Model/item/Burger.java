@@ -6,13 +6,14 @@ package moderbord.huntforcoffee2.Model.item;
 public class Burger extends Item implements Consumable {
 
     public Burger() {
+        name = "Burger";
         className = "Burger";
         addItem(1);
     }
 
     public Burger(int x) {
-        name = "Burger";
-        addItem(x);
+        this();
+        addItem(x-1);
     }
 
     @Override

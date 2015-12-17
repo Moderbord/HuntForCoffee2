@@ -90,7 +90,7 @@ public class MainActivity extends Activity{
         this.scrollView = (ScrollView) findViewById(R.id.scrollView);
         this.mainTextWindow = (TextView) findViewById(R.id.mainTextWindow);
         Player p = new PlayerBuilder().seteName("pontus").createPlayer();
-        p.getInventory().add(new Burger());
+        p.getInventory().add(new Burger(4));
         p.getInventory().get(0);
         SaveController.getInstance(this).savePlayer(p);
         p = SaveController.getInstance(this).loadPlayer("pontus");
