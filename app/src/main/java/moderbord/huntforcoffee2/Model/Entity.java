@@ -8,12 +8,12 @@ import com.google.gson.Gson;
 
 public class Entity {
 
-    private String eName, eGender, eClass, eRace, eFaction;
-    private int eLevel, ePhysique, eIntellect, eAgility, eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue, eLu, eMinLu, eExperience, eExpToLvl;
-    private Weapon backWep, mainWep, offWep;
-    private Armour armHead, armShoulders, armChest, armGloves, armLegs, armFeet;
-    private Resistance resistance;
-    private Inventory inventory;
+    protected String eName, eGender, eClass, eRace, eFaction;
+    protected int eLevel, ePhysique, eIntellect, eAgility, eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue, eLu, eMinLu, eExperience, eExpToLvl;
+    protected Weapon backWep, mainWep, offWep;
+    protected Armour armHead, armShoulders, armChest, armGloves, armLegs, armFeet;
+    protected Resistance resistance;
+    protected Inventory inventory;
 
     public Entity(String eName, String eGender, String eClass, String eRace, String eFaction, int eLevel, int ePhysique, int eIntellect, int eAgility, int eQuickness, int eCharisma, int eLuck, int eLi, int eMaxHealth, int eHealth, int eMaxMana, int eMana, int eMaxFatigue, int eFatigue, int eLu, int eMinLu, int eExperience, int eExpToLvl, Weapon backWep, Weapon mainWep, Weapon offWep, Armour armHead, Armour armShoulders, Armour armChest, Armour armGloves, Armour armLegs, Armour armFeet, Resistance resistance, Inventory inventory) {
         this.eName = eName;
@@ -50,6 +50,10 @@ public class Entity {
         this.armFeet = armFeet;
         this.resistance = resistance;
         this.inventory = inventory;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
     public String toJson(){

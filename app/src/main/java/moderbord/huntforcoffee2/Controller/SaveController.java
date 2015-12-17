@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
-import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.Player;
 
 /**
@@ -14,6 +13,7 @@ import moderbord.huntforcoffee2.Model.Player;
 
 public class SaveController {
 
+    public static final String PLAYER = "player";
     Context c;
     private static SaveController instance;
 
@@ -29,14 +29,14 @@ public class SaveController {
     }
 
     public void savePlayer(Player player){
-        SharedPreferences sp = c.getSharedPreferences("player", 0);
+        SharedPreferences sp = c.getSharedPreferences(PLAYER, 0);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(player.geteName(), player.toJson());
         editor.commit();
     }
 
     public Player loadPlayer(String playerName){
-        SharedPreferences sp = c.getSharedPreferences("player", 0);
+        SharedPreferences sp = c.getSharedPreferences(PLAYER, 0);
         String retrievedFromMemory = sp.getString(playerName, null);
         if (retrievedFromMemory == null){
             return null;

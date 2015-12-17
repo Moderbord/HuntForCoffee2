@@ -12,6 +12,7 @@ import android.widget.TextView;
 import moderbord.huntforcoffee2.Controller.SaveController;
 import moderbord.huntforcoffee2.Model.Player;
 import moderbord.huntforcoffee2.Model.PlayerBuilder;
+import moderbord.huntforcoffee2.Model.item.Burger;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -89,9 +90,11 @@ public class MainActivity extends Activity{
         this.scrollView = (ScrollView) findViewById(R.id.scrollView);
         this.mainTextWindow = (TextView) findViewById(R.id.mainTextWindow);
         Player p = new PlayerBuilder().seteName("pontus").createPlayer();
+        p.getInventory().add(new Burger());
         SaveController.getInstance(this).savePlayer(p);
         p = SaveController.getInstance(this).loadPlayer("pontus");
         Log.d("MainActivity", p.geteName());
+        p.consumeItem(p.getInventory().get(0));
     }
 
 
