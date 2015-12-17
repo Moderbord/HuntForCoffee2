@@ -1,5 +1,8 @@
 package moderbord.huntforcoffee2.Model;
 
+import moderbord.huntforcoffee2.Model.item.Armour;
+import moderbord.huntforcoffee2.Model.item.Weapon;
+
 public class EntityBuilder {
     private String eName;
     private String eGender = null;

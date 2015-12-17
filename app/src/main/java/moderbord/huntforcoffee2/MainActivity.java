@@ -91,10 +91,11 @@ public class MainActivity extends Activity{
         this.mainTextWindow = (TextView) findViewById(R.id.mainTextWindow);
         Player p = new PlayerBuilder().seteName("pontus").createPlayer();
         p.getInventory().add(new Burger());
+        p.getInventory().get(0);
         SaveController.getInstance(this).savePlayer(p);
         p = SaveController.getInstance(this).loadPlayer("pontus");
-        Log.d("MainActivity", p.geteName());
         p.consumeItem(p.getInventory().get(0));
+        Log.d("MainActivity", p.geteName());
     }
 
 

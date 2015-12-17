@@ -2,6 +2,8 @@ package moderbord.huntforcoffee2.Model;
 
 import android.util.Log;
 
+import moderbord.huntforcoffee2.Model.item.Armour;
+import moderbord.huntforcoffee2.Model.item.Weapon;
 import moderbord.huntforcoffee2.Model.item.Consumable;
 import moderbord.huntforcoffee2.Model.item.Item;
 
