@@ -5,6 +5,11 @@ package moderbord.huntforcoffee2.Model.item;
  */
 public class Burger extends Item implements Consumable{
 
+    public Burger() {
+        name = "Burger";
+        addItem(1);
+    }
+
     @Override
     public String consume() {
         return "Oh it's delicous";

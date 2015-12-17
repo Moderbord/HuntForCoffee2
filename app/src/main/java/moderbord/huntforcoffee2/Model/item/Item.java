@@ -7,8 +7,8 @@ package moderbord.huntforcoffee2.Model.item;
 public class Item {
 
     private int quantity;
-    private String name;
-    private String description;
+    protected String name;
+    protected String description;
 
     public void addItem(int toAdd){
         quantity += toAdd;
@@ -47,6 +47,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return quantity + "x" + name;
+        return quantity + " x " + name;
     }
 }
