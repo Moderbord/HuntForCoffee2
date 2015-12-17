@@ -3,6 +3,9 @@ package moderbord.huntforcoffee2;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 
 import moderbord.huntforcoffee2.Controller.SaveController;
 import moderbord.huntforcoffee2.Controller.UIController;
@@ -19,7 +22,10 @@ public class MainActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new UIController(this));
+        LayoutInflater inflater = getLayoutInflater();
+        View v = inflater.inflate(R.layout.activity_main, null);
+        setContentView(v);
+        UIController.getInstance().initWithView(v);
         Player p = new PlayerBuilder().seteName("pontus").createPlayer();
         p.getInventory().add(new Burger(4));
         p.getInventory().get(0);
