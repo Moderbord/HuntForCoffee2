@@ -7,6 +7,7 @@ package moderbord.huntforcoffee2.Model.item;
 public class Item {
 
     private int quantity;
+    protected String className;
     protected String name;
     protected String description;
 
