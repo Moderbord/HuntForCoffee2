@@ -32,11 +32,12 @@ public class SaveController {
         SharedPreferences sp = c.getSharedPreferences("player", 0);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(player.geteName(), player.toJson());
+        editor.commit();
     }
 
     public Player loadPlayer(String playerName){
         SharedPreferences sp = c.getSharedPreferences("player", 0);
-        String retrievedFromMemory = sp.getString("playerName", null);
+        String retrievedFromMemory = sp.getString(playerName, null);
         if (retrievedFromMemory == null){
             return null;
         }
