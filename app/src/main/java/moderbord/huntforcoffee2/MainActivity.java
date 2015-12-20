@@ -10,6 +10,8 @@ import moderbord.huntforcoffee2.Controller.SaveController;
 import moderbord.huntforcoffee2.Controller.UIController;
 import moderbord.huntforcoffee2.Model.Player;
 import moderbord.huntforcoffee2.Model.PlayerBuilder;
+import moderbord.huntforcoffee2.Model.item.Armour;
+import moderbord.huntforcoffee2.Model.item.ArmourBuilder;
 import moderbord.huntforcoffee2.Model.item.Burger;
 import moderbord.huntforcoffee2.Model.item.Pizza;
 import moderbord.huntforcoffee2.Model.item.Weapon;
@@ -31,18 +33,19 @@ public class MainActivity extends Activity{
         Player p = new PlayerBuilder().seteName("pontus").createPlayer();
         p.getInventory().add(new Burger(4));
         p.getInventory().get(0);
-        Weapon weapon = new WeaponBuilder().setWepType("Sword").setDmgType("Piercing").createWeapon();
-        weapon.setName("Trollbane");
-        Weapon weapons = new WeaponBuilder().setWepType("LargeSword").setDmgType("Hacking").createWeapon();
-        weapons.setName("Giant Slayer");
-        Weapon weaponed = new WeaponBuilder().setWepType("Axe").setDmgType("Slashing").createWeapon();
-        weaponed.setName("Ice");
+
+        Weapon weapon = new WeaponBuilder().setName("Trollbane").createWeapon();
+        Weapon weapons = new WeaponBuilder().setName("Giant Slayer").createWeapon();
+        Weapon weaponed = new WeaponBuilder().setName("Ice").createWeapon();
         p.getInventory().add(weapon);
         p.getInventory().add(weapons);
         p.getInventory().add(weaponed);
-        SaveController.getInstance(this).savePlayer(p);
-        p = SaveController.getInstance(this).loadPlayer("pontus");
+
+        Armour shiny = new ArmourBuilder().createArmour();
+        p.getInventory().add(shiny);
+
         p.equipGear(p.getInventory().getGear(1));
+        p.equipGear(p.getInventory().getGear(2));
         p.equipGear(p.getInventory().getGear(2));
         //p.equipGear(p.getInventory().getGear(2));
         p.consumeItem(p.getInventory().get(0));
@@ -50,6 +53,8 @@ public class MainActivity extends Activity{
         p.getInventory().add(new Burger(4));
         p.getInventory().add(new Pizza());
         p.seteHealth(100);
+        SaveController.getInstance(this).savePlayer(p);
+        p = SaveController.getInstance(this).loadPlayer("pontus");
         UIController ui = UIController.getInstance();
         ui.mainTextWindow.setText(p.getInventory().toString());
     }

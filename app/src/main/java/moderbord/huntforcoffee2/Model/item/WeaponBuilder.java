@@ -8,8 +8,8 @@ public class WeaponBuilder {
     private int gearLvl = 1;
     private int gearExp = 0;
     private int gearExpToLvl = 100;
-    private String wepType;
-    private String dmgType;
+    private String wepType = "Sword";
+    private String dmgType = "Piercing";
     private int minDmg = 5;
     private int maxDmg = 10;
 

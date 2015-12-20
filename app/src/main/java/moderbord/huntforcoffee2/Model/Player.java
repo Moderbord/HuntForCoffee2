@@ -30,12 +30,25 @@ public class Player extends Entity {
 
     public void equipGear(Gear g){
         if(g instanceof Weapon) {
-            if(this.mainWep.getName() != null){
+
+            if(this.mainWep.getName() != null){     // Save current weapon to inventory
                 this.getInventory().add((this).mainWep);
             }
-            Log.d("Player", ((Weapon) g).equip());
+
+            Log.d("Player", ((Weapon) g).equip());  // Equip new weapon
             this.mainWep = (Weapon)g;
             this.getInventory().remove(g);
+
+        } else if(g instanceof Armour){
+
+            if(this.armChest.getName() != null){    // Save current armour to inventory
+                this.getInventory().add((this).armChest);
+            }
+
+            Log.d("Player", ((Armour) g).equip());  // Equip new armour
+            this.armChest = (Armour)g;
+            this.getInventory().remove(g);
+
         } else {
             Log.d("Player", "That's no weapon");
         }

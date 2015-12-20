@@ -18,6 +18,7 @@ public class Armour extends Gear implements Equipable{
         this.armStrong = armStrong;
         this.armWeak = armWeak;
         this.armDef = armDef;
+        this.className = "Armour";
     }
 
     @Override
