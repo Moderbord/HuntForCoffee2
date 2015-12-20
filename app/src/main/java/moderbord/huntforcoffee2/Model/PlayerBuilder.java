@@ -3,7 +3,7 @@ package moderbord.huntforcoffee2.Model;
 import moderbord.huntforcoffee2.Model.item.Armour;
 import moderbord.huntforcoffee2.Model.item.Weapon;
 
-public class PlayerBuilder {
+public class PlayerBuilder {    // Redundant?
     private String eName;
     private String eGender = null;
     private String eClass = null;

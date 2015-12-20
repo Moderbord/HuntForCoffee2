@@ -8,8 +8,9 @@ import android.view.View;
 
 import moderbord.huntforcoffee2.Controller.SaveController;
 import moderbord.huntforcoffee2.Controller.UIController;
+import moderbord.huntforcoffee2.Model.EntityBuilder;
+import moderbord.huntforcoffee2.Model.Jheero;
 import moderbord.huntforcoffee2.Model.Player;
-import moderbord.huntforcoffee2.Model.PlayerBuilder;
 import moderbord.huntforcoffee2.Model.item.Armour;
 import moderbord.huntforcoffee2.Model.item.ArmourBuilder;
 import moderbord.huntforcoffee2.Model.item.Burger;
@@ -31,7 +32,7 @@ public class MainActivity extends Activity{
         View v = inflater.inflate(R.layout.activity_main, null);
         setContentView(v);
         UIController.getInstance().initWithView(v);
-        Player p = new PlayerBuilder().seteName("pontus").createPlayer();
+        Player p = new EntityBuilder().seteName("Pontus").createEntityPlayer();
         p.getInventory().add(new Burger(4));
         p.getInventory().get(0);
 
@@ -42,11 +43,16 @@ public class MainActivity extends Activity{
         p.getInventory().add(weapons);
         p.getInventory().add(weaponed);
 
+        Jheero jheero = new EntityBuilder().createEntityJheero();
+
         Armour shiny = new ArmourBuilder().createArmour();
         p.getInventory().add(shiny);
 
         UniqueArmour unique = new ArmourBuilder().createUniqueArmour();
-        p.getInventory().add(unique);
+        jheero.getInventory().add(new Pizza());
+        jheero.getInventory().add(unique);
+        jheero.equipGear(jheero.getInventory().getGear(1));
+        jheero.getResistance().setResCleaving(40);
 
         p.equipGear(p.getInventory().getGear(1));
         p.equipGear(p.getInventory().getGear(2));
@@ -56,8 +62,14 @@ public class MainActivity extends Activity{
         p.getInventory().add(new Burger(4));
         p.getInventory().add(new Pizza());
         p.seteHealth(100);
-        SaveController.getInstance(this).savePlayer(p);
-        p = SaveController.getInstance(this).loadPlayer("pontus");
+        SaveController.getInstance(this).saveEntity(p);
+        p = (Player) SaveController.getInstance(this).loadEntity(p);
+
+        SaveController.getInstance(this).saveEntity(jheero);
+        Jheero test = (Jheero) SaveController.getInstance(this).loadEntity(jheero);
+        jheero.getResistance().addResCleaving(13);
+
+
         UIController ui = UIController.getInstance();
         ui.mainTextWindow.setText(p.getInventory().toString());
     }
