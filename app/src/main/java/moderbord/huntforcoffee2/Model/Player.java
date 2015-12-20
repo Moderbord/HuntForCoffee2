@@ -30,6 +30,9 @@ public class Player extends Entity {
 
     public void equipGear(Gear g){
         if(g instanceof Weapon) {
+            if(this.mainWep.getName() != null){
+                this.getInventory().add((this).mainWep);
+            }
             Log.d("Player", ((Weapon) g).equip());
             this.mainWep = (Weapon)g;
             this.getInventory().remove(g);

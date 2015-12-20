@@ -43,7 +43,7 @@ public class MainActivity extends Activity{
         SaveController.getInstance(this).savePlayer(p);
         p = SaveController.getInstance(this).loadPlayer("pontus");
         p.equipGear(p.getInventory().getGear(1));
-        //p.equipGear(p.getInventory().getGear(2));
+        p.equipGear(p.getInventory().getGear(2));
         //p.equipGear(p.getInventory().getGear(2));
         p.consumeItem(p.getInventory().get(0));
         Log.d("MainActivity", p.geteName());
