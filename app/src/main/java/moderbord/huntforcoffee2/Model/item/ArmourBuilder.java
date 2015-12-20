@@ -71,4 +71,8 @@ public class ArmourBuilder {
     public Armour createArmour() {
         return new Armour(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, armClass, armStrong, armWeak, armDef);
     }
+
+    public UniqueArmour createUniqueArmour() {
+        return new UniqueArmour(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, armClass, armStrong, armWeak, armDef);
+    }
 }

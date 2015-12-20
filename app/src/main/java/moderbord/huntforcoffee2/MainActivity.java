@@ -14,6 +14,7 @@ import moderbord.huntforcoffee2.Model.item.Armour;
 import moderbord.huntforcoffee2.Model.item.ArmourBuilder;
 import moderbord.huntforcoffee2.Model.item.Burger;
 import moderbord.huntforcoffee2.Model.item.Pizza;
+import moderbord.huntforcoffee2.Model.item.UniqueArmour;
 import moderbord.huntforcoffee2.Model.item.Weapon;
 import moderbord.huntforcoffee2.Model.item.WeaponBuilder;
 
@@ -44,10 +45,12 @@ public class MainActivity extends Activity{
         Armour shiny = new ArmourBuilder().createArmour();
         p.getInventory().add(shiny);
 
+        UniqueArmour unique = new ArmourBuilder().createUniqueArmour();
+        p.getInventory().add(unique);
+
         p.equipGear(p.getInventory().getGear(1));
         p.equipGear(p.getInventory().getGear(2));
         p.equipGear(p.getInventory().getGear(2));
-        //p.equipGear(p.getInventory().getGear(2));
         p.consumeItem(p.getInventory().get(0));
         Log.d("MainActivity", p.geteName());
         p.getInventory().add(new Burger(4));
