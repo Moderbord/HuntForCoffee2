@@ -5,6 +5,6 @@ package moderbord.huntforcoffee2.Model.item;
  */
 public interface Equipable {
 
-    String onEquip();
+    String equip();
 
 }

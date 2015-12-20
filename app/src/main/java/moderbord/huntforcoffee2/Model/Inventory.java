@@ -2,6 +2,7 @@ package moderbord.huntforcoffee2.Model;
 
 import java.util.ArrayList;
 
+import moderbord.huntforcoffee2.Model.item.Gear;
 import moderbord.huntforcoffee2.Model.item.Item;
 
 /**
@@ -9,6 +10,21 @@ import moderbord.huntforcoffee2.Model.item.Item;
  */
 
 public class Inventory extends ArrayList<Item>{
+
+    @Override
+    public boolean add(Item object) {
+        for (Item i: this){
+            if(i.getName().equals(object.getName()) && !(object instanceof Gear)){
+                i.addItem(object.getQuantity());
+                return true;
+            }
+        }
+        return super.add(object);
+    }
+
+    public Gear getGear(int index) {
+        return (Gear) super.get(index);
+    }
 
     @Override
     public int size() {

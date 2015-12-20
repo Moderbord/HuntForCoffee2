@@ -3,6 +3,7 @@ package moderbord.huntforcoffee2.Model;
 import android.util.Log;
 
 import moderbord.huntforcoffee2.Model.item.Armour;
+import moderbord.huntforcoffee2.Model.item.Gear;
 import moderbord.huntforcoffee2.Model.item.Weapon;
 import moderbord.huntforcoffee2.Model.item.Consumable;
 import moderbord.huntforcoffee2.Model.item.Item;
@@ -19,11 +20,21 @@ public class Player extends Entity {
 
     public void consumeItem(Item i){
         if(i instanceof Consumable) {
-            Log.d("Inventory", ((Consumable) i).consume());
-            i.removeItem(1);
+            Log.d("Player", ((Consumable) i).consume());
+            i.subtractItem(1);
             inventory.notifyDataSetChanged();
         } else {
-            Log.d("Player", "I am beaitafjoidf");
+            Log.d("Player", "I am hungry!");
+        }
+    }
+
+    public void equipGear(Gear g){
+        if(g instanceof Weapon) {
+            Log.d("Player", ((Weapon) g).equip());
+            this.mainWep = (Weapon)g;
+            this.getInventory().remove(g);
+        } else {
+            Log.d("Player", "That's no weapon");
         }
     }
 

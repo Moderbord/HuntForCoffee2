@@ -6,17 +6,26 @@ package moderbord.huntforcoffee2.Model.item;
 
 public class Item {
 
-    private int quantity;
+    protected int quantity;
     protected String className;
     protected String name;
     protected String description;
+
+    public Item(){}
+
+    public Item(int quantity, String className, String name, String description) {
+        this.quantity = quantity;
+        this.className = className;
+        this.name = name;
+        this.description = description;
+    }
 
     public void addItem(int toAdd){
         quantity += toAdd;
     }
 
-    public void removeItem(int toRemove){
-        quantity -= toRemove;
+    public void subtractItem(int toSubtract){
+        quantity -= toSubtract;
         if (quantity < 1){
             quantity = 0;
         }

@@ -12,8 +12,49 @@ public class Weapon extends Gear implements Equipable{
         className = "Weapon";
     }
 
+    public Weapon(int quantity, String className, String name, String description, int gearLvl, int gearExp, int gearExpToLvl, String wepType, String dmgType, int minDmg, int maxDmg) {
+        super(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl);
+        this.wepType = wepType;
+        this.dmgType = dmgType;
+        this.minDmg = minDmg;
+        this.maxDmg = maxDmg;
+        this.className = "Weapon";
+    }
+
     @Override
-    public String onEquip() {
+    public String equip() {
         return "Very weapon, much sharp";
+    }
+
+    public String getWepType() {
+        return wepType;
+    }
+
+    public void setWepType(String wepType) {
+        this.wepType = wepType;
+    }
+
+    public String getDmgType() {
+        return dmgType;
+    }
+
+    public void setDmgType(String dmgType) {
+        this.dmgType = dmgType;
+    }
+
+    public int getMinDmg() {
+        return minDmg;
+    }
+
+    public void setMinDmg(int minDmg) {
+        this.minDmg = minDmg;
+    }
+
+    public int getMaxDmg() {
+        return maxDmg;
+    }
+
+    public void setMaxDmg(int maxDmg) {
+        this.maxDmg = maxDmg;
     }
 }
