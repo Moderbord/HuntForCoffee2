@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import moderbord.huntforcoffee2.Model.Entity;
-import moderbord.huntforcoffee2.Model.Jheero;
 import moderbord.huntforcoffee2.Model.Player;
 import moderbord.huntforcoffee2.Model.item.Item;
 
@@ -32,17 +30,16 @@ public class SaveController {
         return instance;
     }
 
-    public void saveEntity(Entity entity){
+    public void savePlayer(Player player){
         SharedPreferences sp = c.getSharedPreferences(PLAYER, 0);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString(entity.geteName(), entity.toJson());
+        editor.putString(player.geteName(), player.toJson());
         editor.commit();
     }
 
-    public Entity loadEntity(Entity entity){
-        String entityName = entity.geteName();
+    public Player loadPlayer(String playerName){
         SharedPreferences sp = c.getSharedPreferences(PLAYER, 0);
-        String retrievedFromMemory = sp.getString(entityName, null);
+        String retrievedFromMemory = sp.getString(playerName, null);
         if (retrievedFromMemory == null){
             return null;
         }
@@ -51,11 +48,7 @@ public class SaveController {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Item.class, new CustomDeserializer());
         Gson g = builder.create();
-        if (entity instanceof Player) {
-            return g.fromJson(retrievedFromMemory, Player.class);
-        } else {
-            return g.fromJson(retrievedFromMemory, Jheero.class);
-        }
+        return g.fromJson(retrievedFromMemory, Player.class);
     }
 
 }
