@@ -3,10 +3,10 @@ package moderbord.huntforcoffee2.Model;
 import android.util.Log;
 
 import moderbord.huntforcoffee2.Model.item.Armour;
-import moderbord.huntforcoffee2.Model.item.Gear;
-import moderbord.huntforcoffee2.Model.item.Weapon;
 import moderbord.huntforcoffee2.Model.item.Consumable;
+import moderbord.huntforcoffee2.Model.item.Gear;
 import moderbord.huntforcoffee2.Model.item.Item;
+import moderbord.huntforcoffee2.Model.item.Weapon;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -26,6 +26,11 @@ public class Player extends Entity {
         } else {
             Log.d("Player", "I am hungry!");
         }
+    }
+
+    public void combineItem(String toCreate){
+        Recipes recipes = new Recipes();
+        recipes.stirThePot(this.inventory, toCreate);
     }
 
     public void equipGear(Gear g){

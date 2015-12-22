@@ -22,8 +22,37 @@ public class Inventory extends ArrayList<Item>{
         return super.add(object);
     }
 
+    public boolean hasItem(String name){
+        boolean match = false;
+        for(Item i: this){
+            if(i.getName().equals(name)){
+                match = true;
+            }
+        }
+        return match;
+    }
+
+    public boolean hasItemQty(String name, int qty){
+        boolean match = false;
+        for(Item i: this){
+            if(i.getName().equals(name) && i.getQuantity() >= qty){
+                match = true;
+            }
+        }
+        return match;
+    }
+
     public Gear getGear(int index) {
         return (Gear) super.get(index);
+    }
+
+    public Item itemByName(String name){
+        for(Item i: this){
+            if(i.getName().equals(name)){
+                return i;
+            }
+        }
+        return null;
     }
 
     @Override
