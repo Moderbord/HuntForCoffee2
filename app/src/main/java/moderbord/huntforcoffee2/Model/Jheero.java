@@ -25,7 +25,7 @@ public class Jheero extends Entity {
         if(i instanceof Consumable) {
             Log.d("Jheero", ((Consumable) i).consume());
             i.subtractItem(1);
-            inventory.notifyDataSetChanged();
+            inventory.updateInventoryData();
         } else {
             Log.d("Jheero", "Jheero is hungry!");
         }

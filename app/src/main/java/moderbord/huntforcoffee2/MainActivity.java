@@ -10,7 +10,7 @@ import moderbord.huntforcoffee2.Controller.UIController;
 import moderbord.huntforcoffee2.Model.EntityBuilder;
 import moderbord.huntforcoffee2.Model.Player;
 import moderbord.huntforcoffee2.Model.item.Burger;
-import moderbord.huntforcoffee2.Model.item.Pizza;
+import moderbord.huntforcoffee2.Model.item.IronOre;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -27,14 +27,22 @@ public class MainActivity extends Activity{
         UIController.getInstance().initWithView(v);
 
         Player p = new EntityBuilder().seteName("Pontus").createEntityPlayer();
-        p.getInventory().add(new Burger(4));
-        p.getInventory().add(new Pizza());
-        p.getInventory().itemByName("Burger");
-        p.combineItem("SuperMeal");
+        p.getInventory().add(new IronOre(8));
+        p.combineItem("Iron bar");
+        p.combineItem("Iron bar");
+        p.combineItem("Iron bar");
+        p.combineItem("Iron bar");
+
+        p.combineItem("WardenArmour");
 
         SaveController.getInstance(this).saveEntity(p);
         p = (Player) SaveController.getInstance(this).loadEntity(p);
 
+        p.getInventory().add(new Burger(2));
+        p.consumeItem(p.getInventory().itemByName("Burger"));
+        p.consumeItem(p.getInventory().itemByName("Burger"));
+        p.equipGear(p.getInventory().gearByName("Warden"));
+        p.getInventory().add(new IronOre(8));
     }
 
 

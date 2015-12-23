@@ -1,6 +1,9 @@
 package moderbord.huntforcoffee2.Model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import moderbord.huntforcoffee2.Model.item.Gear;
 import moderbord.huntforcoffee2.Model.item.Item;
@@ -55,6 +58,19 @@ public class Inventory extends ArrayList<Item>{
         return null;
     }
 
+    public Gear gearByName(String name){
+        for(Item i: this){
+            if(i.getName().equals(name)){
+                try {
+                    return (Gear) i;
+                } catch (Exception e) {
+                    Log.d("Inventory", "Tried to return Gear from inventory that was not Gear");
+                }
+            }
+        }
+        return null;
+    }
+
     @Override
     public int size() {
         int x = 0;
@@ -81,4 +97,14 @@ public class Inventory extends ArrayList<Item>{
         }
         size();
     }
+
+    public void updateInventoryData() {
+        for(Iterator<Item> iter = this.iterator(); iter.hasNext(); ){
+            Item item = iter.next();
+            if(item.getQuantity() < 1){
+                iter.remove();
+            }
+        }
+    }
+
 }
