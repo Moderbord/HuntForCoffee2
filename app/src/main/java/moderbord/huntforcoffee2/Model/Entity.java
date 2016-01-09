@@ -59,6 +59,10 @@ public class Entity {
         return inventory;
     }
 
+    public Entity returnMe(){
+        return this;
+    }
+
     public String toJson(){
         Gson gson = new Gson();
         return gson.toJson(this);

@@ -5,12 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import moderbord.huntforcoffee2.Controller.SaveController;
+import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Controller.UIController;
-import moderbord.huntforcoffee2.Model.EntityBuilder;
-import moderbord.huntforcoffee2.Model.Player;
-import moderbord.huntforcoffee2.Model.item.Burger;
-import moderbord.huntforcoffee2.Model.item.IronOre;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -26,12 +22,18 @@ public class MainActivity extends Activity{
         setContentView(v);
         UIController.getInstance().initWithView(v);
 
-        Player p = new EntityBuilder().seteName("Pontus").createEntityPlayer();
+        EventController eventController = new EventController();
+        eventController.initGame();
+
+        /* Player p = new EntityBuilder().seteName("Pontus").createEntityPlayer();
         p.getInventory().add(new IronOre(8));
         p.combineItem("Iron bar");
         p.combineItem("Iron bar");
         p.combineItem("Iron bar");
         p.combineItem("Iron bar");
+
+        Entity jheero = new EntityBuilder().createEntityJheero();
+        Entity tut = jheero.returnMe();
 
         p.combineItem("WardenArmour");
 
@@ -42,7 +44,7 @@ public class MainActivity extends Activity{
         p.consumeItem(p.getInventory().itemByName("Burger"));
         p.consumeItem(p.getInventory().itemByName("Burger"));
         p.equipGear(p.getInventory().gearByName("Warden"));
-        p.getInventory().add(new IronOre(8));
+        p.getInventory().add(new IronOre(8)); */
     }
 
 
