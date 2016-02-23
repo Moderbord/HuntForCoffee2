@@ -8,6 +8,7 @@ public class ArmourBuilder {
     private int gearLvl = 1;
     private int gearExp = 0;
     private int gearExpToLvl = 100;
+    private String gearSlot;
     private String armClass = "Medium";
     private String armStrong = "Magic";
     private String armWeak = "Piercing";
@@ -48,6 +49,11 @@ public class ArmourBuilder {
         return this;
     }
 
+    public ArmourBuilder setGearSlot(String gearSlot) {
+        this.gearSlot = gearSlot;
+        return this;
+    }
+
     public ArmourBuilder setArmClass(String armClass) {
         this.armClass = armClass;
         return this;
@@ -69,10 +75,10 @@ public class ArmourBuilder {
     }
 
     public Armour createArmour() {
-        return new Armour(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, armClass, armStrong, armWeak, armDef);
+        return new Armour(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, armClass, armStrong, armWeak, armDef);
     }
 
     public UniqueArmour createUniqueArmour() {
-        return new UniqueArmour(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, armClass, armStrong, armWeak, armDef);
+        return new UniqueArmour(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, armClass, armStrong, armWeak, armDef);
     }
 }

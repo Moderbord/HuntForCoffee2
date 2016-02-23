@@ -10,6 +10,15 @@ import moderbord.huntforcoffee2.Model.item.UniqueArmour;
  */
 public class Recipes{
 
+    private static Recipes instance;
+
+    public static Recipes getInstance() {
+        if (instance == null){
+            instance = new Recipes();
+        }
+        return instance;
+    }
+
     public void stirThePot(Entity e, String toCreate) {
         switch (toCreate){
             case "SuperMeal":

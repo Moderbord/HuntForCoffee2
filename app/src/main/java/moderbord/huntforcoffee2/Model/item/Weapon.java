@@ -12,8 +12,9 @@ public class Weapon extends Gear implements Equipable{
         className = "Weapon";
     }
 
-    public Weapon(int quantity, String className, String name, String description, int gearLvl, int gearExp, int gearExpToLvl, String wepType, String dmgType, int minDmg, int maxDmg) {
-        super(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl);
+    public Weapon(int quantity, String className, String name, String description, int gearLvl,
+                  int gearExp, int gearExpToLvl, String gearSlot, String wepType, String dmgType, int minDmg, int maxDmg) {
+        super(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot);
         this.wepType = wepType;
         this.dmgType = dmgType;
         this.minDmg = minDmg;

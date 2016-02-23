@@ -6,14 +6,16 @@ package moderbord.huntforcoffee2.Model.item;
 public class Gear extends Item {
 
     protected int gearLvl, gearExp, gearExpToLvl;
+    protected String gearSlot;
 
     public Gear(){}
 
-    public Gear(int quantity, String className, String name, String description, int gearLvl, int gearExp, int gearExpToLvl) {
+    public Gear(int quantity, String className, String name, String description, int gearLvl, int gearExp, int gearExpToLvl, String gearSlot) {
         super(quantity, className, name, description);
         this.gearLvl = gearLvl;
         this.gearExp = gearExp;
         this.gearExpToLvl = gearExpToLvl;
+        this.gearSlot = gearSlot;
     }
 
     public int getGearLvl() {
@@ -38,5 +40,13 @@ public class Gear extends Item {
 
     public void setGearExpToLvl(int gearExpToLvl) {
         this.gearExpToLvl = gearExpToLvl;
+    }
+
+    public String getGearSlot() {
+        return gearSlot;
+    }
+
+    public void setGearSlot(String gearSlot) {
+        this.gearSlot = gearSlot;
     }
 }

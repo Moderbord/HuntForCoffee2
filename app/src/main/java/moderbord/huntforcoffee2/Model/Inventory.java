@@ -45,10 +45,6 @@ public class Inventory extends ArrayList<Item>{
         return match;
     }
 
-    public Gear getGear(int index) {
-        return (Gear) super.get(index);
-    }
-
     public Item itemByName(String name){
         for(Item i: this){
             if(i.getName().equals(name)){
@@ -56,6 +52,15 @@ public class Inventory extends ArrayList<Item>{
             }
         }
         return null;
+    }
+
+    public Gear gearByIndex(int index) {
+        if (this.get(index) instanceof Gear) {
+            return (Gear) super.get(index);
+        } else {
+            Log.d("Inventory", "Item is not of Gear class");
+            return null;
+        }
     }
 
     public Gear gearByName(String name){

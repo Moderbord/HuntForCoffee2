@@ -1,11 +1,10 @@
 package moderbord.huntforcoffee2.Controller;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 
 import moderbord.huntforcoffee2.Model.EntityBuilder;
 import moderbord.huntforcoffee2.Model.Player;
+import moderbord.huntforcoffee2.Model.Recipes;
 import moderbord.huntforcoffee2.Model.events.Forrest;
 
 /**
@@ -13,7 +12,8 @@ import moderbord.huntforcoffee2.Model.events.Forrest;
  */
 public class EventController {
 
-    protected UIController ui = UIController.getInstance();
+    public static UIController ui = UIController.getInstance();
+    public static Recipes recipes = Recipes.getInstance(); // Move elsewhere?
 
     protected static Player player = new EntityBuilder().seteName("Pontarn").createEntityPlayer();
 

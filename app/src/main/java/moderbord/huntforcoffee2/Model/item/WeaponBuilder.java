@@ -8,6 +8,7 @@ public class WeaponBuilder {
     private int gearLvl = 1;
     private int gearExp = 0;
     private int gearExpToLvl = 100;
+    private String gearSlot;
     private String wepType = "Sword";
     private String dmgType = "Piercing";
     private int minDmg = 5;
@@ -48,6 +49,11 @@ public class WeaponBuilder {
         return this;
     }
 
+    public WeaponBuilder setGearSlot(String gearSlot) {
+        this.gearSlot = gearSlot;
+        return this;
+    }
+
     public WeaponBuilder setWepType(String wepType) {
         this.wepType = wepType;
         return this;
@@ -69,6 +75,6 @@ public class WeaponBuilder {
     }
 
     public Weapon createWeapon() {
-        return new Weapon(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, wepType, dmgType, minDmg, maxDmg);
+        return new Weapon(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, minDmg, maxDmg);
     }
 }

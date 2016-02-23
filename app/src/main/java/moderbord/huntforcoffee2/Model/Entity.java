@@ -1,8 +1,14 @@
 package moderbord.huntforcoffee2.Model;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
+import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Model.item.Armour;
+import moderbord.huntforcoffee2.Model.item.Consumable;
+import moderbord.huntforcoffee2.Model.item.Gear;
+import moderbord.huntforcoffee2.Model.item.Item;
 import moderbord.huntforcoffee2.Model.item.Weapon;
 
 /**
@@ -62,6 +68,48 @@ public class Entity {
     public Entity returnMe(){
         return this;
     }
+
+    public void consumeItem(Item i){
+        if(i instanceof Consumable) {
+            Log.d("Player", ((Consumable) i).consume());
+            i.subtractItem(1);
+            inventory.updateInventoryData();
+        } else {
+            Log.d("Player", "I am hungry!");
+        }
+    }
+
+    public void combineItem(String toCreate){
+        EventController.recipes.stirThePot(this, toCreate);
+        inventory.updateInventoryData();
+    }
+
+    public void equipGear(Gear g){
+        if(g instanceof Weapon) {
+
+            if(this.mainWep.getName() != null){     // Save current weapon to inventory
+                this.getInventory().add((this).mainWep);
+            }
+
+            Log.d("Player", ((Weapon) g).equip());  // Equip new weapon
+            this.mainWep = (Weapon)g;
+            this.getInventory().remove(g);
+
+        } else if(g instanceof Armour){
+
+            if(this.armChest.getName() != null){    // Save current armour to inventory
+                this.getInventory().add((this).armChest);
+            }
+
+            Log.d("Player", ((Armour) g).equip());  // Equip new armour
+            this.armChest = (Armour)g;
+            this.getInventory().remove(g);
+
+        } else {
+            Log.d("Player", "That's no weapon");
+        }
+    }
+
 
     public String toJson(){
         Gson gson = new Gson();
