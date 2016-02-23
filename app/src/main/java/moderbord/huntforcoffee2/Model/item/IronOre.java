@@ -13,7 +13,7 @@ public class IronOre extends Item implements Reagent {
 
     public IronOre(int x) {
         this();
-        addItem(x-1);
+        addItem(x - 1);
     }
 
     @Override

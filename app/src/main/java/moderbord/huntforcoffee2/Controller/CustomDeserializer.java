@@ -18,11 +18,11 @@ public class CustomDeserializer implements JsonDeserializer<Item> {
     @Override
     public Item deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
-        String classToLookFor=  jsonObject.get("className").getAsString();
-        try{
+        String classToLookFor = jsonObject.get("className").getAsString();
+        try {
             Class newInstance = Class.forName("moderbord.huntforcoffee2.Model.item." + classToLookFor);
             return (Item) new Gson().fromJson(json, newInstance);
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         return null;

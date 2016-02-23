@@ -13,7 +13,7 @@ public class IronBar extends Item implements Reagent {
 
     public IronBar(int x) {
         this();
-        addItem(x-1);
+        addItem(x - 1);
     }
 
     @Override

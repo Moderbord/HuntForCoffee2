@@ -13,7 +13,7 @@ public class Burger extends Item implements Consumable {
 
     public Burger(int x) {
         this();
-        addItem(x-1);
+        addItem(x - 1);
     }
 
     @Override

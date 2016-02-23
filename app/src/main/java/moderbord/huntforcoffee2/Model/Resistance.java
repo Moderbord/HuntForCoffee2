@@ -18,35 +18,35 @@ public class Resistance {
         this.resDark = 0;
     }
 
-    public void addResPiercing(int i){
+    public void addResPiercing(int i) {
         this.resPiercing += i;
     }
 
-    public void addResCrushing(int i){
+    public void addResCrushing(int i) {
         this.resCrushing += i;
     }
 
-    public void addResCleaving(int i){
+    public void addResCleaving(int i) {
         this.resCleaving += i;
     }
 
-    public void addResFire(int i){
+    public void addResFire(int i) {
         this.resFire += i;
     }
 
-    public void addResNature(int i){
+    public void addResNature(int i) {
         this.resNature += i;
     }
 
-    public void addResArcane(int i){
+    public void addResArcane(int i) {
         this.resArcane += i;
     }
 
-    public void addResLight(int i){
+    public void addResLight(int i) {
         this.resLight += i;
     }
 
-    public void addResDark(int i){
+    public void addResDark(int i) {
         this.resDark += i;
     }
 

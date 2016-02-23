@@ -13,7 +13,7 @@ public class SuperMeal extends Item implements Consumable {
 
     public SuperMeal(int x) {
         this();
-        addItem(x-1);
+        addItem(x - 1);
     }
 
     @Override

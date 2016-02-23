@@ -16,12 +16,14 @@ import moderbord.huntforcoffee2.Model.item.ArmourBuilder;
 import moderbord.huntforcoffee2.Model.item.Burger;
 import moderbord.huntforcoffee2.Model.item.IronOre;
 import moderbord.huntforcoffee2.Model.item.UniqueArmour;
+import moderbord.huntforcoffee2.Model.item.Weapon;
+import moderbord.huntforcoffee2.Model.item.WeaponBuilder;
 
 /**
  * Created by Moderbord on 2015-12-17.
  */
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,32 @@ public class MainActivity extends Activity{
         p.combineItem("Iron bar");
         p.combineItem("Iron bar");
 
+        Weapon bigSword = new WeaponBuilder().setName("Iron Greatsword").setTwoHanded(true).createWeapon();
+        Weapon bigAxe = new WeaponBuilder().setName("Cobalt Greataxe").setTwoHanded(true).createWeapon();
+        Weapon smallSword = new WeaponBuilder().setName("Iron Sword").createWeapon();
+        Weapon smallDagger = new WeaponBuilder().setName("Silver Dagger").createWeapon();
+        Weapon smallHatchet = new WeaponBuilder().setName("Golden Hatchet").createWeapon();
+        Weapon bow = new WeaponBuilder().setWepType("Bow").setGearSlot("backWep").setName("Wooden Bow").createWeapon();
+        Weapon rifle = new WeaponBuilder().setWepType("Rifle").setGearSlot("backWep").setName("Military Rifle").createWeapon();
+
+        p.getInventory().add(bigSword);
+        p.getInventory().add(bigAxe);
+        p.getInventory().add(smallSword);
+        p.getInventory().add(smallDagger);
+        p.getInventory().add(smallHatchet);
+        p.getInventory().add(bow);
+        p.getInventory().add(rifle);
+
+        p.equipWeapon((Weapon) p.getInventory().gearByItem(bigSword));
+        p.equipWeapon((Weapon) p.getInventory().gearByItem(smallSword));
+        p.equipOffWeapon((Weapon) p.getInventory().gearByItem(smallHatchet));
+        p.equipWeapon((Weapon) p.getInventory().gearByItem(bigAxe));
+        p.equipWeapon((Weapon) p.getInventory().gearByItem(bow));
+        p.equipWeapon((Weapon) p.getInventory().gearByItem(rifle));
+        p.equipOffWeapon((Weapon) p.getInventory().gearByItem(smallDagger));
+        p.equipWeapon((Weapon) p.getInventory().gearByItem(smallSword));
+
+
         Entity jheero = new EntityBuilder().createEntityJheero();
         Entity tut = jheero.returnMe();
 
@@ -48,7 +76,7 @@ public class MainActivity extends Activity{
 
         UniqueArmour warden = new ArmourBuilder().createUniqueArmour();
         jheero.getInventory().add(warden);
-        jheero.equipGear(jheero.getInventory().gearByIndex(0));
+        jheero.equipArmour((Armour) jheero.getInventory().gearByIndex(0));
 
         SaveController.getInstance(this).saveEntity(p);
         p = (Player) SaveController.getInstance(this).loadEntity(p);
@@ -56,7 +84,7 @@ public class MainActivity extends Activity{
         p.getInventory().add(new Burger(2));
         p.consumeItem(p.getInventory().itemByName("Burger"));
         p.consumeItem(p.getInventory().itemByName("Burger"));
-        p.equipGear(p.getInventory().gearByName("Warden"));
+        p.equipArmour((Armour) p.getInventory().gearByName("Warden"));
         p.getInventory().add(new IronOre(8));
     }
 

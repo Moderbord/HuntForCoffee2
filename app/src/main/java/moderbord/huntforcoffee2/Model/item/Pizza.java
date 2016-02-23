@@ -13,7 +13,7 @@ public class Pizza extends Item implements Consumable {
 
     public Pizza(int x) {
         this();
-        addItem(x-1);
+        addItem(x - 1);
     }
 
     @Override

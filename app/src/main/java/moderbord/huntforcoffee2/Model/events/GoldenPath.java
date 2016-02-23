@@ -9,7 +9,7 @@ import moderbord.huntforcoffee2.Controller.EventController;
  */
 public class GoldenPath extends EventController implements View.OnClickListener {
 
-    public void entry(){
+    public void entry() {
         ui.mainTextWindow.setText("Golden path??");
 
         ui.b0.setText("Back");

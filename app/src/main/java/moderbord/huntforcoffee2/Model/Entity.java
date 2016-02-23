@@ -65,53 +65,121 @@ public class Entity {
         return inventory;
     }
 
-    public Entity returnMe(){
+    public Entity returnMe() {
         return this;
     }
 
-    public void consumeItem(Item i){
-        if(i instanceof Consumable) {
-            Log.d("Player", ((Consumable) i).consume());
+    public void consumeItem(Item i) {
+        if (i instanceof Consumable) {
+            Log.d(this.eName, ((Consumable) i).consume());
             i.subtractItem(1);
             inventory.updateInventoryData();
         } else {
-            Log.d("Player", "I am hungry!");
+            Log.d(this.eName, "I am hungry!");
         }
     }
 
-    public void combineItem(String toCreate){
+    public void combineItem(String toCreate) {
         EventController.recipes.stirThePot(this, toCreate);
         inventory.updateInventoryData();
     }
 
-    public void equipGear(Gear g){
-        if(g instanceof Weapon) {
+    public void equipArmour(Armour a) {
+        switch (a.getGearSlot()) {
 
-            if(this.mainWep.getName() != null){     // Save current weapon to inventory
-                this.getInventory().add((this).mainWep);
-            }
+            case "Head":
+                if (this.armHead.getName() != null) {                       // Save current armour to inventory
+                    this.getInventory().add((this).armHead);
+                }
+                this.armHead = (Armour) a;                                  // Equips new armour..
+                break;
 
-            Log.d("Player", ((Weapon) g).equip());  // Equip new weapon
-            this.mainWep = (Weapon)g;
-            this.getInventory().remove(g);
+            case "Shoulders":
+                if (this.armShoulders.getName() != null) {
+                    this.getInventory().add((this).armShoulders);
+                }
+                this.armShoulders = (Armour) a;
+                break;
 
-        } else if(g instanceof Armour){
+            case "Chest":
+                if (this.armChest.getName() != null) {
+                    this.getInventory().add((this).armChest);
+                }
+                this.armChest = (Armour) a;
+                break;
 
-            if(this.armChest.getName() != null){    // Save current armour to inventory
-                this.getInventory().add((this).armChest);
-            }
+            case "Gloves":
+                if (this.armGloves.getName() != null) {
+                    this.getInventory().add((this).armGloves);
+                }
+                this.armGloves = (Armour) a;
+                break;
 
-            Log.d("Player", ((Armour) g).equip());  // Equip new armour
-            this.armChest = (Armour)g;
-            this.getInventory().remove(g);
+            case "Legs":
+                if (this.armLegs.getName() != null) {
+                    this.getInventory().add((this).armLegs);
+                }
+                this.armLegs = (Armour) a;
+                break;
 
-        } else {
-            Log.d("Player", "That's no weapon");
+            case "Feet":
+                if (this.armFeet.getName() != null) {
+                    this.getInventory().add((this).armFeet);
+                }
+                this.armFeet = (Armour) a;
+                break;
+
+            default:
+                Log.d(this.eName, "Could not equip armour");
         }
+
+        Log.d(this.eName, ((Armour) a).equip());
+        this.getInventory().remove(a);                                      // ..and removes it from inventory
     }
 
+    public void equipWeapon(Weapon w) {
+        switch (w.getGearSlot()) {
 
-    public String toJson(){
+            case "mainWep":
+                if (w.isTwoHanded() && this.offWep.getName() != null) {     // If weapon requires two hands and entity is currently wielding an offhand weapon
+                    this.getInventory().add((this).offWep);
+                    this.offWep = new Weapon();                             // Adds a "clean" weapon
+                }
+                if (this.mainWep.getName() != null) {                       // Save current weapon to inventory
+                    this.getInventory().add((this).mainWep);
+                }
+                this.mainWep = (Weapon) w;                       // Equip new weapon..
+                break;
+
+            case "backWep":
+                if (this.backWep.getName() != null) {
+                    this.getInventory().add((this).backWep);
+                }
+                this.backWep = w;                               // Equip new weapon..
+                break;
+
+            default:
+                Log.d(this.eName, "Could not equip weapon");
+        }
+        Log.d(this.eName, ((Weapon) w).equip());
+        this.getInventory().remove(w);                           // ..and remove it from inventory
+    }
+
+    public void equipOffWeapon(Weapon w) {
+        if (this.mainWep.isTwoHanded()) {                       // If previous weapon required two hands it is removed
+            this.getInventory().add((this).mainWep);
+            this.mainWep = new Weapon();
+        }
+        if (this.offWep.getName() != null) {                    // Save current weapon to inventory
+            this.getInventory().add((this).offWep);
+        }
+        this.offWep = (Weapon) w;                        // Equip new offhand weapon..
+
+        Log.d(this.eName, ((Weapon) w).equip());
+        this.getInventory().remove(w);                  // ..and remove it from inventory
+    }
+
+    public String toJson() {
         Gson gson = new Gson();
         return gson.toJson(this);
     }

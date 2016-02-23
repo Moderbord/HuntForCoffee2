@@ -8,7 +8,8 @@ public class Gear extends Item {
     protected int gearLvl, gearExp, gearExpToLvl;
     protected String gearSlot;
 
-    public Gear(){}
+    public Gear() {
+    }
 
     public Gear(int quantity, String className, String name, String description, int gearLvl, int gearExp, int gearExpToLvl, String gearSlot) {
         super(quantity, className, name, description);

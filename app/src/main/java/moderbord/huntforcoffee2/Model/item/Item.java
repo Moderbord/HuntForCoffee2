@@ -11,7 +11,8 @@ public class Item {
     protected String name;
     protected String description;
 
-    public Item(){}
+    public Item() {
+    }
 
     public Item(int quantity, String className, String name, String description) {
         this.quantity = quantity;
@@ -20,13 +21,13 @@ public class Item {
         this.description = description;
     }
 
-    public void addItem(int toAdd){
+    public void addItem(int toAdd) {
         quantity += toAdd;
     }
 
-    public void subtractItem(int toSubtract){
+    public void subtractItem(int toSubtract) {
         quantity -= toSubtract;
-        if (quantity < 1){
+        if (quantity < 1) {
             quantity = 0;
         }
     }

@@ -25,25 +25,25 @@ public class SaveController {
         this.c = c;
     }
 
-    public static SaveController getInstance(Context c){
-        if(instance == null){
+    public static SaveController getInstance(Context c) {
+        if (instance == null) {
             instance = new SaveController(c);
         }
         return instance;
     }
 
-    public void saveEntity(Entity entity){
+    public void saveEntity(Entity entity) {
         SharedPreferences sp = c.getSharedPreferences(PLAYER, 0);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(entity.geteName(), entity.toJson());
         editor.commit();
     }
 
-    public Entity loadEntity(Entity entity){
+    public Entity loadEntity(Entity entity) {
         String entityName = entity.geteName();
         SharedPreferences sp = c.getSharedPreferences(PLAYER, 0);
         String retrievedFromMemory = sp.getString(entityName, null);
-        if (retrievedFromMemory == null){
+        if (retrievedFromMemory == null) {
             return null;
         }
 //        Gson gson = new Gson();

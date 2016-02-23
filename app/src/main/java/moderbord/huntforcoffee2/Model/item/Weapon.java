@@ -3,20 +3,23 @@ package moderbord.huntforcoffee2.Model.item;
 /**
  * Created by Moderbord on 2015-12-17.
  */
-public class Weapon extends Gear implements Equipable{
+public class Weapon extends Gear implements Equipable {
 
     private String wepType, dmgType;
+    private boolean twoHanded;
     private int minDmg, maxDmg;
 
-    public Weapon(){
+    public Weapon() {
         className = "Weapon";
     }
 
     public Weapon(int quantity, String className, String name, String description, int gearLvl,
-                  int gearExp, int gearExpToLvl, String gearSlot, String wepType, String dmgType, int minDmg, int maxDmg) {
+                  int gearExp, int gearExpToLvl, String gearSlot, String wepType, String dmgType,
+                  boolean twoHanded, int minDmg, int maxDmg) {
         super(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot);
         this.wepType = wepType;
         this.dmgType = dmgType;
+        this.twoHanded = twoHanded;
         this.minDmg = minDmg;
         this.maxDmg = maxDmg;
         this.className = "Weapon";
@@ -41,6 +44,14 @@ public class Weapon extends Gear implements Equipable{
 
     public void setDmgType(String dmgType) {
         this.dmgType = dmgType;
+    }
+
+    public boolean isTwoHanded() {
+        return twoHanded;
+    }
+
+    public void setTwoHanded(boolean twoHanded) {
+        this.twoHanded = twoHanded;
     }
 
     public int getMinDmg() {

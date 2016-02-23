@@ -49,7 +49,7 @@ public class UIController {
     private static UIController instance;
 
     public static UIController getInstance() {
-        if (instance == null){
+        if (instance == null) {
             instance = new UIController();
         }
         return instance;

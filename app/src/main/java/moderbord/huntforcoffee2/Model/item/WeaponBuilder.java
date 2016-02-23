@@ -8,9 +8,10 @@ public class WeaponBuilder {
     private int gearLvl = 1;
     private int gearExp = 0;
     private int gearExpToLvl = 100;
-    private String gearSlot;
+    private String gearSlot = "mainWep";
     private String wepType = "Sword";
     private String dmgType = "Piercing";
+    private boolean twoHanded = false;
     private int minDmg = 5;
     private int maxDmg = 10;
 
@@ -64,6 +65,11 @@ public class WeaponBuilder {
         return this;
     }
 
+    public WeaponBuilder setTwoHanded(boolean twoHanded) {
+        this.twoHanded = twoHanded;
+        return this;
+    }
+
     public WeaponBuilder setMinDmg(int minDmg) {
         this.minDmg = minDmg;
         return this;
@@ -75,6 +81,6 @@ public class WeaponBuilder {
     }
 
     public Weapon createWeapon() {
-        return new Weapon(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, minDmg, maxDmg);
+        return new Weapon(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
     }
 }
