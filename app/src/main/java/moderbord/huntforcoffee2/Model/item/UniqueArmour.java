@@ -22,4 +22,9 @@ public class UniqueArmour extends Armour {
         this.armStrong = Constants.GEAR_TYPE_PHYSICAL;
     }
 
+    @Override
+    public String equip() {
+        return "The Warden armour fits your nerdy face super well. It really brings out " +
+                "the blue in your eyes";
+    }
 }

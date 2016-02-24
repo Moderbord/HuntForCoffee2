@@ -25,7 +25,7 @@ public class Armour extends Gear implements Equipable {
 
     @Override
     public String equip() {
-        return "Very armour, much defence";
+        return "You equip the " + this.getName() + " as your " + this.getGearSlot();
     }
 
     public String getArmClass() {

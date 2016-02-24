@@ -10,7 +10,7 @@ public class ArmourBuilder {
     private int gearLvl = 1;
     private int gearExp = 0;
     private int gearExpToLvl = 100;
-    private String gearSlot;
+    private String gearSlot = Constants.GEAR_SLOT_CHEST;
     private String armClass = Constants.ARMOUR_CLASS_MEDIUM;
     private String armStrong = Constants.GEAR_TYPE_MAGIC;
     private String armWeak = Constants.GEAR_TYPE_PIERCING;

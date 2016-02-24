@@ -20,7 +20,7 @@ public class Recipes {
         return instance;
     }
 
-    public void stirThePot(Entity e, String toCreate) {
+    public void stirThePot(Entity e, String toCreate) {// TODO make a failed message?
         switch (toCreate) {
             case Constants.RECIPE_PIZZA_UNIQUE:
                 if (e.getInventory().hasItemQty(Constants.ITEM_BURGER, 2) && e.getInventory().hasItemQty(Constants.ITEM_PIZZA_UNIQUE, 1)) {

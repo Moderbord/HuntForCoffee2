@@ -44,49 +44,12 @@ public class MainActivity extends Activity {
         p.combineItem(Constants.RECIPE_IRON_BAR);
         p.combineItem(Constants.RECIPE_IRON_BAR);
 
-        Weapon bigSword = new WeaponBuilder().setName("Iron Greatsword").setTwoHanded(true).createWeapon();
-        Weapon bigAxe = new WeaponBuilder().setName("Cobalt Greataxe").setTwoHanded(true).createWeapon();
-        Weapon smallSword = new WeaponBuilder().setName("Iron Sword").createWeapon();
-        Weapon smallDagger = new WeaponBuilder().setName("Silver Dagger").createWeapon();
-        Weapon smallHatchet = new WeaponBuilder().setName("Golden Hatchet").createWeapon();
-        Weapon bow = new WeaponBuilder().setWepType(Constants.WEAPON_TYPE_BOW).setGearSlot(Constants.GEAR_SLOT_BACK_WEP).setName("Wooden Bow").createWeapon();
-        Weapon rifle = new WeaponBuilder().setWepType(Constants.WEAPON_TYPE_RIFLE).setGearSlot(Constants.GEAR_SLOT_BACK_WEP).setName("Military Rifle").createWeapon();
-
-        p.getInventory().add(bigSword);
-        p.getInventory().add(bigAxe);
-        p.getInventory().add(smallSword);
-        p.getInventory().add(smallDagger);
-        p.getInventory().add(smallHatchet);
-        p.getInventory().add(bow);
-        p.getInventory().add(rifle);
-
-        p.equipWeapon(p.getInventory().gearByItem(bigSword));
-        p.equipWeapon(p.getInventory().gearByItem(smallSword));
-        p.equipOffWeapon((Weapon) p.getInventory().gearByItem(smallHatchet));
-        p.equipWeapon(p.getInventory().gearByItem(bigAxe));
-        p.equipWeapon(p.getInventory().gearByItem(bow));
-        p.equipWeapon(p.getInventory().gearByItem(rifle));
-        p.equipOffWeapon((Weapon) p.getInventory().gearByItem(smallDagger));
-        p.equipWeapon(p.getInventory().gearByItem(smallSword));
-
-
-        Entity jheero = new EntityBuilder().createEntityJheero();
-        Entity tut = jheero.returnMe();
-
         p.combineItem(Constants.RECIPE_ARMOUR_WARDEN);
-
-        UniqueArmour warden = new ArmourBuilder().createUniqueArmour();
-        jheero.getInventory().add(warden);
-        jheero.equipArmour(jheero.getInventory().gearByIndex(0));
 
         SaveController.getInstance(this).saveEntity(p);
         p = (Player) SaveController.getInstance(this).loadEntity(p);
 
-        p.getInventory().add(new Burger(2));
-        p.consumeItem(p.getInventory().itemByName(Constants.ITEM_BURGER));
-        p.consumeItem(p.getInventory().itemByName(Constants.ITEM_BURGER));
         p.equipArmour(p.getInventory().gearByName(Constants.ARMOUR_WARDEN));
-        p.getInventory().add(new IronOre(8));
     }
 
 

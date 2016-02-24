@@ -63,7 +63,7 @@ public class Inventory extends ArrayList<Item> {
         if (this.get(index) instanceof Gear) {
             return (Gear) super.get(index);
         } else {
-            Log.d("Inventory", "Item is not of Gear class");
+            Log.d("Inventory", "Tried to return Gear from inventory that was not Gear");
             return null;
         }
     }
