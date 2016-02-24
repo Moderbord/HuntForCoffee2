@@ -1,12 +1,14 @@
 package moderbord.huntforcoffee2.Model.item;
 
+import moderbord.huntforcoffee2.Utils.Constants;
+
 /**
  * Created by Moderbord on 2015-12-17.
  */
 public class SuperMeal extends Item implements Consumable {
 
     public SuperMeal() {
-        name = "SuperMeal";
+        name = Constants.ITEM_SUPERMEAL;
         className = "SuperMeal";
         addItem(1);
     }

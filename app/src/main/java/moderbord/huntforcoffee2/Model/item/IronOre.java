@@ -1,12 +1,14 @@
 package moderbord.huntforcoffee2.Model.item;
 
+import moderbord.huntforcoffee2.Utils.Constants;
+
 /**
  * Created by Moderbord on 2015-12-17.
  */
 public class IronOre extends Item implements Reagent {
 
     public IronOre() {
-        name = "Iron ore";
+        name = Constants.ITEM_IRON_ORE;
         className = "IronOre";
         addItem(1);
     }
