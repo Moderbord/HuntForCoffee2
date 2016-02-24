@@ -5,7 +5,7 @@ import moderbord.huntforcoffee2.Utils.Constants;
 public class ArmourBuilder {
     private int quantity = 1;
     private String className = "Armour";
-    private String name = "GenericArmour";
+    private String name = Constants.ARMOUR_GENERIC;
     private String description = "I am your armor!";
     private int gearLvl = 1;
     private int gearExp = 0;

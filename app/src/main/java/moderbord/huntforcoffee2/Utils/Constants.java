@@ -47,9 +47,14 @@ public class Constants {
     // Weapon variables
     public static final String WEAPON_GENERIC = "GenericWeapon";
     public static final String WEAPON_TYPE_SWORD = "Sword";
+    public static final String WEAPON_TYPE_GREATSWORD = "GreatSword";
     public static final String WEAPON_TYPE_DAGGER = "Dagger";
     public static final String WEAPON_TYPE_AXE = "Axe";
+    public static final String WEAPON_TYPE_GREATAXE = "GreatAxe";
     public static final String WEAPON_TYPE_MACE = "Mace";
+    public static final String WEAPON_TYPE_WARHAMMER = "WarHammer";
+    public static final String WEAPON_TYPE_BOW = "Bow";
+    public static final String WEAPON_TYPE_RIFLE = "Rifle";
 
 
     // Armour variables

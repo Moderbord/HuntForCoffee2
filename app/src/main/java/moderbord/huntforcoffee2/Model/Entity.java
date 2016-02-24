@@ -10,6 +10,7 @@ import moderbord.huntforcoffee2.Model.item.Consumable;
 import moderbord.huntforcoffee2.Model.item.Gear;
 import moderbord.huntforcoffee2.Model.item.Item;
 import moderbord.huntforcoffee2.Model.item.Weapon;
+import moderbord.huntforcoffee2.Utils.Constants;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -84,63 +85,65 @@ public class Entity {
         inventory.updateInventoryData();
     }
 
-    public void equipArmour(Armour a) {
+    public void equipArmour(Item i) {
+        Armour a = (Armour) i;
         switch (a.getGearSlot()) {
 
-            case "Head":
+            case Constants.GEAR_SLOT_HEAD:
                 if (this.armHead.getName() != null) {                       // Save current armour to inventory
                     this.getInventory().add((this).armHead);
                 }
-                this.armHead = (Armour) a;                                  // Equips new armour..
+                this.armHead = a;                                  // Equips new armour..
                 break;
 
-            case "Shoulders":
+            case Constants.GEAR_SLOT_SHOULDERS:
                 if (this.armShoulders.getName() != null) {
                     this.getInventory().add((this).armShoulders);
                 }
-                this.armShoulders = (Armour) a;
+                this.armShoulders = a;
                 break;
 
-            case "Chest":
+            case Constants.GEAR_SLOT_CHEST:
                 if (this.armChest.getName() != null) {
                     this.getInventory().add((this).armChest);
                 }
-                this.armChest = (Armour) a;
+                this.armChest = a;
                 break;
 
-            case "Gloves":
+            case Constants.GEAR_SLOT_GLOVES:
                 if (this.armGloves.getName() != null) {
                     this.getInventory().add((this).armGloves);
                 }
-                this.armGloves = (Armour) a;
+                this.armGloves = a;
                 break;
 
-            case "Legs":
+            case Constants.GEAR_SLOT_LEGS:
                 if (this.armLegs.getName() != null) {
                     this.getInventory().add((this).armLegs);
                 }
-                this.armLegs = (Armour) a;
+                this.armLegs = a;
                 break;
 
-            case "Feet":
+            case Constants.GEAR_SLOT_FEET:
                 if (this.armFeet.getName() != null) {
                     this.getInventory().add((this).armFeet);
                 }
-                this.armFeet = (Armour) a;
+                this.armFeet = a;
                 break;
 
             default:
                 Log.d(this.eName, "Could not equip armour");
         }
 
-        Log.d(this.eName, ((Armour) a).equip());
+        Log.d(this.eName, (a).equip());
         this.getInventory().remove(a);                                      // ..and removes it from inventory
     }
 
-    public void equipWeapon(Weapon w) {
+    public void equipWeapon(Item i) {
+        Weapon w = (Weapon) i;
         switch (w.getGearSlot()) {
 
-            case "mainWep":
+            case Constants.GEAR_SLOT_MAIN_WEP:
                 if (w.isTwoHanded() && this.offWep.getName() != null) {     // If weapon requires two hands and entity is currently wielding an offhand weapon
                     this.getInventory().add((this).offWep);
                     this.offWep = new Weapon();                             // Adds a "clean" weapon
@@ -148,10 +151,10 @@ public class Entity {
                 if (this.mainWep.getName() != null) {                       // Save current weapon to inventory
                     this.getInventory().add((this).mainWep);
                 }
-                this.mainWep = (Weapon) w;                       // Equip new weapon..
+                this.mainWep = w;                       // Equip new weapon..
                 break;
 
-            case "backWep":
+            case Constants.GEAR_SLOT_BACK_WEP:
                 if (this.backWep.getName() != null) {
                     this.getInventory().add((this).backWep);
                 }
@@ -161,7 +164,7 @@ public class Entity {
             default:
                 Log.d(this.eName, "Could not equip weapon");
         }
-        Log.d(this.eName, ((Weapon) w).equip());
+        Log.d(this.eName, (w).equip());
         this.getInventory().remove(w);                           // ..and remove it from inventory
     }
 
@@ -173,9 +176,9 @@ public class Entity {
         if (this.offWep.getName() != null) {                    // Save current weapon to inventory
             this.getInventory().add((this).offWep);
         }
-        this.offWep = (Weapon) w;                        // Equip new offhand weapon..
+        this.offWep = w;                        // Equip new offhand weapon..
 
-        Log.d(this.eName, ((Weapon) w).equip());
+        Log.d(this.eName, (w).equip());
         this.getInventory().remove(w);                  // ..and remove it from inventory
     }
 
