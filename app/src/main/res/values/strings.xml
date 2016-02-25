@@ -26,4 +26,10 @@
     <string name="statClass_string">Class *</string>
     <string name="mainText_string">HUNT FOR COFFEE</string>
     <string name="subText_string"></string>
+    <string name="inventory_back_button">Back</string>
+    <string name="inventory_all_button">All</string>
+    <string name="inventory_weapon_button">Weapons</string>
+    <string name="inventory_armour_button">Armours</string>
+    <string name="inventory_consumable_button">Consumables</string>
+    <string name="inventory_reagent_button">Reagents</string>
 </resources>

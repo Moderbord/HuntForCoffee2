@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ccb593">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/textborder"
+            android:id="@+id/inventory_left_linear_view"
+            android:layout_weight="0.2"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/inventory_all_button"
+                android:id="@+id/inventory_all_button"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/inventory_weapon_button"
+                android:id="@+id/inventory_weapon_button"
+                android:layout_below="@+id/inventory_all_button"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/inventory_armour_button"
+                android:id="@+id/inventory_armour_button"
+                android:layout_below="@+id/inventory_weapon_button"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/inventory_consumable_button"
+                android:id="@+id/inventory_consumable_button"
+                android:layout_below="@+id/inventory_armour_button"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/inventory_reagent_button"
+                android:id="@+id/inventory_reagent_button"
+                android:textSize="14sp"
+                android:layout_below="@+id/inventory_consumable_button"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/inventory_back_button"
+                android:id="@+id/inventory_back_button"
+                android:layout_marginBottom="2dp"
+                android:layout_gravity="bottom"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/textborder"
+            android:id="@+id/inventory_main_scroll_view"
+            android:layout_weight="0.6">
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/inventory_list_view" />
+        </ScrollView>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/textborder"
+            android:id="@+id/inventory_right_scroll_view"
+            android:layout_weight="0.2">
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

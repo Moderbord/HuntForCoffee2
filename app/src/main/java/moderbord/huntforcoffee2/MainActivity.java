@@ -8,16 +8,9 @@ import android.view.View;
 import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Controller.SaveController;
 import moderbord.huntforcoffee2.Controller.UIController;
-import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.EntityBuilder;
 import moderbord.huntforcoffee2.Model.Player;
-import moderbord.huntforcoffee2.Model.item.Armour;
-import moderbord.huntforcoffee2.Model.item.ArmourBuilder;
-import moderbord.huntforcoffee2.Model.item.Burger;
 import moderbord.huntforcoffee2.Model.item.IronOre;
-import moderbord.huntforcoffee2.Model.item.UniqueArmour;
-import moderbord.huntforcoffee2.Model.item.Weapon;
-import moderbord.huntforcoffee2.Model.item.WeaponBuilder;
 import moderbord.huntforcoffee2.Utils.Constants;
 
 /**
@@ -30,9 +23,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = getLayoutInflater();
-        View v = inflater.inflate(R.layout.activity_main, null);
+        View v = inflater.inflate(R.layout.inventory_layout, null);
         setContentView(v);
-        UIController.getInstance().initWithView(v);
+        //UIController.getInstance().initWithView(v);
 
         EventController eventController = new EventController();
         eventController.initGame();
