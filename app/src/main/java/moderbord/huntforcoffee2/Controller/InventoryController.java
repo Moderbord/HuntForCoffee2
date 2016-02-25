@@ -1,53 +1,80 @@
 package moderbord.huntforcoffee2.Controller;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import moderbord.huntforcoffee2.Model.Inventory;
 import moderbord.huntforcoffee2.R;
 
 /**
  * Created by Oscilla on 2016-02-25.
  */
-public class InventoryController extends Fragment{
+public class InventoryController extends Activity {
 
     ListView inventoryListView;
+    InventoryAdapter iAdapter;
+    LayoutInflater inflater;
+    Inventory dummyInventory;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.inventory_layout, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        inflater = getLayoutInflater();
+        View v = inflater.inflate(R.layout.inventory_layout, null);
+        setContentView(v);
 
-        inventoryListView = (ListView) view.findViewById(R.id.inventory_list_view);
+        dummyInventory = EventController.player.getInventory();
 
-        return view;
+        iAdapter = new InventoryAdapter();
+        //iAdapter.notifyDataSetChanged();
+
+        inventoryListView = (ListView) findViewById(R.id.inventory_list_view);
+        inventoryListView.setAdapter(iAdapter);
+
     }
 
     private class InventoryAdapter extends BaseAdapter {
 
-        @Override
-        public int getCount() {
-            return 0;
+        public InventoryAdapter(){
+            super();
         }
 
         @Override
-        public Object getItem(int position) {
-            return null;
+        public int getCount() {
+            return dummyInventory.size();
+        }
+
+        @Override
+        public Object getItem(int pos) {
+            return dummyInventory.get(pos);
         }
 
         @Override
         public long getItemId(int position) {
-            return 0;
+            return position;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
+            View v = convertView;
+            if (convertView == null){
+                v = inflater.inflate(R.layout.inventory_all_row, null);
+            }
+            TextView itemName = (TextView) v.findViewById(R.id.inventory_all_name);
+            TextView itemCategory = (TextView) v.findViewById(R.id.inventory_all_category);
+            TextView itemQuantity = (TextView) v.findViewById(R.id.inventory_all_quantity);
+
+            itemName.setText(dummyInventory.get(position).getName());
+            itemCategory.setText(dummyInventory.get(position).getClass().getSimpleName());
+            itemQuantity.setText(Integer.toString(dummyInventory.get(position).getQuantity()));
+
+            return v;
         }
     }
 

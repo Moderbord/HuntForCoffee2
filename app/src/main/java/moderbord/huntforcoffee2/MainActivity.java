@@ -1,11 +1,14 @@
 package moderbord.huntforcoffee2;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import moderbord.huntforcoffee2.Controller.EventController;
+import moderbord.huntforcoffee2.Controller.InventoryController;
 import moderbord.huntforcoffee2.Controller.SaveController;
 import moderbord.huntforcoffee2.Controller.UIController;
 import moderbord.huntforcoffee2.Model.EntityBuilder;
@@ -23,12 +26,22 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = getLayoutInflater();
-        View v = inflater.inflate(R.layout.inventory_layout, null);
+        View v = inflater.inflate(R.layout.base_layout, null);
         setContentView(v);
-        //UIController.getInstance().initWithView(v);
+        UIController.getInstance().initWithView(v);
 
         EventController eventController = new EventController();
         eventController.initGame();
+
+        EventController.ui.b1.setVisibility(View.VISIBLE);
+        EventController.ui.b1.setText("Inventory");
+        EventController.ui.b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), InventoryController.class);
+                startActivity(intent);
+            }
+        });
 
         Player p = new EntityBuilder().seteName("Pontus").createEntityPlayer();
         p.getInventory().add(new IronOre(8));
