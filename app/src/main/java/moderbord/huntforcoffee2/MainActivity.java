@@ -1,7 +1,6 @@
 package moderbord.huntforcoffee2;
 
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,7 +25,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = getLayoutInflater();
-        View v = inflater.inflate(R.layout.base_layout, null);
+        View v = inflater.inflate(R.layout.main_layout, null);
         setContentView(v);
         UIController.getInstance().initWithView(v);
 

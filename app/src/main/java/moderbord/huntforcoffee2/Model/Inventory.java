@@ -94,6 +94,14 @@ public class Inventory extends ArrayList<Item> {
         return null;
     }
 
+    public int itemCount(){
+        int x = 0;
+        for (Item i : this){
+            x += 1;
+        }
+        return x;
+    }
+
     @Override
     public int size() {
         int x = 0;

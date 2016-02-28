@@ -13,16 +13,21 @@
         android:layout_marginLeft="10dp"
         android:text="Amarillo"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="25dp"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/inventory_all_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:text="Tsakkaka"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/inventory_all_quantity"
+        android:layout_toStartOf="@+id/inventory_all_quantity"
+        android:layout_marginRight="49dp"
+        android:layout_marginEnd="49dp"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/inventory_all_quantity"

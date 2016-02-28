@@ -1,15 +1,22 @@
 package moderbord.huntforcoffee2.Controller;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import moderbord.huntforcoffee2.Model.Inventory;
+import moderbord.huntforcoffee2.Model.item.Armour;
+import moderbord.huntforcoffee2.Model.item.Consumable;
+import moderbord.huntforcoffee2.Model.item.Item;
+import moderbord.huntforcoffee2.Model.item.Reagent;
+import moderbord.huntforcoffee2.Model.item.Weapon;
 import moderbord.huntforcoffee2.R;
 
 /**
@@ -18,9 +25,10 @@ import moderbord.huntforcoffee2.R;
 public class InventoryController extends Activity {
 
     ListView inventoryListView;
-    InventoryAdapter iAdapter;
+    InventoryAllAdapter iAdapter;
     LayoutInflater inflater;
     Inventory dummyInventory;
+    Button allButton, weaponsButton, armoursButton, consumablesButton, reagentsButton, backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,25 +37,40 @@ public class InventoryController extends Activity {
         View v = inflater.inflate(R.layout.inventory_layout, null);
         setContentView(v);
 
+        allButton = (Button) findViewById(R.id.inventory_all_button);
+        weaponsButton = (Button) findViewById(R.id.inventory_weapon_button);
+        armoursButton = (Button) findViewById(R.id.inventory_armour_button);
+        consumablesButton = (Button) findViewById(R.id.inventory_consumable_button);
+        reagentsButton = (Button) findViewById(R.id.inventory_reagent_button);
+        backButton = (Button) findViewById(R.id.inventory_back_button);
+
         dummyInventory = EventController.player.getInventory();
 
-        iAdapter = new InventoryAdapter();
-        //iAdapter.notifyDataSetChanged();
+        iAdapter = new InventoryAllAdapter();
 
         inventoryListView = (ListView) findViewById(R.id.inventory_list_view);
         inventoryListView.setAdapter(iAdapter);
 
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
 
-    private class InventoryAdapter extends BaseAdapter {
+    private class InventoryAllAdapter extends BaseAdapter {
 
-        public InventoryAdapter(){
+        boolean initCategoryRow = true;
+
+        public InventoryAllAdapter(){
             super();
         }
 
         @Override
         public int getCount() {
-            return dummyInventory.size();
+            return dummyInventory.itemCount();
         }
 
         @Override
@@ -71,11 +94,35 @@ public class InventoryController extends Activity {
             TextView itemQuantity = (TextView) v.findViewById(R.id.inventory_all_quantity);
 
             itemName.setText(dummyInventory.get(position).getName());
-            itemCategory.setText(dummyInventory.get(position).getClass().getSimpleName());
             itemQuantity.setText(Integer.toString(dummyInventory.get(position).getQuantity()));
+            String cat = getItemCategory(dummyInventory.get(position));
+            itemCategory.setText(cat);
 
+            initCategoryRow = false;
             return v;
         }
+    }
+
+    private String getItemCategory(Item i){
+        String category = "";
+
+        if (i instanceof Consumable){
+            category = "Consumable";
+        }
+
+        if (i instanceof Reagent){
+            category = "Reagent";
+        }
+
+        if (i instanceof Weapon){
+            category = "Weapon";
+        }
+
+        if (i instanceof Armour){
+            category = "Armour";
+        }
+
+        return category;
     }
 
 }
