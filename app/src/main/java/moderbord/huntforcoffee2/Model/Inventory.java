@@ -138,4 +138,16 @@ public class Inventory extends ArrayList<Item> {
         }
     }
 
+    public Inventory copyInventory(Inventory original){
+        Inventory dummy = new Inventory();
+
+        if (!original.isEmpty()) {
+            for (Item i : original){
+                dummy.add(i);
+            }
+        }
+
+        return dummy;
+    }
+
 }
