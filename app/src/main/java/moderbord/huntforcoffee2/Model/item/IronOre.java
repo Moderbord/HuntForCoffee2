@@ -5,7 +5,7 @@ import moderbord.huntforcoffee2.Utils.Constants;
 /**
  * Created by Moderbord on 2015-12-17.
  */
-public class IronOre extends Item implements Reagent {
+public class IronOre extends Reagent {
 
     public IronOre() {
         name = Constants.ITEM_IRON_ORE;

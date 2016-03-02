@@ -68,7 +68,7 @@ public class Inventory extends ArrayList<Item> {
         }
     }
 
-    public Gear gearByItem(Item item) {
+    public Gear gearByObject(Item item) {
         for (Item i : this) {
             if (i == item) {
                 try {
@@ -81,7 +81,7 @@ public class Inventory extends ArrayList<Item> {
         return null;
     }
 
-    public Gear gearByName(String name) {
+    public Gear gearByString(String name) {
         for (Item i : this) {
             if (i.getName().equals(name)) {
                 try {
@@ -94,19 +94,19 @@ public class Inventory extends ArrayList<Item> {
         return null;
     }
 
-    public int itemCount(){
+    public int itemCount() {
         int x = 0;
-        for (Item i : this){
-            x += 1;
+        for (Item i : this) {
+            x += i.getQuantity();
         }
         return x;
     }
 
     @Override
-    public int size() {
+    public int size(){
         int x = 0;
-        for (Item i : this) {
-            x += i.getQuantity();
+        for (Item i : this){
+            x += 1;
         }
         return x;
     }

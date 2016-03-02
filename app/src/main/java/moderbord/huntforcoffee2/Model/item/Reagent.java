@@ -4,10 +4,19 @@ package moderbord.huntforcoffee2.Model.item;
  * Created by Moderbord on 2015-12-17.
  */
 
-public interface Reagent {
+public abstract class Reagent extends Item {
 
-    String combineFail();
+    private String quality = "Common"; // TODO add this and additional qualities to Constants
 
-    String combineSucess();
+    abstract String combineFail();
 
+    abstract String combineSucess();
+
+    public String getQuality() {
+        return quality;
+    }
+
+    public void setQuality(String quality) {
+        this.quality = quality;
+    }
 }
