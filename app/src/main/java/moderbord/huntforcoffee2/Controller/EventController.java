@@ -40,7 +40,7 @@ public class EventController {
         Weapon bigAxe = new WeaponBuilder().setName("Cobalt Greataxe").setTwoHanded(true).createWeapon();
         Weapon smallSword = new WeaponBuilder().setName("Iron Sword").createWeapon();
         Weapon smallDagger = new WeaponBuilder().setName("Silver Dagger").createWeapon();
-        Weapon smallHatchet = new WeaponBuilder().setName("Golden Hatchet").createWeapon();
+        Weapon smallHatchet = new WeaponBuilder().setName("Golden Hatchet").setWepType(Constants.WEAPON_TYPE_AXE).createWeapon();
         Weapon bow = new WeaponBuilder().setWepType(Constants.WEAPON_TYPE_BOW).setGearSlot(Constants.GEAR_SLOT_BACK_WEP).setName("Wooden Bow").createWeapon();
         Weapon rifle = new WeaponBuilder().setWepType(Constants.WEAPON_TYPE_CROSSBOW).setGearSlot(Constants.GEAR_SLOT_BACK_WEP).setName("Military Rifle").createWeapon();
         player.getInventory().add(bigSword);

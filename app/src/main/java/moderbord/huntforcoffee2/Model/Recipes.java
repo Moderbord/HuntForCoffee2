@@ -21,7 +21,7 @@ public class Recipes {
     }
 
     public void stirThePot(Entity e, String toCreate) {// TODO make a failed message?
-        switch (toCreate) {
+        switch (toCreate) {                            // TODO compare against Item instead of String?
             case Constants.RECIPE_PIZZA_UNIQUE:
                 if (e.getInventory().hasItemQty(Constants.ITEM_BURGER, 2) && e.getInventory().hasItemQty(Constants.ITEM_PIZZA_UNIQUE, 1)) {
                     e.getInventory().add(new SuperMeal());

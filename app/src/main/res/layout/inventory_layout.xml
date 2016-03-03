@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:adjustViewBounds="true"
                 android:padding="5dp"
@@ -35,6 +36,7 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/inventory_all_button"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="20dp"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
@@ -46,6 +48,7 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/inventory_weapon_button"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/helmet" />
@@ -56,9 +59,10 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/inventory_armour_button"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
                 android:padding="3dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/potion3" />
+                android:src="@drawable/potion3"/>
 
             <ImageButton
                 android:id="@+id/inventory_reagent_button"
@@ -66,6 +70,7 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/inventory_consumable_button"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/tools" />
@@ -78,9 +83,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="2dp"
+                android:layout_marginLeft="5dp"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/x"/>
+                android:src="@drawable/wand" />
 
         </RelativeLayout>
 
