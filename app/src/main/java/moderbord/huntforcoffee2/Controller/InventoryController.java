@@ -133,7 +133,7 @@ public class InventoryController extends Activity {
      * @param i The Item of which the category will be extracted
      * @return A string of the category
      */
-    private String getItemCategory(Item i){
+    private String getItemCategory(Item i){ //TODO put in constants
         String category = "";
 
         if (i instanceof Consumable){

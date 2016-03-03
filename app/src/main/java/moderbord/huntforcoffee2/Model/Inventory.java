@@ -100,8 +100,12 @@ public class Inventory extends ArrayList<Item> {
             x += 1;
         }
         return x;
-    }
+    } // TODO reverse this with size() as it is confusing at this point
 
+    /**
+     *
+     * @return Returns the amount of total Items along with their respective quantity in this Inventory
+     */
     @Override
     public int size() {
         int x = 0;
