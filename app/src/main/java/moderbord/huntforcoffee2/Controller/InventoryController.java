@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,7 +33,7 @@ public class InventoryController extends Activity {
     InventoryConsumableAdapter consumableAdapter;
     InventoryReagentAdapter reagentAdapter;
     LayoutInflater inflater;
-    Button allButton, weaponsButton, armoursButton, consumablesButton, reagentsButton, backButton;
+    ImageButton allButton, weaponsButton, armoursButton, consumablesButton, reagentsButton, backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { // TODO make this work on Entities
@@ -41,12 +42,12 @@ public class InventoryController extends Activity {
         View v = inflater.inflate(R.layout.inventory_layout, null);
         setContentView(v);
 
-        allButton = (Button) findViewById(R.id.inventory_all_button);
-        weaponsButton = (Button) findViewById(R.id.inventory_weapon_button);
-        armoursButton = (Button) findViewById(R.id.inventory_armour_button);
-        consumablesButton = (Button) findViewById(R.id.inventory_consumable_button);
-        reagentsButton = (Button) findViewById(R.id.inventory_reagent_button);
-        backButton = (Button) findViewById(R.id.inventory_back_button);
+        allButton = (ImageButton) findViewById(R.id.inventory_all_button);
+        weaponsButton = (ImageButton) findViewById(R.id.inventory_weapon_button);
+        armoursButton = (ImageButton) findViewById(R.id.inventory_armour_button);
+        consumablesButton = (ImageButton) findViewById(R.id.inventory_consumable_button);
+        reagentsButton = (ImageButton) findViewById(R.id.inventory_reagent_button);
+        backButton = (ImageButton) findViewById(R.id.inventory_back_button);
 
 
         // Creating adapters for respective tabs
