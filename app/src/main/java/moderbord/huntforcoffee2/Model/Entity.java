@@ -19,13 +19,20 @@ import moderbord.huntforcoffee2.Utils.Constants;
 public class Entity {
 
     protected String eName, eGender, eClass, eRace, eFaction;
-    protected int eLevel, ePhysique, eIntellect, eAgility, eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue, eLu, eMinLu, eExperience, eExpToLvl;
+    protected int eLevel, ePhysique, eIntellect, eAgility, eQuickness, eCharisma, eLuck, eLi,
+            eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue, eLu, eMinLu, eExperience, eExpToLvl;
     protected Weapon backWep, mainWep, offWep;
     protected Armour armHead, armShoulders, armChest, armGloves, armLegs, armFeet;
     protected Resistance resistance;
     protected Inventory inventory;
 
-    public Entity(String eName, String eGender, String eClass, String eRace, String eFaction, int eLevel, int ePhysique, int eIntellect, int eAgility, int eQuickness, int eCharisma, int eLuck, int eLi, int eMaxHealth, int eHealth, int eMaxMana, int eMana, int eMaxFatigue, int eFatigue, int eLu, int eMinLu, int eExperience, int eExpToLvl, Weapon backWep, Weapon mainWep, Weapon offWep, Armour armHead, Armour armShoulders, Armour armChest, Armour armGloves, Armour armLegs, Armour armFeet, Resistance resistance, Inventory inventory) {
+    public Entity(String eName, String eGender, String eClass, String eRace, String eFaction,
+                  int eLevel, int ePhysique, int eIntellect, int eAgility, int eQuickness,
+                  int eCharisma, int eLuck, int eLi, int eMaxHealth, int eHealth, int eMaxMana,
+                  int eMana, int eMaxFatigue, int eFatigue, int eLu, int eMinLu, int eExperience,
+                  int eExpToLvl, Weapon backWep, Weapon mainWep, Weapon offWep, Armour armHead,
+                  Armour armShoulders, Armour armChest, Armour armGloves, Armour armLegs, Armour armFeet,
+                  Resistance resistance, Inventory inventory) {
         this.eName = eName;
         this.eGender = eGender;
         this.eClass = eClass;

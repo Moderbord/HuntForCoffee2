@@ -14,57 +14,68 @@
             android:id="@+id/inventory_left_linear_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.2"
+            android:layout_weight="0.08"
             android:background="@drawable/textborder"
             android:orientation="vertical">
 
-            <Button
+            <ImageButton
                 android:id="@+id/inventory_all_button"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/inventory_all_button"
-                android:textSize="14sp" />
+                android:adjustViewBounds="true"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/inventory_weapon_button"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@+id/inventory_all_button"
                 android:layout_centerHorizontal="true"
-                android:text="@string/inventory_weapon_button"
-                android:textSize="14sp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bow" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/inventory_armour_button"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@+id/inventory_weapon_button"
                 android:layout_centerHorizontal="true"
-                android:text="@string/inventory_armour_button"
-                android:textSize="14sp" />
+                android:layout_marginLeft="5dp"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/helmet" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/inventory_consumable_button"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@+id/inventory_armour_button"
                 android:layout_centerHorizontal="true"
-                android:text="@string/inventory_consumable_button"
-                android:textSize="14sp" />
+                android:layout_marginLeft="5dp"
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/potion3"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/inventory_reagent_button"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@+id/inventory_consumable_button"
                 android:layout_centerHorizontal="true"
-                android:text="@string/inventory_reagent_button"
-                android:textSize="14sp" />
+                android:layout_marginLeft="5dp"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tools" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/inventory_back_button"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -72,8 +83,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="2dp"
-                android:text="@string/inventory_back_button"
-                android:textSize="14sp" />
+                android:layout_marginLeft="5dp"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/wand" />
 
         </RelativeLayout>
 
