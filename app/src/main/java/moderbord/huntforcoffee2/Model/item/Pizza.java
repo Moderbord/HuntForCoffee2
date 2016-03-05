@@ -5,7 +5,7 @@ import moderbord.huntforcoffee2.Utils.Constants;
 /**
  * Created by Moderbord on 2015-12-17.
  */
-public class Pizza extends Item implements Consumable {
+public class Pizza extends Consumable {
 
     public Pizza() {
         name = Constants.ITEM_PIZZA_UNIQUE;

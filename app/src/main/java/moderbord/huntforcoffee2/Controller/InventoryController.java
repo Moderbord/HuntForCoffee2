@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -33,6 +34,7 @@ public class InventoryController extends Activity {
     InventoryReagentAdapter reagentAdapter;
     LayoutInflater inflater;
     ImageButton allButton, weaponsButton, armoursButton, consumablesButton, reagentsButton, backButton;
+    TextView inventoryTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { // TODO make this work on Entities
@@ -47,7 +49,7 @@ public class InventoryController extends Activity {
         consumablesButton = (ImageButton) findViewById(R.id.inventory_consumable_button);
         reagentsButton = (ImageButton) findViewById(R.id.inventory_reagent_button);
         backButton = (ImageButton) findViewById(R.id.inventory_back_button);
-
+        inventoryTextView = (TextView) findViewById(R.id.inventory_right_text_window);
 
         // Creating adapters for respective tabs
         allIAdapter = new InventoryAllAdapter();
@@ -57,6 +59,7 @@ public class InventoryController extends Activity {
         reagentAdapter = new InventoryReagentAdapter();
 
         inventoryListView = (ListView) findViewById(R.id.inventory_list_view);
+        inventoryListView.setOnItemClickListener(new InventoryItemClickListener());
         inventoryListView.setAdapter(allIAdapter);
 
         // Applying all listeners
@@ -390,6 +393,14 @@ public class InventoryController extends Activity {
         }
 
         return category;
+    }
+
+    private class InventoryItemClickListener implements AdapterView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
+            Item selected = (Item) adapterView.getItemAtPosition(i);
+            inventoryTextView.setText(selected.itemInformation());
+        }
     }
 
 }

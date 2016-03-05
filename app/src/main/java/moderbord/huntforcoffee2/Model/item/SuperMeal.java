@@ -5,7 +5,7 @@ import moderbord.huntforcoffee2.Utils.Constants;
 /**
  * Created by Moderbord on 2015-12-17.
  */
-public class SuperMeal extends Item implements Consumable {
+public class SuperMeal extends Consumable {
 
     public SuperMeal() {
         name = Constants.ITEM_SUPERMEAL;

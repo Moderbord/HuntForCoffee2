@@ -28,6 +28,14 @@ public class Armour extends Gear implements Equipable {
         return "You equip the " + this.getName() + " as your " + this.getGearSlot();
     }
 
+    @Override
+    public String itemInformation(){
+        return "Name: " + this.name + "\nType: " + this.armClass + "\nSlot: " + this.gearSlot
+                + "\nDefence " + this.armDef + "\nStrong: " + this.armStrong + "\nWeak: " + this.armWeak
+                + "\n\nLevel: " + this.gearLvl + "\nExp: " + this.gearExp + "\n\n" +
+                this.description;
+    }
+
     public String getArmClass() {
         return armClass;
     }

@@ -5,7 +5,7 @@ import moderbord.huntforcoffee2.Utils.Constants;
 /**
  * Created by Moderbord on 2015-12-17.
  */
-public class Burger extends Item implements Consumable {
+public class Burger extends Consumable {
 
     public Burger() {
         name = Constants.ITEM_BURGER;

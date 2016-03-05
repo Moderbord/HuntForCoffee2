@@ -3,7 +3,7 @@ package moderbord.huntforcoffee2.Model.item;
 /**
  * Created by Moderbord on 2016-03-02.
  */
-public class ManaPotion extends Reagent implements Consumable {
+public class ManaPotion extends Consumable {
 
     public ManaPotion() {
         name = "Mana Potion";
@@ -21,13 +21,4 @@ public class ManaPotion extends Reagent implements Consumable {
         return null;
     }
 
-    @Override
-    String combineFail() {
-        return null;
-    }
-
-    @Override
-    String combineSucess() {
-        return null;
-    }
 }

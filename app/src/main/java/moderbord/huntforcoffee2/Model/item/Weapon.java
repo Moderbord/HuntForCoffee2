@@ -30,6 +30,15 @@ public class Weapon extends Gear implements Equipable {
         return "Very weapon, much sharp";
     }
 
+    @Override
+    public String itemInformation(){
+        String twoHanded = (this.twoHanded) ? "Yes" : "No";
+        return "Name: " + this.name + "\nType: " + this.wepType + "\nTwo Handed: " + twoHanded
+                + "\nDamage: " + this.minDmg + " - " + this.maxDmg + "\nSource: " + this.dmgType
+                + "\n\nLevel: " + this.gearLvl + "\nExp: " + this.gearExp + "\n\n" +
+                this.description;
+    }
+
     public String getWepType() {
         return wepType;
     }

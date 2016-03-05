@@ -56,6 +56,11 @@ public class Item {
         this.description = description;
     }
 
+    public String itemInformation(){
+        return "Name: " + this.name + "\n\n" + this.description;
+
+    }
+
     @Override
     public String toString() {
         return quantity + " x " + name;

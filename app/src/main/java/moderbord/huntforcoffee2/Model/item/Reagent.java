@@ -19,4 +19,9 @@ public abstract class Reagent extends Item {
     public void setQuality(String quality) {
         this.quality = quality;
     }
+
+    @Override
+    public String itemInformation() {
+        return "Name: " + this.name + "\nQuality: " + this.quality + "\n\n" + this.description;
+    }
 }
