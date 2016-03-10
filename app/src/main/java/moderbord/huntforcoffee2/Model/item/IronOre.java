@@ -10,6 +10,7 @@ public class IronOre extends Reagent {
     public IronOre() {
         name = Constants.ITEM_IRON_ORE;
         className = "IronOre";
+        description = "Ore extracted from a iron vein. May be smelted into an iron bar.";
         addItem(1);
     }
 

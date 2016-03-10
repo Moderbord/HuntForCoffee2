@@ -8,6 +8,7 @@ public class ManaPotion extends Consumable {
     public ManaPotion() {
         name = "Mana Potion";
         className = "ManaPotion";
+        description = "A potion commonly used by magicians to regain some of their magic capabilities.";
         addItem(1);
     }
 

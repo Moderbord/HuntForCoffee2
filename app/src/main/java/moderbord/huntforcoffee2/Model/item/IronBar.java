@@ -10,6 +10,7 @@ public class IronBar extends Reagent {
     public IronBar() {
         name = Constants.ITEM_IRON_BAR;
         className = "IronBar";
+        description = "A heavy bar of iron that can be used as crafting material in certain crafting recipes.";
         addItem(1);
     }
 

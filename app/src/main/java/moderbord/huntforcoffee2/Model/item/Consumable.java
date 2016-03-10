@@ -15,7 +15,7 @@ public abstract class Consumable extends Item{
         this.effect = effect;
     }
 
-    abstract String consume();
+    public abstract String consume();
 
     @Override
     public String itemInformation() {
