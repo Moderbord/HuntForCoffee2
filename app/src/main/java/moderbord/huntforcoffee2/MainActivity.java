@@ -25,10 +25,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = getLayoutInflater();
-        View v = inflater.inflate(R.layout.main_layout, null);
+        View v = inflater.inflate(R.layout.main_layout_wip, null);
         setContentView(v);
-        UIController.getInstance().initWithView(v);
-
+        //UIController.getInstance().initWithView(v);
+        /*
         EventController eventController = new EventController();
         eventController.initGame();
 
@@ -55,6 +55,7 @@ public class MainActivity extends Activity {
         p = (Player) SaveController.getInstance(this).loadEntity(p);
 
         p.equipArmour(p.getInventory().gearByString(Constants.ARMOUR_WARDEN));
+        */
     }
 
 

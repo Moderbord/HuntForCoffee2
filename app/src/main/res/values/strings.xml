@@ -18,9 +18,9 @@
     <string name="statCha">Charisma **</string>
     <string name="statLuck_string">Luck **</string>
     <string name="statLi_string">Li **</string>
-    <string name="statHealth_string">Health **</string>
-    <string name="statMana_string">Mana **</string>
-    <string name="statFatigue_string">Fatigue **</string>
+    <string name="statHealth_string">Health: 100</string>
+    <string name="statMana_string">Mana: 100</string>
+    <string name="statFatigue_string">Fatigue: 0</string>
     <string name="statLu_string">Lu **</string>
     <string name="statLvl_string">Level *</string>
     <string name="statClass_string">Class *</string>
