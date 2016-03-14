@@ -10,12 +10,12 @@ import moderbord.huntforcoffee2.Controller.EventController;
 public class Forrest extends EventController implements View.OnClickListener {
 
     public void entry() {
-        ui.mainTextWindow.setText("Gyranimouuyyy!!");
+        ui.mainText.setText("Gyranimouuyyy!!");
 
         player.seteHealth(player.geteHealth() - 5);
 
-        ui.b0.setText("Hey!");
-        ui.b0.setOnClickListener(new GoldenPath() {
+        ui.button1.setText("Hey!");
+        ui.button1.setOnClickListener(new GoldenPath() {
             @Override
             public void onClick(View v) {
                 entry();

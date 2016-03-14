@@ -2,9 +2,7 @@ package moderbord.huntforcoffee2.Controller;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import moderbord.huntforcoffee2.R;
@@ -14,38 +12,25 @@ import moderbord.huntforcoffee2.R;
  */
 public class UIController {
 
-    public android.widget.TextView mainTextWindow;
-    public android.widget.ScrollView scrollView;
-    public android.widget.EditText nameInput;
-    public android.widget.TextView subTextWindow;
-    public android.widget.ScrollView scrollView2;
-    public android.widget.Button b0;
-    public android.widget.Button b1;
-    public android.widget.Button b2;
-    public android.widget.Button b3;
-    public android.widget.Button b4;
-    public android.widget.LinearLayout linearLayout;
-    public android.widget.Button b5;
-    public android.widget.Button b6;
-    public android.widget.Button b7;
-    public android.widget.Button b8;
-    public android.widget.Button b9;
-    public android.widget.LinearLayout linearLayout2;
-    public android.widget.TextView statPhy;
-    public android.widget.TextView statInt;
-    public android.widget.TextView statAgi;
-    public android.widget.TextView statQui;
-    public android.widget.TextView statCha;
-    public android.widget.TextView statLuck;
-    public android.widget.TextView statLi;
-    public android.widget.TextView statHealth;
-    public android.widget.TextView statMana;
-    public android.widget.TextView statFatigue;
-    public android.widget.TextView statLu;
-    public android.widget.TextView statLvl;
-    public android.widget.TextView statClass;
-    public android.widget.TextView timeClock;
-    public android.widget.TextView timeDate;
+    public Button inventoryButton;
+    public Button characterButton;
+    public Button optionsButton;
+    public ImageView portrait;
+    public TextView mainText;
+    public TextView descriptionText;
+    public TextView locationView;
+    public TextView timeView;
+    public TextView dateView;
+    public Button button1;
+    public Button button2;
+    public Button button3;
+    public Button button4;
+    public Button button5;
+    public Button button6;
+    public Button button7;
+    public Button button8;
+    public Button button9;
+    public Button button10;
     private static UIController instance;
 
     public static UIController getInstance() {
@@ -56,37 +41,25 @@ public class UIController {
     }
 
     public void initWithView(View v) {
-        this.timeDate = (TextView) v.findViewById(R.id.timeDate);
-        this.timeClock = (TextView) v.findViewById(R.id.timeClock);
-        this.statClass = (TextView) v.findViewById(R.id.statClass);
-        this.statLvl = (TextView) v.findViewById(R.id.statLvl);
-        this.statLu = (TextView) v.findViewById(R.id.statLu);
-        this.statFatigue = (TextView) v.findViewById(R.id.statFatigue);
-        this.statMana = (TextView) v.findViewById(R.id.statMana);
-        this.statHealth = (TextView) v.findViewById(R.id.statHealth);
-        this.statLi = (TextView) v.findViewById(R.id.statLi);
-        this.statLuck = (TextView) v.findViewById(R.id.statLuck);
-        this.statCha = (TextView) v.findViewById(R.id.statCha);
-        this.statQui = (TextView) v.findViewById(R.id.statQui);
-        this.statAgi = (TextView) v.findViewById(R.id.statAgi);
-        this.statInt = (TextView) v.findViewById(R.id.statInt);
-        this.statPhy = (TextView) v.findViewById(R.id.statPhy);
-        this.linearLayout2 = (LinearLayout) v.findViewById(R.id.linearLayout2);
-        this.b9 = (Button) v.findViewById(R.id.b9);
-        this.b8 = (Button) v.findViewById(R.id.b8);
-        this.b7 = (Button) v.findViewById(R.id.b7);
-        this.b6 = (Button) v.findViewById(R.id.b6);
-        this.b5 = (Button) v.findViewById(R.id.b5);
-        this.linearLayout = (LinearLayout) v.findViewById(R.id.linearLayout);
-        this.b4 = (Button) v.findViewById(R.id.b4);
-        this.b3 = (Button) v.findViewById(R.id.b3);
-        this.b2 = (Button) v.findViewById(R.id.b2);
-        this.b1 = (Button) v.findViewById(R.id.b1);
-        this.b0 = (Button) v.findViewById(R.id.b0);
-        this.scrollView2 = (ScrollView) v.findViewById(R.id.scrollView2);
-        this.subTextWindow = (TextView) v.findViewById(R.id.subTextWindow);
-        this.nameInput = (EditText) v.findViewById(R.id.nameInput);
-        this.scrollView = (ScrollView) v.findViewById(R.id.scrollView);
-        this.mainTextWindow = (TextView) v.findViewById(R.id.mainTextWindow);
+        this.button10 = (Button) v.findViewById(R.id.mv_button_10);
+        this.button9 = (Button) v.findViewById(R.id.mv_button_9);
+        this.button8 = (Button) v.findViewById(R.id.mv_button_8);
+        this.button7 = (Button) v.findViewById(R.id.mv_button_7);
+        this.button6 = (Button) v.findViewById(R.id.mv_button_6);
+        this.button5 = (Button) v.findViewById(R.id.mv_button_5);
+        this.button4 = (Button) v.findViewById(R.id.mv_button_4);
+        this.button3 = (Button) v.findViewById(R.id.mv_button_3);
+        this.button2 = (Button) v.findViewById(R.id.mv_button_2);
+        this.button1 = (Button) v.findViewById(R.id.mv_button_1);
+        this.dateView = (TextView) v.findViewById(R.id.mv_date_textview);
+        this.timeView = (TextView) v.findViewById(R.id.mv_time_textview);
+        this.locationView = (TextView) v.findViewById(R.id.mv_location_textview);
+        this.descriptionText = (TextView) v.findViewById(R.id.mv_description_textview);
+        this.mainText = (TextView) v.findViewById(R.id.mv_main_textview);
+        this.portrait = (ImageView) v.findViewById(R.id.mv_portrait_imageview);
+        this.optionsButton = (Button) v.findViewById(R.id.mv_options_button);
+        this.characterButton = (Button) v.findViewById(R.id.mv_character_button);
+        this.inventoryButton = (Button) v.findViewById(R.id.mv_inventory_button);
+
     }
 }

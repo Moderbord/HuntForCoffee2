@@ -10,10 +10,10 @@ import moderbord.huntforcoffee2.Controller.EventController;
 public class GoldenPath extends EventController implements View.OnClickListener {
 
     public void entry() {
-        ui.mainTextWindow.setText("Golden path??");
+        ui.mainText.setText("Golden path??");
 
-        ui.b0.setText("Back");
-        ui.b0.setOnClickListener(new Forrest() {
+        ui.button1.setText("Back");
+        ui.button1.setOnClickListener(new Forrest() {
             @Override
             public void onClick(View v) {
                 entry();

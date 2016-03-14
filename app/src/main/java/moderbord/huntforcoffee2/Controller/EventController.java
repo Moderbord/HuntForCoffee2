@@ -1,5 +1,6 @@
 package moderbord.huntforcoffee2.Controller;
 
+import android.content.Intent;
 import android.view.View;
 
 import moderbord.huntforcoffee2.Model.EntityBuilder;
@@ -20,10 +21,10 @@ public class EventController {
     public static UIController ui = UIController.getInstance();
     public static Recipes recipes = Recipes.getInstance(); // Move elsewhere?
 
-    protected static Player player = new EntityBuilder().seteName("Pontarn").createEntityPlayer();
+    protected static Player player = new EntityBuilder().seteName("Pontus").createEntityPlayer();
 
     public void initGame() {
-        ui.mainTextWindow.setText("Welcome to Jurassic Park " + player.geteName() + "!");
+        ui.mainText.setText("Welcome to Jurassic Park " + player.geteName() + "!");
 
         player.seteHealth(100);
 
@@ -56,14 +57,13 @@ public class EventController {
         player.combineItem(Constants.RECIPE_ARMOUR_WARDEN);
 
 
-        ui.b0.setText("Forrest");
-        ui.b0.setOnClickListener(new Forrest() {
+        ui.button1.setText("Forrest");
+        ui.button1.setOnClickListener(new Forrest() {
             @Override
             public void onClick(View v) {
                 entry();
             }
         });
-
 
     }
 
