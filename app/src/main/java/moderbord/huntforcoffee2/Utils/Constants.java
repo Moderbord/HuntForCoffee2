@@ -67,9 +67,6 @@ public class Constants {
     public static final String ARMOUR_CLASS_MEDIUM  = "Medium";
     public static final String ARMOUR_CLASS_LIGHT   = "Light";
 
-
-
-
-
-
+    // Locations
+    public static final String LOCATION_FORREST      = "Forrest";
 }

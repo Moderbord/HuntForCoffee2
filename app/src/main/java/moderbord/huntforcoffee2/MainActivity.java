@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
         UIController.getInstance().initWithView(v);
 
         EventController eventController = new EventController();
-        eventController.initGame();
+        eventController.initCharacterCreation();
 
         EventController.ui.inventoryButton.setOnClickListener(new View.OnClickListener() {
 
@@ -37,6 +37,7 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent(v.getContext(), InventoryController.class);
                 startActivity(intent);
             }
+
         });
 
         /*

@@ -1,6 +1,7 @@
 package moderbord.huntforcoffee2.Model.events;
 
 import android.view.View;
+import android.widget.Button;
 
 import moderbord.huntforcoffee2.Controller.EventController;
 

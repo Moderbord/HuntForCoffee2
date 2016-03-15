@@ -67,7 +67,7 @@
                     android:paddingLeft="8dp"
                     android:paddingRight="5dp"
                     android:paddingTop="10dp"
-                    android:text="@string/mainText_string"
+                    android:text="@string/main_mainText_string"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="#ffffff"
                     android:textSize="12sp" />
@@ -108,7 +108,7 @@
                         android:paddingBottom="3dp"
                         android:paddingLeft="4dp"
                         android:paddingRight="5dp"
-                        android:text="Prince Charles"
+                        android:text="@string/main_subText_string"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#ffffff"
                         android:textSize="10sp"
@@ -195,8 +195,9 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_weight="0.2"
-                        android:text="@string/b0_string"
-                        android:textSize="12sp" />
+                        android:text="@string/button_1_string"
+                        android:textSize="12dp"
+                        android:paddingTop="4dp" />
 
                     <Button
                         android:id="@+id/mv_button_2"

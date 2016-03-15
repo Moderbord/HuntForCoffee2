@@ -5,6 +5,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import moderbord.huntforcoffee2.R;
 
 /**
@@ -31,6 +34,8 @@ public class UIController {
     public Button button8;
     public Button button9;
     public Button button10;
+    public ArrayList<Button> actionButtons = new ArrayList<>();
+    public ArrayList<Button> allButtons = new ArrayList<>();
     private static UIController instance;
 
     public static UIController getInstance() {
@@ -61,5 +66,62 @@ public class UIController {
         this.characterButton = (Button) v.findViewById(R.id.mv_character_button);
         this.inventoryButton = (Button) v.findViewById(R.id.mv_inventory_button);
 
+        this.actionButtons.addAll(Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9, button10));
+        this.allButtons.addAll(Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8,
+                button9, button10, optionsButton, characterButton, inventoryButton)); // TODO add from actionButtons list instead of loading same buttons twice
+
     }
+
+    public void setButtonText(int button, String text){
+        Button btn = actionButtons.get(button - 1);
+        enableButton(btn);
+        btn.setText(text);
+    }
+
+    public void enableActionButtons(){
+        for (Button b : actionButtons){
+            enableButton(b);
+        }
+    }
+
+    public void enableButton (Button button){
+        button.setAlpha(1.0f);
+        button.setEnabled(true);
+    }
+
+    public void disableActionButtons(){
+        for (Button b : actionButtons){
+            disableButton(b);
+        }
+    }
+
+    public void disableAllButtons(){
+        for (Button b : allButtons){
+            disableButton(b);
+        }
+    }
+
+    public void disableButton (Button button){
+        button.setAlpha(.5f);
+        button.setEnabled(false);
+    }
+
+    public void clearActionButtons (){
+        for (Button b : actionButtons){
+            b.setText("");
+        }
+    }
+
+    public void clearButton (Button button){
+        button.setText("");
+    }
+
+    public void setLocation(String location){
+        locationView.setText("Location: " + location);
+    }
+
+    public void updateTime(){
+        // TODO need to implement time mechanic
+    }
+
 }
