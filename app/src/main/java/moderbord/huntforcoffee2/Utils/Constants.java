@@ -42,7 +42,7 @@ public class Constants {
     public static final String GEAR_TYPE_PHYSICAL   = "Physical";
     public static final String GEAR_TYPE_PIERCING   = "Piercing";
     public static final String GEAR_TYPE_CRUSHING   = "Crushing";
-    public static final String GEAR_TYPE_CLEAVIN    = "Cleaving";
+    public static final String GEAR_TYPE_CLEAVING    = "Cleaving";
 
 
     // Weapon variables

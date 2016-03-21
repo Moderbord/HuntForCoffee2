@@ -2,6 +2,7 @@ package moderbord.huntforcoffee2.Controller;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class UIController {
     public Button characterButton;
     public Button optionsButton;
     public ImageView portrait;
+    public EditText nameInput;
     public TextView mainText;
     public TextView descriptionText;
     public TextView locationView;
@@ -61,6 +63,7 @@ public class UIController {
         this.locationView = (TextView) v.findViewById(R.id.mv_location_textview);
         this.descriptionText = (TextView) v.findViewById(R.id.mv_description_textview);
         this.mainText = (TextView) v.findViewById(R.id.mv_main_textview);
+        this.nameInput = (EditText) v.findViewById(R.id.mv_nameInput);
         this.portrait = (ImageView) v.findViewById(R.id.mv_portrait_imageview);
         this.optionsButton = (Button) v.findViewById(R.id.mv_options_button);
         this.characterButton = (Button) v.findViewById(R.id.mv_character_button);

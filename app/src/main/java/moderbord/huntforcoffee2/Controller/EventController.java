@@ -2,11 +2,10 @@ package moderbord.huntforcoffee2.Controller;
 
 import android.view.View;
 
-import moderbord.huntforcoffee2.Model.EntityBuilder;
 import moderbord.huntforcoffee2.Model.Player;
 import moderbord.huntforcoffee2.Model.Recipes;
+import moderbord.huntforcoffee2.Model.events.CharacterCreation;
 import moderbord.huntforcoffee2.Model.events.Forrest;
-import moderbord.huntforcoffee2.Model.item.IronOre;
 import moderbord.huntforcoffee2.Model.item.ManaPotion;
 import moderbord.huntforcoffee2.Model.item.Weapon;
 import moderbord.huntforcoffee2.Model.item.WeaponBuilder;
@@ -15,6 +14,7 @@ import moderbord.huntforcoffee2.Utils.Constants;
 /**
  * Created by Moderbord on 2015-12-17.
  */
+
 public class EventController {
 
     public static UIController ui = UIController.getInstance();
@@ -27,7 +27,12 @@ public class EventController {
         ui.clearActionButtons();
         ui.setButtonText(1, "New Character");
 
-
+        ui.button1.setOnClickListener(new CharacterCreation(){
+            @Override
+            public void onClick(View v) {
+                stepOne();
+            }
+        });
 
     }
 
