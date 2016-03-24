@@ -9,6 +9,7 @@ public class EntityBuilder {
     private String eClass = null;
     private String eRace = null;
     private String eFaction = null;
+    private String eAligment = null;
     private int eLevel = 0;
     private int ePhysique = 0;
     private int eIntellect = 0;
@@ -61,6 +62,11 @@ public class EntityBuilder {
 
     public EntityBuilder seteFaction(String eFaction) {
         this.eFaction = eFaction;
+        return this;
+    }
+
+    public EntityBuilder seteAligment(String eAligment) {
+        this.eAligment = eAligment;
         return this;
     }
 
@@ -210,21 +216,21 @@ public class EntityBuilder {
     }
 
     public Entity createEntity() {
-        return new Entity(eName, eGender, eClass, eRace, eFaction, eLevel, ePhysique, eIntellect, eAgility,
+        return new Entity(eName, eGender, eClass, eRace, eFaction, eAligment, eLevel, ePhysique, eIntellect, eAgility,
                 eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue,
                 eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
                 armGloves, armLegs, armFeet, resistance, inventory);
     }
 
     public Player createEntityPlayer() {
-        return new Player(eName, eGender, eClass, eRace, eFaction, eLevel, ePhysique, eIntellect, eAgility,
+        return new Player(eName, eGender, eClass, eRace, eFaction, eAligment, eLevel, ePhysique, eIntellect, eAgility,
                 eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue,
                 eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
                 armGloves, armLegs, armFeet, resistance, inventory);
     }
 
     public Jheero createEntityJheero() {
-        return new Jheero(eName, eGender, eClass, eRace, eFaction, eLevel, ePhysique, eIntellect, eAgility,
+        return new Jheero(eName, eGender, eClass, eRace, eFaction, eAligment, eLevel, ePhysique, eIntellect, eAgility,
                 eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue,
                 eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
                 armGloves, armLegs, armFeet, resistance, inventory);

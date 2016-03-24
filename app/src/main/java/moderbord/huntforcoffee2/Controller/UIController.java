@@ -36,9 +36,12 @@ public class UIController {
     public Button button8;
     public Button button9;
     public Button button10;
+
     public ArrayList<Button> actionButtons = new ArrayList<>();
     public ArrayList<Button> allButtons = new ArrayList<>();
+
     private static UIController instance;
+    private StringBuilder stringBuilder = new StringBuilder();
 
     public static UIController getInstance() {
         if (instance == null) {
@@ -75,10 +78,33 @@ public class UIController {
 
     }
 
-    public void setButtonText(int button, String text){
-        Button btn = actionButtons.get(button - 1);
+    public void append(String toAppend){
+        stringBuilder.append(toAppend);
+    }
+
+    public void submit(){
+        String submit = stringBuilder.toString();
+        mainText.setText(submit);
+        stringBuilder.setLength(0);
+    }
+
+    public void setButtonText(String text, int button){
+        Button btn = actionButtons.get(button - 1); // Corrects index for array
         enableButton(btn);
         btn.setText(text);
+    }
+
+    /**
+     *
+     * @param event Which event that should be applied
+     * @param button Which button
+     * @param text Which text to display
+     */
+    public void setButtonEvent(View.OnClickListener event, int button, String text){
+        Button btn = actionButtons.get(button - 1); // Corrects index for array
+        enableButton(btn);
+        btn.setText(text);
+        btn.setOnClickListener(event);
     }
 
     public void enableActionButtons(){

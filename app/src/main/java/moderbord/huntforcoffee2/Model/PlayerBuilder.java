@@ -209,7 +209,10 @@ public class PlayerBuilder {    // Redundant?
         return this;
     }
 
+    /*
     public Player createPlayer() {
         return new Player(eName, eGender, eClass, eRace, eFaction, eLevel, ePhysique, eIntellect, eAgility, eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue, eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest, armGloves, armLegs, armFeet, resistance, inventory);
     }
+    */
+
 }

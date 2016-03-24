@@ -8,26 +8,26 @@ import moderbord.huntforcoffee2.Utils.Constants;
 /**
  * Created by Moderbord on 2016-01-06.
  */
-public class Forrest extends EventController implements View.OnClickListener {
+public class Forrest extends EventController{
 
-    public void entry() {
-        ui.setLocation(Constants.LOCATION_FORREST);
-        ui.disableActionButtons();
+    private static Forrest instance;
 
-        ui.mainText.setText("Gyranimouuyyy!!");
-
-        ui.setButtonText(1, "Hey!");
-        ui.button1.setOnClickListener(new GoldenPath() {
-            @Override
-            public void onClick(View v) {
-                entry();
-            }
-        });
-
+    public static Forrest getInstance(){
+        if (instance == null){
+            instance = new Forrest();
+        }
+        return instance;
     }
 
-    @Override
-    public void onClick(View v) {
+    View.OnClickListener entry = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ui.setLocation(Constants.LOCATION_FORREST);
+            ui.disableActionButtons();
 
-    }
+            ui.mainText.setText("Gyranimouuyyy!!");
+
+            ui.setButtonEvent(goldenRoad.entry, 1, "Golden Road");
+        }
+    };
 }

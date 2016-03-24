@@ -69,4 +69,16 @@ public class Constants {
 
     // Locations
     public static final String LOCATION_FORREST      = "Forrest";
+
+    // Alignment
+    public static final String ALIGMENT_GOOD     = "Good";
+    public static final String ALIGMENT_EVIL     = "Evil";
+
+    // Races
+    public static final String RACE_HUMAN     = "Human";
+    public static final String RACE_ELF       = "Elf";
+    public static final String RACE_ORC       = "Orc";
+    public static final String RACE_DEMON     = "Demon";
+    public static final String RACE_IMP       = "Imp";
+    public static final String RACE_KOBOLD    = "Kobold";
 }
