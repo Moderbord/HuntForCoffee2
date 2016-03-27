@@ -1,6 +1,7 @@
 package moderbord.huntforcoffee2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import moderbord.huntforcoffee2.Controller.UIController;
 
 public class MainActivity extends Activity {
 
+    public static Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,7 @@ public class MainActivity extends Activity {
         View v = inflater.inflate(R.layout.main_layout_wip, null);
         setContentView(v);
         UIController.getInstance().initWithView(v);
+        context = this;
 
         EventController eventController = new EventController();
         eventController.initCharacterCreation();
@@ -36,6 +40,7 @@ public class MainActivity extends Activity {
 
         });
 
+
         /*
         SaveController.getInstance(this).saveEntity(p);
         p = (Player) SaveController.getInstance(this).loadEntity(p);
@@ -43,6 +48,5 @@ public class MainActivity extends Activity {
         p.equipArmour(p.getInventory().gearByString(Constants.ARMOUR_WARDEN));
         */
     }
-
 
 }

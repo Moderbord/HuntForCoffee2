@@ -1,15 +1,25 @@
 package moderbord.huntforcoffee2.Controller;
 
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import moderbord.huntforcoffee2.MainActivity;
 import moderbord.huntforcoffee2.R;
+import moderbord.huntforcoffee2.Utils.Constants;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -138,15 +148,47 @@ public class UIController {
     public void clearActionButtons (){
         for (Button b : actionButtons){
             b.setText("");
+            disableButton(b);
         }
     }
 
     public void clearButton (Button button){
         button.setText("");
+        disableButton(button);
     }
 
     public void setLocation(String location){
         locationView.setText("Location: " + location);
+    }
+
+    public void setPortrait(String resource){
+        Drawable d = getDrawableAssets(resource);
+        portrait.setImageDrawable(d);
+    }
+
+    public void setPortraitDefault(){
+        Drawable d = getDrawableAssets(Constants.PORTRAIT_DEFAULT);
+        portrait.setImageDrawable(d);
+    }
+
+    private Drawable getDrawableAssets(String path){
+        Drawable d = null;
+        InputStream is = null;
+        try {
+            is = MainActivity.context.getAssets().open(path);
+            d = Drawable.createFromStream(is, null);
+        } catch (IOException e){
+            e.printStackTrace();
+        } finally {
+            if (is != null){
+                try {
+                    is.close();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+        return d;
     }
 
     public void updateTime(){

@@ -42,7 +42,7 @@ public class Constants {
     public static final String GEAR_TYPE_PHYSICAL   = "Physical";
     public static final String GEAR_TYPE_PIERCING   = "Piercing";
     public static final String GEAR_TYPE_CRUSHING   = "Crushing";
-    public static final String GEAR_TYPE_CLEAVING    = "Cleaving";
+    public static final String GEAR_TYPE_CLEAVING   = "Cleaving";
 
 
     // Weapon variables
@@ -71,8 +71,8 @@ public class Constants {
     public static final String LOCATION_FORREST      = "Forrest";
 
     // Alignment
-    public static final String ALIGMENT_GOOD     = "Good";
-    public static final String ALIGMENT_EVIL     = "Evil";
+    public static final String ALIGNMENT_GOOD = "Good";
+    public static final String ALIGNMENT_EVIL = "Evil";
 
     // Races
     public static final String RACE_HUMAN     = "Human";
@@ -81,4 +81,13 @@ public class Constants {
     public static final String RACE_DEMON     = "Demon";
     public static final String RACE_IMP       = "Imp";
     public static final String RACE_KOBOLD    = "Kobold";
+
+    // Image Portraits
+    public static final String PORTRAIT_DEFAULT         = "avatars/default_tmp.png";
+    public static final String PORTRAIT_HUMAN_INTRO     = "avatars/human_intro_tmp.png";
+    public static final String PORTRAIT_ELF_INTRO       = "avatars/elf_intro_tmp.png";
+    public static final String PORTRAIT_ORC_INTRO       = "avatars/orc_intro_tmp.png";
+    public static final String PORTRAIT_DEMON_INTRO     = "avatars/demon_intro_tmp.png";
+    public static final String PORTRAIT_IMP_INTRO       = "avatars/imp_intro_tmp.png";
+    public static final String PORTRAIT_KOBOLD_INTRO    = "avatars/kobold_intro_tmp.png";
 }

@@ -33,11 +33,10 @@ public class EventController {
         ui.clearActionButtons();
 
         ui.setButtonEvent(cc.intro, 1, "New Character");
+        ui.setPortraitDefault();
     }
 
     public void initGamedfgdfg() {
-        ui.clearActionButtons();
-
         ManaPotion manaPotion = new ManaPotion();
 
         Weapon bigSword = new WeaponBuilder().setName("Iron Greatsword").setTwoHanded(true).createWeapon();

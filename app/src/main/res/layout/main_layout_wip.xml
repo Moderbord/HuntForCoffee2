@@ -83,23 +83,25 @@
                 <ImageView
                     android:id="@+id/mv_portrait_imageview"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.8"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerCrop"
                     android:background="#101010" />
 
                 <ScrollView
                     android:id="@+id/scrollView4"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:layout_weight="0.6">
 
                     <TextView
                         android:id="@+id/mv_description_textview"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="3dp"
                         android:layout_marginTop="10dp"
@@ -195,9 +197,9 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_weight="0.2"
+                        android:paddingTop="4dp"
                         android:text="@string/button_1_string"
-                        android:textSize="12dp"
-                        android:paddingTop="4dp" />
+                        android:textSize="12dp" />
 
                     <Button
                         android:id="@+id/mv_button_2"
@@ -286,17 +288,17 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/mv_nameInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/mv_nameInput"
-        android:layout_centerInParent="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="75dp"
         android:layout_marginTop="75dp"
-        android:layout_alignParentTop="true"
+        android:ems="10"
         android:hint="... name"
+        android:inputType="textPersonName"
         android:visibility="invisible" />
 
 </RelativeLayout>
