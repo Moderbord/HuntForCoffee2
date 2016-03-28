@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
         SaveController.getInstance(this).saveEntity(p);
         p = (Player) SaveController.getInstance(this).loadEntity(p);
 
-        p.equipArmour(p.getInventory().gearByString(Constants.ARMOUR_WARDEN));
+        p.equipArmour(p.getInventory().gearByString(C.ARMOUR_WARDEN));
         */
     }
 

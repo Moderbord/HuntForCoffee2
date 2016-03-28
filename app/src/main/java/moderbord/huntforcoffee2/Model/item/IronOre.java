@@ -1,6 +1,6 @@
 package moderbord.huntforcoffee2.Model.item;
 
-import moderbord.huntforcoffee2.Utils.Constants;
+import moderbord.huntforcoffee2.Utils.C;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -8,7 +8,7 @@ import moderbord.huntforcoffee2.Utils.Constants;
 public class IronOre extends Reagent {
 
     public IronOre() {
-        name = Constants.ITEM_IRON_ORE;
+        name = C.ITEM_IRON_ORE;
         className = "IronOre";
         description = "Ore extracted from a iron vein. May be smelted into an iron bar.";
         addItem(1);

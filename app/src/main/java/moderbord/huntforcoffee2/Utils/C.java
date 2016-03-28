@@ -4,7 +4,7 @@ package moderbord.huntforcoffee2.Utils;
  * Created by Oscilla on 2016-02-23.
  */
 
-public class Constants {
+public class C {
 
     // TODO add every constant to statics here
 
@@ -14,10 +14,6 @@ public class Constants {
     public static final String ITEM_PIZZA_UNIQUE    = "Unique Pizza";
     public static final String ITEM_IRON_ORE        = "Iron Ore";
     public static final String ITEM_IRON_BAR        = "Iron Bar";
-
-    // Name of Armours
-    public static final String ARMOUR_WARDEN        = "Warden";
-
 
     // Recipes for crafting
     public static final String RECIPE_PIZZA_UNIQUE  = "UniquePizza";
@@ -61,6 +57,9 @@ public class Constants {
     public static final String WEAPON_TYPE_CROSSBOW     = "Crossbow";
 
 
+    // Name of Armours
+    public static final String ARMOUR_WARDEN        = "Warden";
+
     // Armour variables
     public static final String ARMOUR_GENERIC       = "GenericArmour";
     public static final String ARMOUR_CLASS_HEAVY   = "Heavy";
@@ -81,6 +80,13 @@ public class Constants {
     public static final String RACE_DEMON     = "Demon";
     public static final String RACE_IMP       = "Imp";
     public static final String RACE_KOBOLD    = "Kobold";
+
+    // Cities
+    public static final String CITIES_DALARUST   = "Dalarust";
+
+    // Character
+    public static final String CHAR_AIDEN            = "Aiden";
+    public static final String CHAR_AIDEN_FULL       = "Aiden Alderman";
 
     // Image Portraits
     public static final String PORTRAIT_DEFAULT         = "avatars/default_tmp.png";

@@ -1,6 +1,6 @@
 package moderbord.huntforcoffee2.Model.item;
 
-import moderbord.huntforcoffee2.Utils.Constants;
+import moderbord.huntforcoffee2.Utils.C;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -8,7 +8,7 @@ import moderbord.huntforcoffee2.Utils.Constants;
 public class SuperMeal extends Consumable {
 
     public SuperMeal() {
-        name = Constants.ITEM_SUPERMEAL;
+        name = C.ITEM_SUPERMEAL;
         className = "SuperMeal";
         addItem(1);
     }

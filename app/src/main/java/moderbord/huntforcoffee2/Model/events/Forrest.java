@@ -3,7 +3,7 @@ package moderbord.huntforcoffee2.Model.events;
 import android.view.View;
 
 import moderbord.huntforcoffee2.Controller.EventController;
-import moderbord.huntforcoffee2.Utils.Constants;
+import moderbord.huntforcoffee2.Utils.C;
 
 /**
  * Created by Moderbord on 2016-01-06.
@@ -22,7 +22,7 @@ public class Forrest extends EventController{
     View.OnClickListener entry = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            ui.setLocation(Constants.LOCATION_FORREST);
+            ui.setLocation(C.LOCATION_FORREST);
             ui.disableActionButtons();
 
             ui.mainText.setText("Gyranimouuyyy!!");

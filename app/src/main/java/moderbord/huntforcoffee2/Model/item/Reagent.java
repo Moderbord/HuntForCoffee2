@@ -6,7 +6,7 @@ package moderbord.huntforcoffee2.Model.item;
 
 public abstract class Reagent extends Item {
 
-    private String quality = "Common"; // TODO add this and additional qualities to Constants
+    private String quality = "Common"; // TODO add this and additional qualities to C
 
     abstract String combineFail();
 

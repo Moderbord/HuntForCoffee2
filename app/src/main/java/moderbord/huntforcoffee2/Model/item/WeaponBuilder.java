@@ -1,18 +1,18 @@
 package moderbord.huntforcoffee2.Model.item;
 
-import moderbord.huntforcoffee2.Utils.Constants;
+import moderbord.huntforcoffee2.Utils.C;
 
 public class WeaponBuilder {
     private int quantity = 1;
     private String className = "Weapon";
-    private String name = Constants.WEAPON_GENERIC;
+    private String name = C.WEAPON_GENERIC;
     private String description = "I am your weapon!";
     private int gearLvl = 1;
     private int gearExp = 0;
     private int gearExpToLvl = 100;
-    private String gearSlot = Constants.GEAR_SLOT_MAIN_WEP;
-    private String wepType = Constants.WEAPON_TYPE_SWORD;
-    private String dmgType = Constants.GEAR_TYPE_PIERCING;
+    private String gearSlot = C.GEAR_SLOT_MAIN_WEP;
+    private String wepType = C.WEAPON_TYPE_SWORD;
+    private String dmgType = C.GEAR_TYPE_PIERCING;
     private boolean twoHanded = false;
     private int minDmg = 5;
     private int maxDmg = 10;

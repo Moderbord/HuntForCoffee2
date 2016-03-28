@@ -5,7 +5,7 @@ package moderbord.huntforcoffee2.Model.item;
  */
 public abstract class Consumable extends Item{
 
-    private String effect = "Rejuvenating"; // TODO add this and more effects to Constants
+    private String effect = "Rejuvenating"; // TODO add this and more effects to C
 
     public String getEffect() {
         return effect;

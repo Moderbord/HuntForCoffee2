@@ -9,7 +9,7 @@ import moderbord.huntforcoffee2.Model.events.Graveyard;
 import moderbord.huntforcoffee2.Model.item.ManaPotion;
 import moderbord.huntforcoffee2.Model.item.Weapon;
 import moderbord.huntforcoffee2.Model.item.WeaponBuilder;
-import moderbord.huntforcoffee2.Utils.Constants;
+import moderbord.huntforcoffee2.Utils.C;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -43,9 +43,9 @@ public class EventController {
         Weapon bigAxe = new WeaponBuilder().setName("Cobalt Greataxe").setTwoHanded(true).createWeapon();
         Weapon smallSword = new WeaponBuilder().setName("Iron Sword").createWeapon();
         Weapon smallDagger = new WeaponBuilder().setName("Silver Dagger").createWeapon();
-        Weapon smallHatchet = new WeaponBuilder().setName("Golden Hatchet").setWepType(Constants.WEAPON_TYPE_AXE).createWeapon();
-        Weapon bow = new WeaponBuilder().setWepType(Constants.WEAPON_TYPE_BOW).setGearSlot(Constants.GEAR_SLOT_BACK_WEP).setName("Wooden Bow").createWeapon();
-        Weapon rifle = new WeaponBuilder().setWepType(Constants.WEAPON_TYPE_CROSSBOW).setGearSlot(Constants.GEAR_SLOT_BACK_WEP).setName("Military Rifle").createWeapon();
+        Weapon smallHatchet = new WeaponBuilder().setName("Golden Hatchet").setWepType(C.WEAPON_TYPE_AXE).createWeapon();
+        Weapon bow = new WeaponBuilder().setWepType(C.WEAPON_TYPE_BOW).setGearSlot(C.GEAR_SLOT_BACK_WEP).setName("Wooden Bow").createWeapon();
+        Weapon rifle = new WeaponBuilder().setWepType(C.WEAPON_TYPE_CROSSBOW).setGearSlot(C.GEAR_SLOT_BACK_WEP).setName("Military Rifle").createWeapon();
     }
 
 }

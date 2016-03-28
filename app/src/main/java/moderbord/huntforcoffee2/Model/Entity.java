@@ -7,10 +7,9 @@ import com.google.gson.Gson;
 import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Model.item.Armour;
 import moderbord.huntforcoffee2.Model.item.Consumable;
-import moderbord.huntforcoffee2.Model.item.Gear;
 import moderbord.huntforcoffee2.Model.item.Item;
 import moderbord.huntforcoffee2.Model.item.Weapon;
-import moderbord.huntforcoffee2.Utils.Constants;
+import moderbord.huntforcoffee2.Utils.C;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -97,42 +96,42 @@ public class Entity {
         Armour a = (Armour) i;
         switch (a.getGearSlot()) {
 
-            case Constants.GEAR_SLOT_HEAD:
+            case C.GEAR_SLOT_HEAD:
                 if (this.armHead.getName() != null) {                       // Save current armour to inventory
                     this.getInventory().add((this).armHead);
                 }
                 this.armHead = a;                                  // Equips new armour..
                 break;
 
-            case Constants.GEAR_SLOT_SHOULDERS:
+            case C.GEAR_SLOT_SHOULDERS:
                 if (this.armShoulders.getName() != null) {
                     this.getInventory().add((this).armShoulders);
                 }
                 this.armShoulders = a;
                 break;
 
-            case Constants.GEAR_SLOT_CHEST:
+            case C.GEAR_SLOT_CHEST:
                 if (this.armChest.getName() != null) {
                     this.getInventory().add((this).armChest);
                 }
                 this.armChest = a;
                 break;
 
-            case Constants.GEAR_SLOT_GLOVES:
+            case C.GEAR_SLOT_GLOVES:
                 if (this.armGloves.getName() != null) {
                     this.getInventory().add((this).armGloves);
                 }
                 this.armGloves = a;
                 break;
 
-            case Constants.GEAR_SLOT_LEGS:
+            case C.GEAR_SLOT_LEGS:
                 if (this.armLegs.getName() != null) {
                     this.getInventory().add((this).armLegs);
                 }
                 this.armLegs = a;
                 break;
 
-            case Constants.GEAR_SLOT_FEET:
+            case C.GEAR_SLOT_FEET:
                 if (this.armFeet.getName() != null) {
                     this.getInventory().add((this).armFeet);
                 }
@@ -151,7 +150,7 @@ public class Entity {
         Weapon w = (Weapon) i;
         switch (w.getGearSlot()) {
 
-            case Constants.GEAR_SLOT_MAIN_WEP:
+            case C.GEAR_SLOT_MAIN_WEP:
                 if (w.isTwoHanded() && this.offWep.getName() != null) {     // If weapon requires two hands and entity is currently wielding an offhand weapon
                     this.getInventory().add((this).offWep);
                     this.offWep = new Weapon();                             // Adds a "clean" weapon
@@ -162,7 +161,7 @@ public class Entity {
                 this.mainWep = w;                       // Equip new weapon..
                 break;
 
-            case Constants.GEAR_SLOT_BACK_WEP:
+            case C.GEAR_SLOT_BACK_WEP:
                 if (this.backWep.getName() != null) {
                     this.getInventory().add((this).backWep);
                 }

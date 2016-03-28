@@ -1,10 +1,5 @@
 package moderbord.huntforcoffee2.Controller;
 
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +14,7 @@ import java.util.Arrays;
 
 import moderbord.huntforcoffee2.MainActivity;
 import moderbord.huntforcoffee2.R;
-import moderbord.huntforcoffee2.Utils.Constants;
+import moderbord.huntforcoffee2.Utils.C;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -167,22 +162,22 @@ public class UIController {
     }
 
     public void setPortraitDefault(){
-        Drawable d = getDrawableAssets(Constants.PORTRAIT_DEFAULT);
+        Drawable d = getDrawableAssets(C.PORTRAIT_DEFAULT);
         portrait.setImageDrawable(d);
     }
 
     private Drawable getDrawableAssets(String path){
         Drawable d = null;
-        InputStream is = null;
+        InputStream stream = null;
         try {
-            is = MainActivity.context.getAssets().open(path);
-            d = Drawable.createFromStream(is, null);
+            stream = MainActivity.context.getAssets().open(path);
+            d = Drawable.createFromStream(stream, null);
         } catch (IOException e){
             e.printStackTrace();
         } finally {
-            if (is != null){
+            if (stream != null){
                 try {
-                    is.close();
+                    stream.close();
                 } catch (IOException e){
                     e.printStackTrace();
                 }

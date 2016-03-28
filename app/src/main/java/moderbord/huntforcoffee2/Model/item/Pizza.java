@@ -1,6 +1,6 @@
 package moderbord.huntforcoffee2.Model.item;
 
-import moderbord.huntforcoffee2.Utils.Constants;
+import moderbord.huntforcoffee2.Utils.C;
 
 /**
  * Created by Moderbord on 2015-12-17.
@@ -8,7 +8,7 @@ import moderbord.huntforcoffee2.Utils.Constants;
 public class Pizza extends Consumable {
 
     public Pizza() {
-        name = Constants.ITEM_PIZZA_UNIQUE;
+        name = C.ITEM_PIZZA_UNIQUE;
         className = "Pizza";
         addItem(1);
     }

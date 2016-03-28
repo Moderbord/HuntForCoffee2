@@ -1,19 +1,19 @@
 package moderbord.huntforcoffee2.Model.item;
 
-import moderbord.huntforcoffee2.Utils.Constants;
+import moderbord.huntforcoffee2.Utils.C;
 
 public class ArmourBuilder {
     private int quantity = 1;
     private String className = "Armour";
-    private String name = Constants.ARMOUR_GENERIC;
+    private String name = C.ARMOUR_GENERIC;
     private String description = "I am your armor!";
     private int gearLvl = 1;
     private int gearExp = 0;
     private int gearExpToLvl = 100;
-    private String gearSlot = Constants.GEAR_SLOT_CHEST;
-    private String armClass = Constants.ARMOUR_CLASS_MEDIUM;
-    private String armStrong = Constants.GEAR_TYPE_MAGIC;
-    private String armWeak = Constants.GEAR_TYPE_PIERCING;
+    private String gearSlot = C.GEAR_SLOT_CHEST;
+    private String armClass = C.ARMOUR_CLASS_MEDIUM;
+    private String armStrong = C.GEAR_TYPE_MAGIC;
+    private String armWeak = C.GEAR_TYPE_PIERCING;
     private int armDef = 10;
 
     public ArmourBuilder setQuantity(int quantity) {
