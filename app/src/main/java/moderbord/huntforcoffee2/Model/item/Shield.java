@@ -16,9 +16,9 @@ public class Shield extends Weapon {
                   int maxDmg) {
         super(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl,
                 gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
-        this.className = C.ARMOUR_TYPE_SHIELD;
+        this.className = C.WEAPON_TYPE_SHIELD;
         this.gearSlot = C.GEAR_SLOT_OFF_WEP;
-        this.wepType = C.ARMOUR_TYPE_SHIELD;
+        this.wepType = C.WEAPON_TYPE_SHIELD;
         this.twoHanded = false;
         this.minDmg = 0;
         this.maxDmg = 0;

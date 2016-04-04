@@ -232,8 +232,8 @@ public class CharacterCreation extends EventController {
     View.OnClickListener humanIntroWepChoice = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            ui.clearActionButtons();
             String choice = ui.getButtonText(v);
+            ui.clearActionButtons();
             Weapon weapon;
             switch (choice) {
                 case C.WEAPON_TYPE_GREATSWORD:
@@ -253,7 +253,10 @@ public class CharacterCreation extends EventController {
                     break;
             }
             player.getInventory().add(weapon);
-            player.equipOffWeapon((Weapon)player.getInventory().gearByObject(weapon));
+            boolean offHand = choice.equals(C.WEAPON_TYPE_SHIELD);
+            player.equipWeapon(player.getInventory().gearByObject(weapon), offHand);
+            player.toString();
+            ui.setEvent(humanIntro, 1, "Next");
         }
     };
 

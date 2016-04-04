@@ -146,30 +146,34 @@ public class Entity {
         this.getInventory().remove(a);                                      // ..and removes it from inventory
     }
 
-    public void equipWeapon(Item i) {
+    public void equipWeapon(Item i, boolean offHand) {
         Weapon w = (Weapon) i;
-        switch (w.getGearSlot()) {
+        if (offHand){
+            equipOffWeapon(w);
+        } else {
+            switch (w.getGearSlot()) {
 
-            case C.GEAR_SLOT_MAIN_WEP:
-                if (w.isTwoHanded() && this.offWep.getName() != null) {     // If weapon requires two hands and entity is currently wielding an offhand weapon
-                    this.getInventory().add((this).offWep);
-                    this.offWep = new Weapon();                             // Adds a "clean" weapon
-                }
-                if (this.mainWep.getName() != null) {                       // Save current weapon to inventory
-                    this.getInventory().add((this).mainWep);
-                }
-                this.mainWep = w;                       // Equip new weapon..
-                break;
+                case C.GEAR_SLOT_MAIN_WEP:
+                    if (w.isTwoHanded() && this.offWep.getName() != null) {     // If weapon requires two hands and entity is currently wielding an offhand weapon
+                        this.getInventory().add((this).offWep);
+                        this.offWep = new Weapon();                             // Adds a "clean" weapon
+                    }
+                    if (this.mainWep.getName() != null) {                       // Save current weapon to inventory
+                        this.getInventory().add((this).mainWep);
+                    }
+                    this.mainWep = w;                       // Equip new weapon..
+                    break;
 
-            case C.GEAR_SLOT_BACK_WEP:
-                if (this.backWep.getName() != null) {
-                    this.getInventory().add((this).backWep);
-                }
-                this.backWep = w;                               // Equip new weapon..
-                break;
+                case C.GEAR_SLOT_BACK_WEP:
+                    if (this.backWep.getName() != null) {
+                        this.getInventory().add((this).backWep);
+                    }
+                    this.backWep = w;                               // Equip new weapon..
+                    break;
 
-            default:
-                Log.d(this.eName, "Could not equip weapon");
+                default:
+                    Log.d(this.eName, "Could not equip weapon");
+            }
         }
         Log.d(this.eName, (w).equip());
         this.getInventory().remove(w);                           // ..and remove it from inventory
@@ -185,8 +189,8 @@ public class Entity {
         }
         this.offWep = w;                                // Equip new offhand weapon..
 
-        Log.d(this.eName, (w).equip());
-        this.getInventory().remove(w);                  // ..and remove it from inventory
+        //Log.d(this.eName, (w).equip());
+        //this.getInventory().remove(w);                  // ..and remove it from inventory
     }
 
     public String toJson() {
