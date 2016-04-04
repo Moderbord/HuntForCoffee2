@@ -5,9 +5,9 @@ package moderbord.huntforcoffee2.Model.item;
  */
 public class Weapon extends Gear implements Equipable {
 
-    private String wepType, dmgType;
-    private boolean twoHanded;
-    private int minDmg, maxDmg;
+    protected String wepType, dmgType;
+    protected boolean twoHanded;
+    protected int minDmg, maxDmg;
 
     public Weapon() {
         className = "Weapon";

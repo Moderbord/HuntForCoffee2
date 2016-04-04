@@ -6,6 +6,9 @@ import android.widget.Button;
 import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.EntityBuilder;
+import moderbord.huntforcoffee2.Model.item.Shield;
+import moderbord.huntforcoffee2.Model.item.Weapon;
+import moderbord.huntforcoffee2.Model.item.WeaponBuilder;
 import moderbord.huntforcoffee2.Utils.C;
 import moderbord.huntforcoffee2.Utils.Utils;
 
@@ -43,7 +46,7 @@ public class CharacterCreation extends EventController {
                     " flicked his hand and a bolt had instantaneously darted its way and pierced the chieftains" +
                     " neck.");
             text.submit();
-            ui.setButtonEvent(alignmentChoice, 1, "Next");
+            ui.setEvent(alignmentChoice, 1, "Next");
         }
     };
 
@@ -56,8 +59,8 @@ public class CharacterCreation extends EventController {
             text.append("\n\nThe evil side is dark...");
             text.append("\n\nWhat shall it be?");
             text.submit();
-            ui.setButtonEvent(alignmentDescription, 1, C.ALIGNMENT_GOOD);
-            ui.setButtonEvent(alignmentDescription, 2, C.ALIGNMENT_EVIL);
+            ui.setEvent(alignmentDescription, 1, C.ALIGNMENT_GOOD);
+            ui.setEvent(alignmentDescription, 2, C.ALIGNMENT_EVIL);
         }
     };
 
@@ -71,7 +74,7 @@ public class CharacterCreation extends EventController {
             text.append("So the " + Utils.toLow(choice) + " side it is?");
             text.submit();
             ui.clearActionButtons();
-            ui.setButtonEvent(choice.equals(C.ALIGNMENT_GOOD) ? goodChoice : evilChoice, 1, "Next");
+            ui.setEvent(choice.equals(C.ALIGNMENT_GOOD) ? goodChoice : evilChoice, 1, "Next");
         }
     };
 
@@ -81,9 +84,9 @@ public class CharacterCreation extends EventController {
             text.append("The good side is light and touches these races");
             text.append("\n\nWhich one are you?");
             text.submit();
-            ui.setButtonEvent(goodRace, 1, C.RACE_HUMAN);
-            ui.setButtonEvent(goodRace, 2, C.RACE_ELF);
-            ui.setButtonEvent(goodRace, 3, C.RACE_ORC);
+            ui.setEvent(goodRace, 1, C.RACE_HUMAN);
+            ui.setEvent(goodRace, 2, C.RACE_ELF);
+            ui.setEvent(goodRace, 3, C.RACE_ORC);
         }
     };
 
@@ -124,8 +127,8 @@ public class CharacterCreation extends EventController {
                 ui.setPortrait(C.PORTRAIT_ORC_INTRO);
             }
             text.submit();
-            ui.setButtonEvent(alignmentChoice, 5, "Back");
-            ui.setButtonEvent(goodIntro, 6, "Next");
+            ui.setEvent(alignmentChoice, 5, "Back");
+            ui.setEvent(goodIntro, 6, "Next");
         }
     };
 
@@ -134,7 +137,11 @@ public class CharacterCreation extends EventController {
         public void onClick(View v) {
             ui.clearActionButtons();
             ui.setPortraitDefault();
-
+            text.append("You dream about fire...");
+            text.submit();
+            if (player.geteRace().equals(C.RACE_HUMAN)) {
+                ui.setEvent(humanIntro, 1, "Next");
+            }
         }
     };
 
@@ -144,9 +151,9 @@ public class CharacterCreation extends EventController {
             text.append("The evil side is dark");
             text.append("\n\nWhich one are you?");
             text.submit();
-            ui.setButtonEvent(evilRace, 1, C.RACE_DEMON);
-            ui.setButtonEvent(evilRace, 2, C.RACE_IMP);
-            ui.setButtonEvent(evilRace, 3, C.RACE_KOBOLD);
+            ui.setEvent(evilRace, 1, C.RACE_DEMON);
+            ui.setEvent(evilRace, 2, C.RACE_IMP);
+            ui.setEvent(evilRace, 3, C.RACE_KOBOLD);
         }
     };
 
@@ -180,8 +187,8 @@ public class CharacterCreation extends EventController {
                 ui.setPortrait(C.PORTRAIT_KOBOLD_INTRO);
             }
             text.submit();
-            ui.setButtonEvent(alignmentChoice, 5, "Back");
-            ui.setButtonEvent(evilIntro, 6, "Next");
+            ui.setEvent(alignmentChoice, 5, "Back");
+            ui.setEvent(evilIntro, 6, "Next");
         }
     };
 
@@ -193,4 +200,61 @@ public class CharacterCreation extends EventController {
 
         }
     };
+
+    View.OnClickListener humanIntro = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ui.clearActionButtons();
+            ui.setPortraitDefault();
+            text.append("You watch as your opponent circles you in the training field. The sun is standing high" +
+                    " in the sky, making both of your shadows appear as small disks beneath your feet. The heat" +
+                    " is actively numbing your thinking and your thoughts feel as they're wading through quicksand." +
+                    " \nCorporal " + C.CHAR_FYNN_S + " had of course chosen one of the warmest days for sparring." +
+                    " As usual he was not present, letting his subordinate cover for him. He was probably off in" +
+                    " some of the capital gardens enjoying the scenery whilst keeping cool in some pleasurable shade;" +
+                    " the only way to keep a sane mind a day like this.");
+            text.append("\n\n" + C.CHAR_QARA_F + " was therefore now in charge of training the new recruits. She is a " +
+                    " serious fighter who doesn't accept sorry excuses from anyone. When she sense a weakness she" +
+                    " pokes it until they constructs a defence." +
+                    " \n\nOn the opposite side of the yard there are more recruits sparring in the midst of training" +
+                    " dummies and archery butts. " + C.CHAR_QARA + " observes them attentively on top of the battlements," +
+                    " occasionally shouting remarks or instructive commands at them. Your own opponent has inched his way" +
+                    " closer and aims a heavy blow with his mace at your right shoulder. Reminded by your reflexes" +
+                    " you try to parry the blow with your...");
+            ui.setEvent(humanIntroWepChoice, 1, C.WEAPON_TYPE_GREATSWORD);
+            ui.setEvent(humanIntroWepChoice, 2, C.WEAPON_TYPE_SWORD);
+            ui.setEvent(humanIntroWepChoice, 3, C.WEAPON_TYPE_MACE);
+            ui.setEvent(humanIntroWepChoice, 4, C.WEAPON_TYPE_SHIELD);
+            text.submit();
+        }
+    };
+
+    View.OnClickListener humanIntroWepChoice = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ui.clearActionButtons();
+            String choice = ui.getButtonText(v);
+            Weapon weapon;
+            switch (choice) {
+                case C.WEAPON_TYPE_GREATSWORD:
+                    weapon = new WeaponBuilder().createGreatsword();
+                    break;
+                case C.WEAPON_TYPE_SWORD:
+                    weapon = new WeaponBuilder().createSword();
+                    break;
+                case C.WEAPON_TYPE_MACE:
+                    weapon = new WeaponBuilder().createMace();
+                    break;
+                case C.WEAPON_TYPE_SHIELD:
+                    weapon = new WeaponBuilder().createShield();
+                    break;
+                default:
+                    weapon = new WeaponBuilder().createWeapon();
+                    break;
+            }
+            player.getInventory().add(weapon);
+            player.equipOffWeapon((Weapon)player.getInventory().gearByObject(weapon));
+        }
+    };
+
 }

@@ -44,12 +44,12 @@ public class C {
     // Weapon variables
     public static final String WEAPON_GENERIC           = "GenericWeapon";
     public static final String WEAPON_TYPE_SWORD        = "Sword";
-    public static final String WEAPON_TYPE_GREATSWORD   = "GreatSword";
+    public static final String WEAPON_TYPE_GREATSWORD   = "Greatsword";
     public static final String WEAPON_TYPE_DAGGER       = "Dagger";
     public static final String WEAPON_TYPE_AXE          = "Axe";
-    public static final String WEAPON_TYPE_GREATAXE     = "GreatAxe";
+    public static final String WEAPON_TYPE_GREATAXE     = "Greataxe";
     public static final String WEAPON_TYPE_MACE         = "Mace";
-    public static final String WEAPON_TYPE_WARHAMMER    = "WarHammer";
+    public static final String WEAPON_TYPE_WARHAMMER    = "Warhammer";
     public static final String WEAPON_TYPE_WAND         = "Wand";
     public static final String WEAPON_TYPE_STAFF        = "Staff";
     public static final String WEAPON_TYPE_SHIELD       = "Shield";
@@ -86,7 +86,13 @@ public class C {
 
     // Character
     public static final String CHAR_AIDEN            = "Aiden";
-    public static final String CHAR_AIDEN_FULL       = "Aiden Alderman";
+    public static final String CHAR_AIDEN_S          = "Alderman";
+    public static final String CHAR_AIDEN_F          = "Aiden Alderman";
+    public static final String CHAR_FYNN             = "Fynn";
+    public static final String CHAR_FYNN_S           = "Rivers";
+    public static final String CHAR_FYNN_F           = "Fynn Rivers";
+    public static final String CHAR_QARA             = "Q'ara";
+    public static final String CHAR_QARA_F           = "Q'ara von Lyei";
 
     // Image Portraits
     public static final String PORTRAIT_DEFAULT         = "avatars/default_tmp.png";

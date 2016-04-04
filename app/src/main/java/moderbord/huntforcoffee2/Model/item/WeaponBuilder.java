@@ -85,4 +85,21 @@ public class WeaponBuilder {
     public Weapon createWeapon() {
         return new Weapon(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
     }
+
+    public Greatsword createGreatsword(){
+        return new Greatsword(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
+    }
+
+    public Sword createSword(){
+        return new Sword(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
+    }
+
+    public Mace createMace(){
+        return new Mace(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
+    }
+
+    public Shield createShield(){
+        return new Shield(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
+    }
+
 }

@@ -105,11 +105,17 @@ public class UIController {
      * @param button Which button
      * @param text Which text to display
      */
-    public void setButtonEvent(View.OnClickListener event, int button, String text){
+    public void setEvent(View.OnClickListener event, int button, String text){
         Button btn = actionButtons.get(button - 1); // Corrects index for array
         enableButton(btn);
         btn.setText(text);
         btn.setOnClickListener(event);
+    }
+
+    public String getButtonText(View v){
+        Button button = (Button) v;
+        String string = button.getText().toString();
+        return string;
     }
 
     public void enableActionButtons(){

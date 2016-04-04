@@ -183,7 +183,7 @@ public class Entity {
         if (this.offWep.getName() != null) {                    // Save current weapon to inventory
             this.getInventory().add((this).offWep);
         }
-        this.offWep = w;                        // Equip new offhand weapon..
+        this.offWep = w;                                // Equip new offhand weapon..
 
         Log.d(this.eName, (w).equip());
         this.getInventory().remove(w);                  // ..and remove it from inventory

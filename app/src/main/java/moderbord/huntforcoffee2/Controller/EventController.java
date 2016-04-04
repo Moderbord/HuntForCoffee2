@@ -32,7 +32,7 @@ public class EventController {
         ui.disableAllButtons();
         ui.clearActionButtons();
 
-        ui.setButtonEvent(cc.intro, 1, "New Character");
+        ui.setEvent(cc.intro, 1, "New Character");
         ui.setPortraitDefault();
     }
 

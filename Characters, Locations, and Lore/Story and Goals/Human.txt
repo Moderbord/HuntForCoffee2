@@ -1,0 +1,7 @@
+Heritage?
+
+(Choice) Do you have magic abilities? <Yes> <No>
+
+Yes-- Start in town (not capitol)
+
+No-- Start in Dalarust

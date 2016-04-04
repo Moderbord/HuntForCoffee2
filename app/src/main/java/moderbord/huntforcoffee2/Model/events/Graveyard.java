@@ -33,7 +33,7 @@ public class Graveyard extends EventController {
         public void onClick(View v) {
             ui.setLocation("Graveyard");
 
-            ui.setButtonEvent(graveyard.dig, 1, "Dig");
+            ui.setEvent(graveyard.dig, 1, "Dig");
         }
     };
 
