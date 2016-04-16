@@ -18,26 +18,30 @@ import moderbord.huntforcoffee2.Utils.C;
 public class Entity {
 
     protected String eName, eGender, eClass, eRace, eFaction, eAlignment;
+    protected boolean isAlly;
     protected int eLevel, ePhysique, eIntellect, eAgility, eQuickness, eCharisma, eLuck, eLi,
             eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue, eLu, eMinLu, eExperience, eExpToLvl;
     protected Weapon backWep, mainWep, offWep;
     protected Armour armHead, armShoulders, armChest, armGloves, armLegs, armFeet;
+    protected CombatStats combatStats;
+    protected Skills skills;
     protected Resistance resistance;
     protected Inventory inventory;
 
     public Entity(String eName, String eGender, String eClass, String eRace, String eFaction,
-                  String eAlignment, int eLevel, int ePhysique, int eIntellect, int eAgility, int eQuickness,
+                  String eAlignment, boolean isAlly, int eLevel, int ePhysique, int eIntellect, int eAgility, int eQuickness,
                   int eCharisma, int eLuck, int eLi, int eMaxHealth, int eHealth, int eMaxMana,
                   int eMana, int eMaxFatigue, int eFatigue, int eLu, int eMinLu, int eExperience,
                   int eExpToLvl, Weapon backWep, Weapon mainWep, Weapon offWep, Armour armHead,
                   Armour armShoulders, Armour armChest, Armour armGloves, Armour armLegs, Armour armFeet,
-                  Resistance resistance, Inventory inventory) {
+                  CombatStats combatStats, Skills skills, Resistance resistance, Inventory inventory) {
         this.eName = eName;
         this.eGender = eGender;
         this.eClass = eClass;
         this.eRace = eRace;
         this.eFaction = eFaction;
         this.eAlignment = eAlignment;
+        this.isAlly = isAlly;
         this.eLevel = eLevel;
         this.ePhysique = ePhysique;
         this.eIntellect = eIntellect;
@@ -65,6 +69,8 @@ public class Entity {
         this.armGloves = armGloves;
         this.armLegs = armLegs;
         this.armFeet = armFeet;
+        this.combatStats = combatStats;
+        this.skills = skills;
         this.resistance = resistance;
         this.inventory = inventory;
     }
@@ -244,6 +250,14 @@ public class Entity {
 
     public void seteAlignment(String eAlignment) {
         this.eAlignment = eAlignment;
+    }
+
+    public boolean isAlly() {
+        return isAlly;
+    }
+
+    public void setAlly(boolean ally) {
+        isAlly = ally;
     }
 
     public int geteLevel() {
@@ -460,6 +474,22 @@ public class Entity {
 
     public void setArmFeet(Armour armFeet) {
         this.armFeet = armFeet;
+    }
+
+    public CombatStats getCombatStats() {
+        return combatStats;
+    }
+
+    public void setCombatStats(CombatStats combatStats) {
+        this.combatStats = combatStats;
+    }
+
+    public Skills getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Skills skills) {
+        this.skills = skills;
     }
 
     public Resistance getResistance() {

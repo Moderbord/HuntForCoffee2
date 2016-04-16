@@ -10,6 +10,7 @@ public class EntityBuilder {
     private String eRace = null;
     private String eFaction = null;
     private String eAligment = null;
+    private boolean isAlly = true;
     private int eLevel = 0;
     private int ePhysique = 0;
     private int eIntellect = 0;
@@ -37,6 +38,8 @@ public class EntityBuilder {
     private Armour armGloves = new Armour();
     private Armour armLegs = new Armour();
     private Armour armFeet = new Armour();
+    private CombatStats combatStats = new CombatStats();
+    private Skills skills = new Skills();
     private Resistance resistance = new Resistance();
     private Inventory inventory = new Inventory();
 
@@ -67,6 +70,11 @@ public class EntityBuilder {
 
     public EntityBuilder seteAligment(String eAligment) {
         this.eAligment = eAligment;
+        return this;
+    }
+
+    public EntityBuilder seteAlly(boolean isAlly) {
+        this.isAlly = isAlly;
         return this;
     }
 
@@ -205,6 +213,16 @@ public class EntityBuilder {
         return this;
     }
 
+    public EntityBuilder setCombatStats(CombatStats combatStats) {
+        this.combatStats = combatStats;
+        return this;
+    }
+
+    public EntityBuilder setSkills(Skills skills) {
+        this.skills = skills;
+        return this;
+    }
+
     public EntityBuilder setResistance(Resistance resistance) {
         this.resistance = resistance;
         return this;
@@ -216,23 +234,23 @@ public class EntityBuilder {
     }
 
     public Entity createEntity() {
-        return new Entity(eName, eGender, eClass, eRace, eFaction, eAligment, eLevel, ePhysique, eIntellect, eAgility,
+        return new Entity(eName, eGender, eClass, eRace, eFaction, eAligment, isAlly, eLevel, ePhysique, eIntellect, eAgility,
                 eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue,
                 eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
-                armGloves, armLegs, armFeet, resistance, inventory);
+                armGloves, armLegs, armFeet, combatStats, skills, resistance, inventory);
     }
 
     public Player createEntityPlayer() {
-        return new Player(eName, eGender, eClass, eRace, eFaction, eAligment, eLevel, ePhysique, eIntellect, eAgility,
+        return new Player(eName, eGender, eClass, eRace, eFaction, eAligment, isAlly, eLevel, ePhysique, eIntellect, eAgility,
                 eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue,
                 eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
-                armGloves, armLegs, armFeet, resistance, inventory);
+                armGloves, armLegs, armFeet, combatStats, skills, resistance, inventory);
     }
 
     public Jheero createEntityJheero() {
-        return new Jheero(eName, eGender, eClass, eRace, eFaction, eAligment, eLevel, ePhysique, eIntellect, eAgility,
+        return new Jheero(eName, eGender, eClass, eRace, eFaction, eAligment, isAlly, eLevel, ePhysique, eIntellect, eAgility,
                 eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue,
                 eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
-                armGloves, armLegs, armFeet, resistance, inventory);
+                armGloves, armLegs, armFeet, combatStats, skills, resistance, inventory);
     }
 }
