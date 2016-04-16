@@ -4,6 +4,8 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
+import java.util.Comparator;
+
 import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Model.item.Armour;
 import moderbord.huntforcoffee2.Model.item.Consumable;
@@ -154,7 +156,7 @@ public class Entity {
 
     public void equipWeapon(Item i, boolean offHand) {
         Weapon w = (Weapon) i;
-        if (offHand){
+        if (offHand) {
             equipOffWeapon(w);
         } else {
             switch (w.getGearSlot()) {

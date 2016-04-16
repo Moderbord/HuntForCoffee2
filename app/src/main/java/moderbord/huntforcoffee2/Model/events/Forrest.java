@@ -27,7 +27,7 @@ public class Forrest extends EventController{
 
             ui.mainText.setText("Gyranimouuyyy!!");
 
-            ui.setEvent(goldenRoad.entry, 1, "Golden Road");
+            ui.setEvent(goldenroad.entry, 1, "Golden Road");
         }
     };
 }

@@ -15,10 +15,11 @@ public class EventController {
 
     public static UIController ui = UIController.getInstance();
     public static UIController text = UIController.getInstance();
+    public static CombatController combatcontroller = CombatController.getInstance();
 
     public static Recipes recipes = Recipes.getInstance(); // Move elsewhere?
     public static CharacterCreation cc = CharacterCreation.getInstance();
-    public static GoldenRoad goldenRoad = GoldenRoad.getInstance();
+    public static GoldenRoad goldenroad = GoldenRoad.getInstance();
     public static Graveyard graveyard = Graveyard.getInstance();
     public static Forrest forrest = Forrest.getInstance();
 
@@ -29,6 +30,7 @@ public class EventController {
         ui.clearActionButtons();
         ui.setEvent(cc.intro, 1, "New Character");
         ui.setPortraitDefault();
+        combatcontroller.prepareCombat();
     }
 
 }
