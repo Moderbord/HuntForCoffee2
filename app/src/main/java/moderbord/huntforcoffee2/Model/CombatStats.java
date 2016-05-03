@@ -6,12 +6,13 @@ package moderbord.huntforcoffee2.Model;
 
 public class CombatStats {
 
-    private boolean isActive, isDown;
+    private boolean isActive, isDown, isDefeated;
     private int initiative, initBase, initGain;
 
     public CombatStats() {
         this.isActive = true;
         this.isDown = false;
+        this.isDefeated = false;
         this.initiative = 0;
         this.initBase = 0;
         this.initGain = 0;
@@ -31,6 +32,14 @@ public class CombatStats {
 
     public void setIsDown(boolean isDown) {
         this.isDown = isDown;
+    }
+
+    public boolean isDefeated() {
+        return isDefeated;
+    }
+
+    public void setIsDefeated(boolean isDefeated) {
+        this.isDefeated = isDefeated;
     }
 
     public int getInitiative() {
