@@ -52,59 +52,43 @@ public class CombatController extends EventController {
             updateBaseInitiative(e);
         }
 
-        displayCombat();
+        sortEntityList();
+        combatStatus();
     }
 
-    public void displayCombat() {
-        /*round++; // Round counter
+    public void combatStatus() {
 
         if (round == 2){ // Initiative gain test (buff)
             entityList.get(4).seteAgility(100);
             entityList.get(4).seteQuickness(100);
             updateBaseInitiative(entityList.get(4));
-        }*/
-        sortEntityList();
-        Log.d(TAG, "displayCombat: Combat is active");
+        }
 
+        if (entityList.get(0).getCombatStats().getInitiative() == 0) {
+            sortEntityList();
+            round++;
+        } else {
+            updateEntityList();
+        }
+        Log.d(TAG, "combatStatus: Combat is active");
 
         for (Entity e : entityList){
             String name = e.geteName();
             int health = e.geteHealth();
-            text.append(name + " " + health + "\n");
+            int init = e.getCombatStats().getInitiative();
+            text.append(name + "  Health: " + health + "  Init: " + init + "\n\n");
         }
         text.submit();
         ui.setEvent(nextTargetAction, 1, "Next");
-
-    }
-
-    private void testest(){
-        /*for (Entity e : entityList) {
-            Log.d(TAG, "displayCombat: entity " + e.geteName());
-            ecs = e.getCombatStats();
-            if (ecs.isActive()) {
-                //TODO isEnemy & Action
-                Log.d(TAG, "displayCombat: Action");
-                if (e.isAlly()){
-                    //TODO controlled Action
-                    attacker = e;
-                    showActionControls(e);
-                } else {
-                    //TODO randomized enemy Action
-                    attacker = e;
-                }
-                ecs.setInitiative(ecs.getInitBase());
-            }
-            //TODO effect each round goes here
-            Log.d(TAG, "displayCombat: Effect");
-        }
-        //TODO victory/lose condition goes here
-        Log.d(TAG, "displayCombat: win/lose check");*/
     }
 
     private View.OnClickListener nextTargetAction = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            ui.clearActionButtons();
             attacker = entityList.get(0);
+            ui.setDescriptionText(attacker.geteName());
+            ecs = attacker.getCombatStats();
             if (attacker.isAlly()){
                 ui.setEvent(entityNormalAttack, 1, "Attack");
                 ui.setEvent(entitySkills, 2, "Skills");
@@ -115,6 +99,8 @@ public class CombatController extends EventController {
                 String attack = attacker.geteName();
                 text.append(attack + " attacks!");
                 text.submit();
+                ecs.setInitiative(0);
+                ui.setEvent(combatCheck, 1, "Next");
             }
         }
     };
@@ -134,7 +120,10 @@ public class CombatController extends EventController {
                 calculateInitiative(e);
             }
         }
+        updateEntityList();
+    }
 
+    private void updateEntityList(){
         Collections.sort(entityList, new Comparator<Entity>() {
             @Override
             public int compare(Entity lhs, Entity rhs) {
@@ -143,7 +132,6 @@ public class CombatController extends EventController {
                 return x;
             }
         });
-
     }
 
     // Updates base initiative
@@ -207,6 +195,11 @@ public class CombatController extends EventController {
         @Override
         public void onClick(View v) {
             //TODO normal attack, display each foe
+
+
+            ui.clearActionButtons();
+            ui.setEvent(actionResult, 1, "Target");
+            ui.setEvent(nextTargetAction, 5, "Back");
         }
     };
 
@@ -214,6 +207,9 @@ public class CombatController extends EventController {
         @Override
         public void onClick(View v) {
             //TODO show entity skills
+            ui.clearActionButtons();
+            ui.setEvent(actionResult, 1, "Target");
+            ui.setEvent(nextTargetAction, 5, "Back");
         }
     };
 
@@ -221,6 +217,9 @@ public class CombatController extends EventController {
         @Override
         public void onClick(View v) {
             //TODO show entity spells
+            ui.clearActionButtons();
+            ui.setEvent(actionResult, 1, "Target");
+            ui.setEvent(nextTargetAction, 5, "Back");
         }
     };
 
@@ -235,6 +234,12 @@ public class CombatController extends EventController {
         @Override
         public void onClick(View v) {
             //TODO display attack result
+            text.append(attacker.geteName() + " attacks!");
+            text.submit();
+            ecs.setInitiative(0);
+
+            ui.clearActionButtons();
+            ui.setEvent(combatCheck, 1, "Next");
         }
     };
 
@@ -249,6 +254,14 @@ public class CombatController extends EventController {
         @Override
         public void onClick(View v) {
             //TODO yield to enemy
+        }
+    };
+
+    View.OnClickListener combatCheck = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            //TODO win/lose checks here i think
+            combatStatus();
         }
     };
 

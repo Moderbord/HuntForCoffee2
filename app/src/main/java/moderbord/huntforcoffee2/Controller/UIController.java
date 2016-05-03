@@ -162,6 +162,10 @@ public class UIController {
         locationView.setText("Location: " + location);
     }
 
+    public void setDescriptionText(String text){
+        descriptionText.setText(text);
+    }
+
     public void setPortrait(String resource){
         Drawable d = getDrawableAssets(resource);
         portrait.setImageDrawable(d);
