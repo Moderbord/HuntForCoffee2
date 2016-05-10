@@ -64,13 +64,12 @@ public class CombatController extends EventController {
             updateBaseInitiative(entityList.get(4));
         }
 
-        if (entityList.get(0).getCombatStats().getInitiative() == 0) {
+        if (entityList.get(0).getCombatStats().getInitiative() != 0) {
+            updateEntityList();
+        } else {
             sortEntityList();
             round++;
-        } else {
-            updateEntityList();
         }
-        Log.d(TAG, "combatStatus: Combat is active");
 
         for (Entity e : entityList){
             String name = e.geteName();
@@ -127,7 +126,6 @@ public class CombatController extends EventController {
         Collections.sort(entityList, new Comparator<Entity>() {
             @Override
             public int compare(Entity lhs, Entity rhs) {
-                Log.d(TAG, "compare: comparing entities");
                 int x = lhs.getCombatStats().getInitiative() > rhs.getCombatStats().getInitiative() ? -1 : 1;
                 return x;
             }
@@ -156,7 +154,6 @@ public class CombatController extends EventController {
         ecs = e.getCombatStats();
         ecs.setInitGain(agi / 6 + quick / 3);
         //TODO combat effect here?
-        Log.d(TAG, "calculateInitiative: Calculating initiative");
         ecs.setInitiative(ecs.getInitiative() + ecs.getInitGain());
     }
 
@@ -195,8 +192,6 @@ public class CombatController extends EventController {
         @Override
         public void onClick(View v) {
             //TODO normal attack, display each foe
-
-
             ui.clearActionButtons();
             ui.setEvent(actionResult, 1, "Target");
             ui.setEvent(nextTargetAction, 5, "Back");
@@ -208,7 +203,9 @@ public class CombatController extends EventController {
         public void onClick(View v) {
             //TODO show entity skills
             ui.clearActionButtons();
-            ui.setEvent(actionResult, 1, "Target");
+            ui.setEvent(entityTarget, 1, "Bash");
+            ui.setEvent(entityTarget, 2, "Trip");
+            ui.setEvent(entityTarget, 3, "2x Attack");
             ui.setEvent(nextTargetAction, 5, "Back");
         }
     };
@@ -227,6 +224,13 @@ public class CombatController extends EventController {
         @Override
         public void onClick(View v) {
             //TODO select target
+            int x = 1;
+            String name;
+            for (Entity e : entityList){
+                name = e.geteName();
+                ui.setEvent(actionResult, x, name);
+                x++;
+            }
         }
     };
 
