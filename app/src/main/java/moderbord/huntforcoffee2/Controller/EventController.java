@@ -16,6 +16,7 @@ public class EventController {
     public static UIController ui = UIController.getInstance();
     public static UIController text = UIController.getInstance();
     public static CombatController combatcontroller = CombatController.getInstance();
+    public static CombatControllerTest combatControllerTest = CombatControllerTest.getInstance();
 
     public static Recipes recipes = Recipes.getInstance(); // Move elsewhere?
     public static CharacterCreation cc = CharacterCreation.getInstance();
@@ -30,7 +31,7 @@ public class EventController {
         ui.clearActionButtons();
         ui.setEvent(cc.intro, 1, "New Character");
         ui.setPortraitDefault();
-        combatcontroller.prepareCombat();
+        combatControllerTest.prepareCombat();
     }
 
 }
