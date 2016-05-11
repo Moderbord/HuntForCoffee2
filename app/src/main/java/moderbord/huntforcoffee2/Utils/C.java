@@ -84,7 +84,7 @@ public class C {
     // Cities
     public static final String CITIES_DALARUST   = "Dalarust";
 
-    // Character
+    // Characters
     public static final String CHAR_AIDEN            = "Aiden";
     public static final String CHAR_AIDEN_S          = "Alderman";
     public static final String CHAR_AIDEN_F          = "Aiden Alderman";
@@ -102,4 +102,12 @@ public class C {
     public static final String PORTRAIT_DEMON_INTRO     = "avatars/demon_intro_tmp.png";
     public static final String PORTRAIT_IMP_INTRO       = "avatars/imp_intro_tmp.png";
     public static final String PORTRAIT_KOBOLD_INTRO    = "avatars/kobold_intro_tmp.png";
+
+
+    // Combat
+    public static final int ATTACK_TYPE_ENEMY     = 1;
+    public static final int ATTACK_TYPE_ALLIED    = 2;
+    public static final int ATTACK_TYPE_ALL       = 3;
+
+
 }
