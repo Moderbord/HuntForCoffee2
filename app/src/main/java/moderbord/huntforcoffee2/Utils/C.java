@@ -7,6 +7,7 @@ package moderbord.huntforcoffee2.Utils;
 public class C {
 
     // TODO add every constant to statics here
+    // TODO refactor some strings into integers?
 
     // Name of Items
     public static final String ITEM_BURGER          = "Burger";
@@ -105,9 +106,10 @@ public class C {
 
 
     // Combat
-    public static final int ATTACK_TYPE_ENEMY     = 1;
-    public static final int ATTACK_TYPE_ALLIED    = 2;
-    public static final int ATTACK_TYPE_ALL       = 3;
+    public static final int ATTACK_FORM_ENEMY     = 1;
+    public static final int ATTACK_FORM_ALLIED    = 2;
+    public static final int ATTACK_FORM_ALL       = 3;
+    public static final int ATTACK_FORM_SELF       = 4;
 
 
 }

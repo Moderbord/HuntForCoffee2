@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import moderbord.huntforcoffee2.Model.CombatStats;
 import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.EntityBuilder;
+import moderbord.huntforcoffee2.Model.Skills;
 import moderbord.huntforcoffee2.Utils.C;
 
 /**
@@ -32,7 +33,7 @@ public class CombatControllerTest extends EventController {
     private CombatStats ecs;
 
     public int round = 0, tmp = 0;
-    private int attackType;
+    public int attackForm;
 
     private Entity first = new EntityBuilder().seteName("Philip").seteHealth(35).seteAgility(25).seteQuickness(36).createEntity();
     private Entity second = new EntityBuilder().seteName("Lögdal").seteHealth(46).seteAgility(70).seteQuickness(45).createEntity();
@@ -79,20 +80,20 @@ public class CombatControllerTest extends EventController {
         boolean allied = attacker.isAlly();
         for (Entity e : entityList) {
 
-            switch (attackType) {
-                case C.ATTACK_TYPE_ENEMY:
+            switch (attackForm) {
+                case C.ATTACK_FORM_ENEMY:
                     if (!e.isAlly() == allied) {
                         ui.setEvent(new TargetListener(e), x, e.geteName());
                         x++;
                     }
                     break;
-                case C.ATTACK_TYPE_ALLIED:
+                case C.ATTACK_FORM_ALLIED:
                     if (e.isAlly() == allied) {
                         ui.setEvent(new TargetListener(e), x, e.geteName());
                         x++;
                     }
                     break;
-                case C.ATTACK_TYPE_ALL:
+                case C.ATTACK_FORM_ALL:
                     ui.setEvent(new TargetListener(e), x, e.geteName());
                     x++;
                     break;
@@ -131,7 +132,23 @@ public class CombatControllerTest extends EventController {
 
         @Override
         public void onClick(View v) {
-            attackType = 1;
+            attackForm = 1;
+            targetSelection();
+        }
+    }
+
+    private class SkillListener implements View.OnClickListener {
+
+        private Skills skills;
+
+        public SkillListener(Skills skills){
+            this.skills = skills;
+        }
+
+        @Override
+        public void onClick(View v) {
+            int atkForm = skills.getAttackForm();
+            attackForm = atkForm;
             targetSelection();
         }
     }
