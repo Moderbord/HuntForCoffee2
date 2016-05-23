@@ -1,6 +1,7 @@
 package moderbord.huntforcoffee2.Controller;
 
 import android.graphics.drawable.Drawable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -198,6 +199,63 @@ public class UIController {
 
     public void updateTime(){
         // TODO need to implement time mechanic
+    }
+
+    public boolean keyListener(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_1:
+                if (button1.isEnabled()){
+                    button1.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_2:
+                if (button2.isEnabled()){
+                    button2.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_3:
+                if (button3.isEnabled()){
+                    button3.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_4:
+                if (button4.isEnabled()){
+                    button4.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_5:
+                if (button5.isEnabled()){
+                    button5.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_Q:
+                if (button6.isEnabled()){
+                    button6.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_W:
+                if (button7.isEnabled()){
+                    button7.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_E:
+                if (button8.isEnabled()){
+                    button8.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_R:
+                if (button9.isEnabled()){
+                    button9.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_T:
+                if (button10.isEnabled()){
+                    button10.performClick();
+                }
+                return true;
+            default:
+                return false;
+        }
     }
 
 }

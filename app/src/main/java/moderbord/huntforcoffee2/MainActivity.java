@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -16,7 +17,7 @@ import moderbord.huntforcoffee2.Controller.UIController;
  * Created by Moderbord on 2015-12-17.
  */
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements KeyEvent.Callback {
 
     public static Context context;
     private final String FLOW = "flow";
@@ -64,4 +65,11 @@ public class MainActivity extends Activity {
         outState.putBoolean("restore", restoreSession);
         Log.d("FLOW", "onSaveInstanceState");
     }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        EventController.ui.keyListener(keyCode, event);
+        return false;
+    }
+
 }

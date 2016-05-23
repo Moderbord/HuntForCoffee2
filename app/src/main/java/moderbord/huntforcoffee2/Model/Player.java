@@ -15,11 +15,11 @@ public class Player extends Entity {
                   int eMana, int eMaxFatigue, int eFatigue, int eLu, int eMinLu, int eExperience,
                   int eExpToLvl, Weapon backWep, Weapon mainWep, Weapon offWep, Armour armHead,
                   Armour armShoulders, Armour armChest, Armour armGloves, Armour armLegs, Armour armFeet,
-                  CombatStats combatStats, Skills skills, Resistance resistance, Inventory inventory) {
+                  CombatStats combatStats, Skillset skillset, Resistance resistance, Inventory inventory) {
         super(eName, eGender, eClass, eRace, eFaction, eAlignment, isAlly, eLevel, ePhysique, eIntellect, eAgility, eQuickness,
                 eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue, eLu,
                 eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
-                armGloves, armLegs, armFeet, combatStats, skills, resistance, inventory);
+                armGloves, armLegs, armFeet, combatStats, skillset, resistance, inventory);
     }
 
 }

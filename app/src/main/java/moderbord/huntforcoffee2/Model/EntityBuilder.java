@@ -39,7 +39,7 @@ public class EntityBuilder {
     private Armour armLegs = new Armour();
     private Armour armFeet = new Armour();
     private CombatStats combatStats = new CombatStats();
-    private Skills skills = new Skills();
+    private Skillset skillset = new Skillset();
     private Resistance resistance = new Resistance();
     private Inventory inventory = new Inventory();
 
@@ -218,8 +218,8 @@ public class EntityBuilder {
         return this;
     }
 
-    public EntityBuilder setSkills(Skills skills) {
-        this.skills = skills;
+    public EntityBuilder setSkillset(Skillset skillset) {
+        this.skillset = skillset;
         return this;
     }
 
@@ -237,20 +237,20 @@ public class EntityBuilder {
         return new Entity(eName, eGender, eClass, eRace, eFaction, eAligment, isAlly, eLevel, ePhysique, eIntellect, eAgility,
                 eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue,
                 eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
-                armGloves, armLegs, armFeet, combatStats, skills, resistance, inventory);
+                armGloves, armLegs, armFeet, combatStats, skillset, resistance, inventory);
     }
 
     public Player createEntityPlayer() {
         return new Player(eName, eGender, eClass, eRace, eFaction, eAligment, isAlly, eLevel, ePhysique, eIntellect, eAgility,
                 eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue,
                 eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
-                armGloves, armLegs, armFeet, combatStats, skills, resistance, inventory);
+                armGloves, armLegs, armFeet, combatStats, skillset, resistance, inventory);
     }
 
     public Jheero createEntityJheero() {
         return new Jheero(eName, eGender, eClass, eRace, eFaction, eAligment, isAlly, eLevel, ePhysique, eIntellect, eAgility,
                 eQuickness, eCharisma, eLuck, eLi, eMaxHealth, eHealth, eMaxMana, eMana, eMaxFatigue, eFatigue,
                 eLu, eMinLu, eExperience, eExpToLvl, backWep, mainWep, offWep, armHead, armShoulders, armChest,
-                armGloves, armLegs, armFeet, combatStats, skills, resistance, inventory);
+                armGloves, armLegs, armFeet, combatStats, skillset, resistance, inventory);
     }
 }

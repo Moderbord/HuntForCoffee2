@@ -3,6 +3,7 @@ package moderbord.huntforcoffee2.Model.item;
 import moderbord.huntforcoffee2.Utils.C;
 
 public class WeaponBuilder {
+
     private int quantity = 1;
     private String className = "Weapon";
     private String name = C.WEAPON_GENERIC;
@@ -86,19 +87,19 @@ public class WeaponBuilder {
         return new Weapon(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
     }
 
-    public Greatsword createGreatsword(){
+    public Greatsword createGreatsword() {
         return new Greatsword(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
     }
 
-    public Sword createSword(){
+    public Sword createSword() {
         return new Sword(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
     }
 
-    public Mace createMace(){
+    public Mace createMace() {
         return new Mace(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
     }
 
-    public Shield createShield(){
+    public Shield createShield() {
         return new Shield(quantity, className, name, description, gearLvl, gearExp, gearExpToLvl, gearSlot, wepType, dmgType, twoHanded, minDmg, maxDmg);
     }
 

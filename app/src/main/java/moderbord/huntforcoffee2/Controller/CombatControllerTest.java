@@ -7,7 +7,12 @@ import java.util.ArrayList;
 import moderbord.huntforcoffee2.Model.CombatStats;
 import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.EntityBuilder;
-import moderbord.huntforcoffee2.Model.Skills;
+import moderbord.huntforcoffee2.Model.Skill;
+import moderbord.huntforcoffee2.Model.Skillset;
+import moderbord.huntforcoffee2.Model.skills.Fireball;
+import moderbord.huntforcoffee2.Model.skills.Rejuvenate;
+import moderbord.huntforcoffee2.Model.skills.Sense;
+import moderbord.huntforcoffee2.Model.skills.Stasis;
 import moderbord.huntforcoffee2.Utils.C;
 
 /**
@@ -33,7 +38,7 @@ public class CombatControllerTest extends EventController {
     private CombatStats ecs;
 
     public int round = 0, tmp = 0;
-    public int attackForm;
+    public int targetForm;
 
     private Entity first = new EntityBuilder().seteName("Philip").seteHealth(35).seteAgility(25).seteQuickness(36).createEntity();
     private Entity second = new EntityBuilder().seteName("Lögdal").seteHealth(46).seteAgility(70).seteQuickness(45).createEntity();
@@ -47,6 +52,11 @@ public class CombatControllerTest extends EventController {
         entityList.add(third);
         entityList.add(fourth);
         entityList.add(fifth);
+        fifth.getSkillset().add(Fireball.getInstance());
+        fifth.getSkillset().add(Stasis.getInstance());
+        second.getSkillset().add(Stasis.getInstance());
+        first.getSkillset().add(Rejuvenate.getInstance());
+        third.getSkillset().add(Sense.getInstance());
 
         ui.setEvent(nextEntity, 1, "Begin");
     }
@@ -71,32 +81,40 @@ public class CombatControllerTest extends EventController {
 
             ui.setDescriptionText(attacker.geteName());
             ui.setEvent(new AttackListener(), 1, "Attack");
+            ui.setEvent(skillSelection, 2, "Skills");
+            if (attacker.getSkillset().size() == 0) {
+                ui.disableButton(ui.button2);
+            }
         }
     };
 
     public void targetSelection() {
         ui.clearActionButtons();
-        int x = 1;
+        int x = 1; // Makes the targets appear from correct button (nmr 1)
         boolean allied = attacker.isAlly();
         for (Entity e : entityList) {
 
-            switch (attackForm) {
-                case C.ATTACK_FORM_ENEMY:
+            switch (targetForm) {
+                case C.TARGET_FORM_ENEMY:
                     if (!e.isAlly() == allied) {
                         ui.setEvent(new TargetListener(e), x, e.geteName());
                         x++;
                     }
                     break;
-                case C.ATTACK_FORM_ALLIED:
+                case C.TARGET_FORM_ALLIED:
                     if (e.isAlly() == allied) {
                         ui.setEvent(new TargetListener(e), x, e.geteName());
                         x++;
                     }
                     break;
-                case C.ATTACK_FORM_ALL:
+                case C.TARGET_FORM_ALL:
                     ui.setEvent(new TargetListener(e), x, e.geteName());
                     x++;
                     break;
+                /*case C.TARGET_FORM_SELF:
+                    target = attacker; // TODO self targeting. Same as TargetListener?? (simple)
+                    result();
+                    break;*/
                 default:
                     break;
             }
@@ -132,23 +150,38 @@ public class CombatControllerTest extends EventController {
 
         @Override
         public void onClick(View v) {
-            attackForm = 1;
+            targetForm = C.TARGET_FORM_ENEMY;
             targetSelection();
         }
     }
 
+    private View.OnClickListener skillSelection = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            ui.clearActionButtons();
+            Skillset skillset = attacker.getSkillset();
+            int x = 1;
+            for (Skill s: skillset){
+                ui.setEvent(new SkillListener(s), x, s.getSkillName());
+                x++;
+            }
+            ui.setEvent(nextEntity, 10, "Back");
+        }
+    };
+
     private class SkillListener implements View.OnClickListener {
 
-        private Skills skills;
+        private Skill skill;
 
-        public SkillListener(Skills skills){
-            this.skills = skills;
+        public SkillListener(Skill skill) {
+            this.skill = skill;
         }
 
         @Override
         public void onClick(View v) {
-            int atkForm = skills.getAttackForm();
-            attackForm = atkForm;
+            int tForm = skill.getTargetForm();
+            targetForm = tForm;
             targetSelection();
         }
     }

@@ -4,8 +4,6 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import java.util.Comparator;
-
 import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Model.item.Armour;
 import moderbord.huntforcoffee2.Model.item.Consumable;
@@ -26,7 +24,7 @@ public class Entity {
     protected Weapon backWep, mainWep, offWep;
     protected Armour armHead, armShoulders, armChest, armGloves, armLegs, armFeet;
     protected CombatStats combatStats;
-    protected Skills skills;
+    protected Skillset skillset;
     protected Resistance resistance;
     protected Inventory inventory;
 
@@ -36,7 +34,7 @@ public class Entity {
                   int eMana, int eMaxFatigue, int eFatigue, int eLu, int eMinLu, int eExperience,
                   int eExpToLvl, Weapon backWep, Weapon mainWep, Weapon offWep, Armour armHead,
                   Armour armShoulders, Armour armChest, Armour armGloves, Armour armLegs, Armour armFeet,
-                  CombatStats combatStats, Skills skills, Resistance resistance, Inventory inventory) {
+                  CombatStats combatStats, Skillset skillset, Resistance resistance, Inventory inventory) {
         this.eName = eName;
         this.eGender = eGender;
         this.eClass = eClass;
@@ -72,7 +70,7 @@ public class Entity {
         this.armLegs = armLegs;
         this.armFeet = armFeet;
         this.combatStats = combatStats;
-        this.skills = skills;
+        this.skillset = skillset;
         this.resistance = resistance;
         this.inventory = inventory;
     }
@@ -486,12 +484,12 @@ public class Entity {
         this.combatStats = combatStats;
     }
 
-    public Skills getSkills() {
-        return skills;
+    public Skillset getSkillset() {
+        return skillset;
     }
 
-    public void setSkills(Skills skills) {
-        this.skills = skills;
+    public void setSkillset(Skillset skillset) {
+        this.skillset = skillset;
     }
 
     public Resistance getResistance() {

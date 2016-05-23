@@ -1,18 +1,16 @@
 package moderbord.huntforcoffee2.Model;
 
 /**
- * Created by Oscilla on 2016-04-16.
+ * Created by Moderbord on 2016-05-12.
  */
-public class Skills {
+public class Skill {
 
-    //TODO this class
+    protected String skillName;
+    protected int targetForm, skillType, skillDuration;
 
-    private String skillName;
-    private int attackForm, skillType, skillDuration;
-
-    public Skills(String skillName, int attackForm, int skillType, int skillDuration) {
+    public Skill(String skillName, int targetForm, int skillType, int skillDuration) {
         this.skillName = skillName;
-        this.attackForm = attackForm;
+        this.targetForm = targetForm;
         this.skillType = skillType;
         this.skillDuration = skillDuration;
     }
@@ -25,12 +23,12 @@ public class Skills {
         this.skillName = skillName;
     }
 
-    public int getAttackForm(){
-        return attackForm;
+    public int getTargetForm() {
+        return targetForm;
     }
 
-    public void setAttackForm(int attackForm) {
-        this.attackForm = attackForm;
+    public void setTargetForm(int targetForm) {
+        this.targetForm = targetForm;
     }
 
     public int getSkillType() {

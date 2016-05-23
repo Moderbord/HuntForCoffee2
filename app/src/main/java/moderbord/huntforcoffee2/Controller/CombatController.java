@@ -90,7 +90,7 @@ public class CombatController extends EventController {
             ecs = attacker.getCombatStats();
             if (attacker.isAlly()){
                 ui.setEvent(entityNormalAttack, 1, "Attack");
-                ui.setEvent(entitySkills, 2, "Skills");
+                ui.setEvent(entitySkills, 2, "Skillset");
                 ui.setEvent(entitySpells, 3, "Spells");
                 ui.setEvent(actionYield, 8, "Yield");
                 ui.setEvent(actionRun, 9, "Run");
@@ -201,7 +201,7 @@ public class CombatController extends EventController {
     View.OnClickListener entitySkills = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //TODO show entity skills
+            //TODO show entity skillset
             ui.clearActionButtons();
             ui.setEvent(entityTarget, 1, "Bash");
             ui.setEvent(entityTarget, 2, "Trip");

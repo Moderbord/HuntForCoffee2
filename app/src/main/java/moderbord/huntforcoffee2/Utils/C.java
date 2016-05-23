@@ -106,10 +106,17 @@ public class C {
 
 
     // Combat
-    public static final int ATTACK_FORM_ENEMY     = 1;
-    public static final int ATTACK_FORM_ALLIED    = 2;
-    public static final int ATTACK_FORM_ALL       = 3;
-    public static final int ATTACK_FORM_SELF       = 4;
+    public static final int TARGET_FORM_ENEMY    = 1;
+    public static final int TARGET_FORM_ALLIED   = 2;
+    public static final int TARGET_FORM_ALL      = 3;
+    public static final int TARGET_FORM_SELF     = 4;
+
+    // Skillset
+    public static final int SKILL_TYPE_DMG      = 1;
+    public static final int SKILL_TYPE_DOT      = 2;
+    public static final int SKILL_TYPE_BUFF     = 3;
+    public static final int SKILL_TYPE_HEAL     = 4;
+    public static final int SKILL_TYPE_CC       = 5;
 
 
 }
