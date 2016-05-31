@@ -1,5 +1,6 @@
 package moderbord.huntforcoffee2.Model.skills;
 
+import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.Skill;
 import moderbord.huntforcoffee2.Utils.C;
 
@@ -25,4 +26,8 @@ public class Fireball extends Skill {
         super(skillName, attackForm, skillType, skillDuration);
     }
 
+    @Override
+    public String getSkillEffect(Entity caster, Entity target) {
+        return super.getSkillEffect(caster, target);
+    }
 }

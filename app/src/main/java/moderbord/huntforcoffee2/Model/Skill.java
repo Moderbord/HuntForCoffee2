@@ -3,7 +3,7 @@ package moderbord.huntforcoffee2.Model;
 /**
  * Created by Moderbord on 2016-05-12.
  */
-public class Skill {
+public class Skill extends SkillEffect {
 
     protected String skillName;
     protected int targetForm, skillType, skillDuration;
@@ -47,4 +47,8 @@ public class Skill {
         this.skillDuration = skillDuration;
     }
 
+    @Override
+    public String getSkillEffect(Entity caster, Entity target) {
+        return null;
+    }
 }
