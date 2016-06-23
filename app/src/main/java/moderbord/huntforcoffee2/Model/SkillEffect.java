@@ -5,6 +5,6 @@ package moderbord.huntforcoffee2.Model;
  */
 public abstract class SkillEffect {
 
-    public abstract String getSkillEffect(Entity caster, Entity target);
+    public abstract void getSkillEffect(Entity caster, Entity target);
 
 }

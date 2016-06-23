@@ -99,7 +99,7 @@ public class Entity {
     }
 
     public void equipArmour(Item i) {
-        Armour a = (Armour) i;
+        Armour a = (Armour) this.inventory.gearByObject(i);
         switch (a.getGearSlot()) {
 
             case C.GEAR_SLOT_HEAD:
@@ -152,8 +152,13 @@ public class Entity {
         this.getInventory().remove(a);                                      // ..and removes it from inventory
     }
 
+    /**
+     * Equips a weapon to the entity in question
+     * @param i The item (weapon) that is to be equipped
+     * @param offHand Set to true if the item is to be equipped in off-hand slot
+     */
     public void equipWeapon(Item i, boolean offHand) {
-        Weapon w = (Weapon) i;
+        Weapon w = (Weapon) this.inventory.gearByObject(i);
         if (offHand) {
             equipOffWeapon(w);
         } else {
@@ -185,7 +190,7 @@ public class Entity {
         this.getInventory().remove(w);                           // ..and remove it from inventory
     }
 
-    public void equipOffWeapon(Weapon w) {
+    private void equipOffWeapon(Weapon w) {
         if (this.mainWep.isTwoHanded()) {                       // If previous weapon required two hands it is removed
             this.getInventory().add((this).mainWep);
             this.mainWep = new Weapon();
@@ -197,6 +202,55 @@ public class Entity {
 
         //Log.d(this.eName, (w).equip());
         //this.getInventory().remove(w);                  // ..and remove it from inventory
+    }
+
+    public boolean isDualWielding(){
+        boolean dualWielding = (mainWep != null && offWep != null);
+        return dualWielding;
+    }
+
+    public void receiveItem(Item i){
+        inventory.add(i);
+    }
+
+    public void corrHealth(){
+        if (eHealth > eMaxHealth){
+            eHealth = eMaxHealth;
+        }
+    }
+
+    public void corrMana(){
+        if (eMana > eMaxMana){
+            eMana = eMaxMana;
+        }
+    }
+
+    public void corrFatique(){
+        if (eFatigue > eMaxFatigue){
+            eFatigue = eMaxFatigue;
+        }
+    }
+
+    public void damaged (int dmg){
+        eHealth -= dmg;
+        if (eHealth < 0){
+            eHealth = 0;
+        }
+    }
+
+    public void healed (int heal){
+        eHealth += heal;
+        corrHealth();
+    }
+
+    public String heShe(){
+        String heshe = eGender.equals(C.GENDER_FEMALE) ? "she" : "he";
+        return heshe;
+    }
+
+    public String hisHer(){
+        String hisHer = eGender.equals(C.GENDER_FEMALE) ? "her" : "his";
+        return hisHer;
     }
 
     public String toJson() {

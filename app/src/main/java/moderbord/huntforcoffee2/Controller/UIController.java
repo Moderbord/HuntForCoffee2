@@ -113,6 +113,17 @@ public class UIController {
         btn.setOnClickListener(event);
     }
 
+    public void setEvent(View.OnClickListener event, int button, String text, boolean disabled){
+        Button btn = actionButtons.get(button - 1); // Corrects index for array
+        if (disabled) {
+            disableButton(btn);
+        } else {
+            enableButton(btn);
+        }
+        btn.setText(text);
+        btn.setOnClickListener(event);
+    }
+
     public String getButtonText(View v){
         Button button = (Button) v;
         String string = button.getText().toString();
@@ -143,6 +154,12 @@ public class UIController {
     }
 
     public void disableButton (Button button){
+        button.setAlpha(.5f);
+        button.setEnabled(false);
+    }
+
+    public void disableButton (int index){
+        Button button = actionButtons.get(index - 1);
         button.setAlpha(.5f);
         button.setEnabled(false);
     }

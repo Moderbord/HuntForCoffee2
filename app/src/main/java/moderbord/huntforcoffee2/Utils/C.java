@@ -74,6 +74,10 @@ public class C {
     public static final String ALIGNMENT_GOOD = "Good";
     public static final String ALIGNMENT_EVIL = "Evil";
 
+    // Gender
+    public static final String GENDER_FEMALE  = "female";
+    public static final String GENDER_MALE    = "male";
+
     // Races
     public static final String RACE_HUMAN     = "Human";
     public static final String RACE_ELF       = "Elf";
@@ -110,6 +114,8 @@ public class C {
     public static final int TARGET_FORM_ALLIED   = 2;
     public static final int TARGET_FORM_ALL      = 3;
     public static final int TARGET_FORM_SELF     = 4;
+    public static final int TARGET_FORM_MULTI    = 5;
+    public static final int TARGET_FORM_DEFEATED = 6;
 
     // Skillset
     public static final int SKILL_TYPE_DMG      = 1;

@@ -39,6 +39,11 @@ public class Weapon extends Gear implements Equipable {
                 this.description;
     }
 
+    public boolean isWeapon(){
+        boolean isWeapon = (name != null && maxDmg != 0);
+        return isWeapon;
+    }
+
     public String getWepType() {
         return wepType;
     }

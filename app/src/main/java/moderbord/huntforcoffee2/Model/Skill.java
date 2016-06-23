@@ -48,7 +48,7 @@ public class Skill extends SkillEffect {
     }
 
     @Override
-    public String getSkillEffect(Entity caster, Entity target) {
-        return null;
+    public void getSkillEffect(Entity caster, Entity target) {
+
     }
 }

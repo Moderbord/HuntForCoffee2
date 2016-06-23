@@ -1,5 +1,6 @@
 package moderbord.huntforcoffee2.Model.skills;
 
+import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.Skill;
 import moderbord.huntforcoffee2.Utils.C;
@@ -8,10 +9,6 @@ import moderbord.huntforcoffee2.Utils.C;
  * Created by Moderbord on 2016-05-22.
  */
 public class Fireball extends Skill {
-
-    // TODO make class inherit interface (as for all skillset)
-    // TODO which then will be overridden in each skill with Entity as parameter which
-    // TODO in turn will effect the spell accordingly to spellpower and skillset etc.
 
     private static Fireball instance;
 
@@ -27,7 +24,13 @@ public class Fireball extends Skill {
     }
 
     @Override
-    public String getSkillEffect(Entity caster, Entity target) {
-        return super.getSkillEffect(caster, target);
+    public void getSkillEffect(Entity caster, Entity target) {
+        int tFireRes = target.getResistance().getResFire() / 2;
+        int xLvl = (caster.geteLevel() * 5) + 15; // base = 20 //TODO Make RNG
+        int xInt = caster.geteIntellect();
+        int spellDmg = xLvl + xInt - tFireRes;
+        EventController.text.append(caster.geteName() + " launches a fireball" +
+                " into " + target.geteName() + "'s face, taking " + Integer.toString(spellDmg) + " dmg.");
+        target.damaged(spellDmg);
     }
 }
