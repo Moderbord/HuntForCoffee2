@@ -1,5 +1,6 @@
 package moderbord.huntforcoffee2.Model.skills;
 
+import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.Skill;
 import moderbord.huntforcoffee2.Utils.C;
@@ -24,7 +25,10 @@ public class Rejuvenate extends Skill {
 
     @Override
     public void getSkillEffect(Entity caster, Entity target) {
-
+        target.healed(10);
+        target.getCombatStats().addHOT(new HOT(this, target, 2, 10, C.STATUS_HEALING));
+        EventController.text.append(caster.geteName() + " cast rejuvenate on " + target.geteName() +
+                " and was healed for " + 10); // Refactor
     }
 
 }

@@ -233,8 +233,11 @@ public class Entity {
 
     public void damaged (int dmg){
         eHealth -= dmg;
-        if (eHealth < 0){
+        if (eHealth <= 0){
             eHealth = 0;
+            this.combatStats.setIsDefeated(true);
+            this.combatStats.setIsDown(false);
+            this.combatStats.setIsActive(false);
         }
     }
 

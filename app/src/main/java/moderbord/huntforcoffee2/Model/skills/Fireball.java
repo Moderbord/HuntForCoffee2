@@ -8,6 +8,7 @@ import moderbord.huntforcoffee2.Utils.C;
 /**
  * Created by Moderbord on 2016-05-22.
  */
+
 public class Fireball extends Skill {
 
     private static Fireball instance;
@@ -28,9 +29,15 @@ public class Fireball extends Skill {
         int tFireRes = target.getResistance().getResFire() / 2;
         int xLvl = (caster.geteLevel() * 5) + 15; // base = 20 //TODO Make RNG
         int xInt = caster.geteIntellect();
-        int spellDmg = xLvl + xInt - tFireRes;
+        int spellDmg = 5; //xLvl + xInt - tFireRes;
         EventController.text.append(caster.geteName() + " launches a fireball" +
                 " into " + target.geteName() + "'s face, taking " + Integer.toString(spellDmg) + " dmg.");
         target.damaged(spellDmg);
+        target.getCombatStats().addDOT(new DOT(this, target, 5, 10, C.STATUS_BURNING));
+    }
+
+    @Override
+    public String tickDesc() {
+        return "lingering flames";
     }
 }

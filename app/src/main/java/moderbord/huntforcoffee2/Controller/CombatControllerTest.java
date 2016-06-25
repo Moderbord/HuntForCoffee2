@@ -46,11 +46,11 @@ public class CombatControllerTest extends EventController {
     public int targetForm;
 
 
-    private Entity first = new EntityBuilder().seteName("Philip").seteGender(C.GENDER_MALE).seteHealth(35).seteAgility(25).seteQuickness(36).createEntity();
-    private Entity second = new EntityBuilder().seteName("Lögdal").seteGender(C.GENDER_MALE).seteMaxHealth(46).seteHealth(46).seteAgility(70).seteQuickness(45).createEntity();
-    private Entity third = new EntityBuilder().seteName("Victor").seteGender(C.GENDER_MALE).seteHealth(57).seteAgility(46).seteQuickness(68).createEntity();
-    private Entity fourth = new EntityBuilder().seteName("Hanna").seteGender(C.GENDER_FEMALE).seteHealth(34).seteAgility(23).seteQuickness(41).createEntity();
-    private Entity fifth = new EntityBuilder().seteName("Draken").seteGender(C.GENDER_MALE).seteHealth(156).seteIntellect(50).seteLevel(5).seteAlly(false).seteAgility(19).seteQuickness(12).createEntity();
+    private Entity first = new EntityBuilder().seteName("Philip").seteGender(C.GENDER_MALE).seteMaxHealth(35).seteHealth(35).seteAgility(25).seteQuickness(36).createEntity();
+    private Entity second = new EntityBuilder().seteName("Lögdal").seteGender(C.GENDER_MALE).seteMaxHealth(70).seteHealth(10).seteAgility(70).seteQuickness(45).createEntity();
+    private Entity third = new EntityBuilder().seteName("Victor").seteGender(C.GENDER_MALE).seteMaxHealth(57).seteHealth(57).seteAgility(46).seteQuickness(68).createEntity();
+    private Entity fourth = new EntityBuilder().seteName("Hanna").seteGender(C.GENDER_FEMALE).seteMaxHealth(34).seteHealth(34).seteAgility(23).seteQuickness(41).createEntity();
+    private Entity fifth = new EntityBuilder().seteName("Draken").seteGender(C.GENDER_MALE).seteMaxHealth(156).seteHealth(156).seteIntellect(50).seteLevel(5).seteAlly(false).seteAgility(19).seteQuickness(12).createEntity();
 
     public void prepareCombat() {
         Weapon bigSword = new WeaponBuilder().setName("Iron Greatsword").setTwoHanded(true).createWeapon();
@@ -94,43 +94,68 @@ public class CombatControllerTest extends EventController {
         @Override
         public void onClick(View v) {
             ui.clearActionButtons();
-            // Going through each entity in list and let them take action. Going to be replaces by initiative
-            if (tmp == entityList.size()) {
-                tmp = 0;
-            }
-
-            caster = entityList.get(tmp);
-            ecs = caster.getCombatStats();
-            while (!ecs.isActive() || ecs.isDown()){
-                tmp++;
-                caster = entityList.get(tmp);
-                ecs = caster.getCombatStats();
-            }
-
-            // Display combat status
-            for (Entity e : entityList) {
-                String name = e.geteName();
-                int health = e.geteHealth();
-                String defeated = e.getCombatStats().isDefeated() ? " -- Defeated --" : "";
-                text.append(name + "  Health: " + health + " " + defeated + "\n\n");
-            }
-            text.submit();
-
-            ui.setDescriptionText(caster.geteName());
-            ui.setEvent(new AttackListener(), 1, "Attack");
-            ui.setEvent(skillSelection, 2, "Skills");
-            if (caster.getSkillset().size() == 0) {
-                ui.disableButton(ui.button2);
-            }
+            setNextEntity();
+            displayCombatStatus();
+            displayCasterActions();
         }
     };
+
+    View.OnClickListener backPress = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ui.clearActionButtons();
+            displayCombatStatus();
+            displayCasterActions();
+        }
+    };
+
+    public void setNextEntity(){
+        // Going through each entity in list and let them take action. Going to be replaces by initiative
+        if (tmp == entityList.size()) {
+            tmp = 0;
+        }
+
+        caster = entityList.get(tmp);
+        ecs = caster.getCombatStats();
+        ecs.effectTick();
+        defeatCheck(caster);
+        while (!ecs.isActive() || ecs.isDefeated() || ecs.isDown() || ecs.isStunned() || ecs.isIncapacitated()){ // If target isn't active, is down??, or is stunned
+            tmp = entityList.size() == tmp +1 ? 0 : tmp++;
+            caster = entityList.get(tmp);
+            ecs = caster.getCombatStats();
+            ecs.effectTick(); //TODO move check here?
+            defeatCheck(caster);
+        }
+    }
+
+    public void displayCombatStatus(){
+        String separator = "\n--------------------------------------------\n\n";
+        text.append(separator);
+        for (Entity e : entityList) {
+            String name = e.geteName();
+            int health = e.geteHealth();
+            text.append(name + "  Health: " + health + " " + e.getCombatStats().getStatus() + "\n\n");
+        }
+        text.submit();
+    }
+
+    public void displayCasterActions(){
+        ui.setDescriptionText(caster.geteName());
+        ui.setEvent(new AttackListener(), 1, "Attack");
+        ui.setEvent(skillSelection, 2, "Skills");
+        ui.setEvent(waitAction, 8, "Wait");
+        if (caster.getSkillset().size() == 0) {
+            ui.disableButton(ui.button2);
+        }
+    }
 
     public void targetSelection() {
         ui.clearActionButtons();
         int x = 1; // Makes the targets appear from correct button (nmr 1)
         boolean allied = caster.isAlly();
         for (Entity e : entityList) {
-            boolean disabled = e.getCombatStats().isDefeated();
+            ecs = e.getCombatStats();
+            boolean disabled = ecs.isDefeated() || !ecs.isTargetable();
 
             switch (targetForm) {
                 case C.TARGET_FORM_ENEMY:
@@ -158,7 +183,7 @@ public class CombatControllerTest extends EventController {
                     x++;
                     break;*/
                 case C.TARGET_FORM_DEFEATED:
-                    if (e.getCombatStats().isDefeated()){
+                    if (e.getCombatStats().isDefeated() && e.isAlly()){
                         ui.setEvent(new TargetListener(e), x, e.geteName());
                         x++;
                     }
@@ -168,7 +193,7 @@ public class CombatControllerTest extends EventController {
                     break;
             }
         }
-        ui.setEvent(nextEntity, 10, "Back");
+        ui.setEvent(backPress, 10, "Back");
     }
 
     public void result() {
@@ -178,12 +203,19 @@ public class CombatControllerTest extends EventController {
         ui.setEvent(nextEntity, 1, "Next");
         tmp++;
 
-        for (Entity e : entityList){
-            if (e.geteHealth() <= 0){
-                onDefeated(e);
-            }
-        }
+        defeatCheck();
     }
+
+    private View.OnClickListener waitAction = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ui.clearActionButtons();
+            tmp++;
+            text.append(caster.geteName() + " waits " + caster.hisHer() + " turn");
+            text.submit();
+            ui.setEvent(nextEntity, 1, "Next");
+        }
+    };
 
     private class TargetListener implements View.OnClickListener {
 
@@ -221,7 +253,7 @@ public class CombatControllerTest extends EventController {
                 ui.setEvent(new SkillListener(s), x, s.getSkillName());
                 x++;
             }
-            ui.setEvent(nextEntity, 10, "Back");
+            ui.setEvent(backPress, 10, "Back");
         }
     };
 
@@ -241,9 +273,25 @@ public class CombatControllerTest extends EventController {
         }
     }
 
+    private void defeatCheck(Entity e){
+        if (e.geteHealth() <= 0){
+            onDefeated(e);
+        }
+    }
+
+    private void defeatCheck(){
+        for (Entity e : entityList){
+            if (e.geteHealth() <= 0){
+                onDefeated(e);
+            }
+        }
+    }
+
     // Sets an entity as defeated and check for win/lose conditions
     private void onDefeated(Entity e){
         ecs = e.getCombatStats();
+        ecs.resetStatus();
+        ecs.cleanseTicks();
         ecs.setIsDefeated(true);
         ecs.setIsActive(false);
         ecs.setIsDown(false);
@@ -255,10 +303,9 @@ public class CombatControllerTest extends EventController {
         boolean won = true;
         boolean lose = true;
         for (Entity e : entityList){
-            ecs = e.getCombatStats();
-            if (e.isAlly() && !ecs.isDefeated()){ // Not defeated
+            if (e.isAlly() && !e.getCombatStats().isDefeated()){ // If any ally is still alive
                 lose = false;
-            } else if (!e.isAlly() && !ecs.isDefeated()){ // Not ally and not defeated
+            } else if (!e.isAlly() && !e.getCombatStats().isDefeated()){ // If any enemy is still standing
                 won = false;
             }
         }
@@ -267,9 +314,11 @@ public class CombatControllerTest extends EventController {
     }
 
     private void onWin() {
+        text.append("\n\nYou won!\n\n");
     }
 
     private void onLose() {
+        text.append("\n\nYou lost!\n\n");
     }
 
 }

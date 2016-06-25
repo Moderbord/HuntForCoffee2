@@ -1,5 +1,7 @@
 package moderbord.huntforcoffee2.Model;
 
+import moderbord.huntforcoffee2.Utils.Utils;
+
 /**
  * Created by Moderbord on 2016-05-12.
  */
@@ -45,6 +47,10 @@ public class Skill extends SkillEffect {
 
     public void setSkillDuration(int skillDuration) {
         this.skillDuration = skillDuration;
+    }
+
+    public String tickDesc(){
+        return Utils.toLow(skillName);
     }
 
     @Override

@@ -1,11 +1,14 @@
 package moderbord.huntforcoffee2.Model.skills;
 
+import moderbord.huntforcoffee2.Controller.EventController;
+import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.Skill;
 import moderbord.huntforcoffee2.Utils.C;
 
 /**
  * Created by Moderbord on 2016-05-23.
  */
+
 public class Stasis extends Skill {
 
     private static Stasis instance;
@@ -20,4 +23,14 @@ public class Stasis extends Skill {
     public Stasis(String skillName, int targetForm, int skillType, int skillDuration) {
         super(skillName, targetForm, skillType, skillDuration);
     }
+
+    @Override
+    public void getSkillEffect(Entity caster, Entity target) {
+        int dmg = 0;
+        int duration = 2;
+        EventController.text.append(caster.geteName() + " casts stasis on " + target.geteName() + ". " + target.geteName() + " becomes" +
+                " untargetable and unable to take any action.");
+        target.getCombatStats().addCC(new CC(this, target, duration, dmg, C.STATUS_STASIS));
+    }
+
 }

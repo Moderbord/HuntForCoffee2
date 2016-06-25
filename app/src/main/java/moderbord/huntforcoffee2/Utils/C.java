@@ -124,5 +124,13 @@ public class C {
     public static final int SKILL_TYPE_HEAL     = 4;
     public static final int SKILL_TYPE_CC       = 5;
 
+    // Statuses
+    public static final int STATUS_HEALING          = 1;
+    public static final int STATUS_BURNING          = 2;
+    public static final int STATUS_POISONED         = 3;
+    public static final int STATUS_STUNNED          = 4;
+    public static final int STATUS_UNTARGETABLE     = 5;
+    public static final int STATUS_STASIS           = 6;
+
 
 }
