@@ -120,7 +120,8 @@ public class CombatControllerTest extends EventController {
         ecs.effectTick();
         defeatCheck(caster);
         while (!ecs.isActive() || ecs.isDefeated() || ecs.isDown() || ecs.isStunned() || ecs.isIncapacitated()){ // If target isn't active, is down??, or is stunned
-            tmp = entityList.size() == tmp +1 ? 0 : tmp++;
+            tmp++;
+            tmp = entityList.size() == tmp ? 0 : tmp;
             caster = entityList.get(tmp);
             ecs = caster.getCombatStats();
             ecs.effectTick(); //TODO move check here?
