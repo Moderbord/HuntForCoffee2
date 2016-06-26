@@ -7,9 +7,10 @@ import java.util.ArrayList;
 /**
  * Created by Oscilla on 2016-04-16.
  */
+
 public class Skillset extends ArrayList<Skill> {
 
-    //TODO make it auto-sort when adding skill
+    //TODO make it auto-sort when adding skill (alphabetical?)
 
     @Override
     public boolean add(Skill skill) {

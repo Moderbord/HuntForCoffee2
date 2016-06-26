@@ -33,7 +33,7 @@ public class Fireball extends Skill {
         EventController.text.append(caster.geteName() + " launches a fireball" +
                 " into " + target.geteName() + "'s face, taking " + Integer.toString(spellDmg) + " dmg.");
         target.damaged(spellDmg);
-        target.getCombatStats().addDOT(new DOT(this, target, 5, 10, C.STATUS_BURNING));
+        target.getCombatStats().addOTE(new OverTimeEffect(this, target, 5, 10, C.STATUS_BURNING, C.SKILL_TYPE_DOT));
     }
 
     @Override

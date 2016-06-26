@@ -10,7 +10,7 @@ public class Skill extends SkillEffect {
     protected String skillName;
     protected int targetForm, skillType, skillDuration;
 
-    public Skill(String skillName, int targetForm, int skillType, int skillDuration) {
+    public Skill(String skillName, int targetForm, int skillType, int skillDuration) { //TODO remove duration
         this.skillName = skillName;
         this.targetForm = targetForm;
         this.skillType = skillType;

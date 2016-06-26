@@ -30,7 +30,7 @@ public class Stasis extends Skill {
         int duration = 2;
         EventController.text.append(caster.geteName() + " casts stasis on " + target.geteName() + ". " + target.geteName() + " becomes" +
                 " untargetable and unable to take any action.");
-        target.getCombatStats().addCC(new CC(this, target, duration, dmg, C.STATUS_STASIS));
+        target.getCombatStats().addOTE(new OverTimeEffect(this, target, duration, dmg, C.STATUS_STASIS, C.SKILL_TYPE_CC));
     }
 
 }

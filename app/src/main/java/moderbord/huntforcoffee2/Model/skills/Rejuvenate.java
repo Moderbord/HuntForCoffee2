@@ -14,7 +14,7 @@ public class Rejuvenate extends Skill {
 
     public static Rejuvenate getInstance() {
         if (instance == null){
-            instance = new Rejuvenate("Rejuvenate", C.TARGET_FORM_ALLIED, C.SKILL_TYPE_HEAL, 2);
+            instance = new Rejuvenate("Rejuvenate", C.TARGET_FORM_ALLIED, C.SKILL_TYPE_HOT, 2);
         }
         return instance;
     }
@@ -26,7 +26,7 @@ public class Rejuvenate extends Skill {
     @Override
     public void getSkillEffect(Entity caster, Entity target) {
         target.healed(10);
-        target.getCombatStats().addHOT(new HOT(this, target, 2, 10, C.STATUS_HEALING));
+        target.getCombatStats().addOTE(new OverTimeEffect(this, target, 2, 10, C.STATUS_HEALING, C.SKILL_TYPE_HOT));
         EventController.text.append(caster.geteName() + " cast rejuvenate on " + target.geteName() +
                 " and was healed for " + 10); // Refactor
     }

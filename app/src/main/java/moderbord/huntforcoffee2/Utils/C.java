@@ -121,7 +121,7 @@ public class C {
     public static final int SKILL_TYPE_DMG      = 1;
     public static final int SKILL_TYPE_DOT      = 2;
     public static final int SKILL_TYPE_BUFF     = 3;
-    public static final int SKILL_TYPE_HEAL     = 4;
+    public static final int SKILL_TYPE_HOT = 4;
     public static final int SKILL_TYPE_CC       = 5;
 
     // Statuses

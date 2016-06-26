@@ -1,7 +1,6 @@
 package moderbord.huntforcoffee2.Model.skills;
 
 import moderbord.huntforcoffee2.Controller.EventController;
-import moderbord.huntforcoffee2.Model.CombatStats;
 import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.Skill;
 import moderbord.huntforcoffee2.Utils.C;
@@ -15,7 +14,7 @@ public class Revive extends Skill {
 
     public static Revive getInstance(){
         if (instance == null){
-            instance = new Revive("Revive", C.TARGET_FORM_DEFEATED, C.SKILL_TYPE_HEAL, 0);
+            instance = new Revive("Revive", C.TARGET_FORM_DEFEATED, C.SKILL_TYPE_HOT, 0);
         }
         return instance;
     }

@@ -46,10 +46,10 @@ public class CombatControllerTest extends EventController {
     public int targetForm;
 
 
-    private Entity first = new EntityBuilder().seteName("Philip").seteGender(C.GENDER_MALE).seteMaxHealth(35).seteHealth(35).seteAgility(25).seteQuickness(36).createEntity();
-    private Entity second = new EntityBuilder().seteName("Lögdal").seteGender(C.GENDER_MALE).seteMaxHealth(70).seteHealth(10).seteAgility(70).seteQuickness(45).createEntity();
-    private Entity third = new EntityBuilder().seteName("Victor").seteGender(C.GENDER_MALE).seteMaxHealth(57).seteHealth(57).seteAgility(46).seteQuickness(68).createEntity();
-    private Entity fourth = new EntityBuilder().seteName("Hanna").seteGender(C.GENDER_FEMALE).seteMaxHealth(34).seteHealth(34).seteAgility(23).seteQuickness(41).createEntity();
+    private Entity first = new EntityBuilder().seteName("Philip").seteGender(C.GENDER_MALE).seteMaxHealth(35).seteHealth(35).seteAgility(25).seteQuickness(36).seteAlly(true).createEntity();
+    private Entity second = new EntityBuilder().seteName("Lögdal").seteGender(C.GENDER_MALE).seteMaxHealth(70).seteHealth(10).seteAgility(70).seteQuickness(45).seteAlly(true).createEntity();
+    private Entity third = new EntityBuilder().seteName("Victor").seteGender(C.GENDER_MALE).seteMaxHealth(57).seteHealth(57).seteAgility(46).seteQuickness(68).seteAlly(true).createEntity();
+    private Entity fourth = new EntityBuilder().seteName("Hanna").seteGender(C.GENDER_FEMALE).seteMaxHealth(34).seteHealth(34).seteAgility(23).seteQuickness(41).seteAlly(true).createEntity();
     private Entity fifth = new EntityBuilder().seteName("Draken").seteGender(C.GENDER_MALE).seteMaxHealth(156).seteHealth(156).seteIntellect(50).seteLevel(5).seteAlly(false).seteAgility(19).seteQuickness(12).createEntity();
 
     public void prepareCombat() {
@@ -71,8 +71,8 @@ public class CombatControllerTest extends EventController {
         third.equipWeapon(smallHatchet, true);
         fourth.receiveItem(bigAxe);
         fourth.receiveItem(bigSword);
-        fourth.equipWeapon(bigAxe, false);
         fourth.equipWeapon(bigSword, false);
+        fourth.equipWeapon(bigAxe, false);
 
         entityList.add(first);
         entityList.add(second);

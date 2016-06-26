@@ -3,9 +3,6 @@ package moderbord.huntforcoffee2.Model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import moderbord.huntforcoffee2.Model.skills.CC;
-import moderbord.huntforcoffee2.Model.skills.DOT;
-import moderbord.huntforcoffee2.Model.skills.HOT;
 import moderbord.huntforcoffee2.Model.skills.OverTimeEffect;
 import moderbord.huntforcoffee2.Utils.C;
 
@@ -100,16 +97,8 @@ public class CombatStats {
         this.healed = healed;
     }
 
-    public void addHOT(HOT hot){
-        tick.add(hot);
-    }
-
-    public void addDOT(DOT dot){
-        tick.add(dot);
-    }
-
-    public void addCC(CC cc){
-        tick.add(cc);
+    public void addOTE(OverTimeEffect ote){
+        tick.add(ote);
     }
 
     public boolean isPoisoned() {
@@ -206,7 +195,7 @@ public class CombatStats {
             resetStatus();
             for (Iterator<OverTimeEffect> iter = this.iterator(); iter.hasNext(); ){
                 OverTimeEffect ote = iter.next();
-                if (ote.duration() < 1){
+                if (ote.getDuration() < 1){
                     iter.remove();
                 } else {
                     applyStatus(ote.getStatus());
@@ -217,7 +206,6 @@ public class CombatStats {
 
         void cleanse(){
             this.clear();
-            int x = 3;
         }
 
     }
