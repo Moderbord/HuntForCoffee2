@@ -7,4 +7,6 @@ public abstract class SkillEffect {
 
     public abstract void getSkillEffect(Entity caster, Entity target);
 
+    public abstract boolean skillCastAllowance(Entity caster);
+
 }

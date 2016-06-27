@@ -8,13 +8,13 @@ import moderbord.huntforcoffee2.Utils.Utils;
 public class Skill extends SkillEffect {
 
     protected String skillName;
-    protected int targetForm, skillType, skillDuration;
+    protected int targetForm, skillType, skillCost;
 
-    public Skill(String skillName, int targetForm, int skillType, int skillDuration) { //TODO remove duration
+    public Skill(String skillName, int targetForm, int skillType, int skillCost) {
         this.skillName = skillName;
         this.targetForm = targetForm;
         this.skillType = skillType;
-        this.skillDuration = skillDuration;
+        this.skillCost = skillCost;
     }
 
     public String getSkillName() {
@@ -41,12 +41,12 @@ public class Skill extends SkillEffect {
         this.skillType = skillType;
     }
 
-    public int getSkillDuration() {
-        return skillDuration;
+    public int getSkillCost() {
+        return skillCost;
     }
 
-    public void setSkillDuration(int skillDuration) {
-        this.skillDuration = skillDuration;
+    public void setSkillCost(int skillCost) {
+        this.skillCost = skillCost;
     }
 
     public String tickDesc(){
@@ -56,5 +56,10 @@ public class Skill extends SkillEffect {
     @Override
     public void getSkillEffect(Entity caster, Entity target) {
 
+    }
+
+    @Override
+    public boolean skillCastAllowance(Entity caster) {
+        return false;
     }
 }

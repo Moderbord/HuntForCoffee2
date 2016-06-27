@@ -15,13 +15,13 @@ public class Fireball extends Skill {
 
     public static Fireball getInstance() {
         if (instance == null){
-            instance = new Fireball("Fireball", C.TARGET_FORM_ENEMY, C.SKILL_TYPE_DMG, 0);
+            instance = new Fireball("Fireball", C.TARGET_FORM_ENEMY, C.SKILL_TYPE_DMG, 30);
         }
         return instance;
     }
 
-    public Fireball(String skillName, int attackForm, int skillType, int skillDuration) {
-        super(skillName, attackForm, skillType, skillDuration);
+    public Fireball(String skillName, int attackForm, int skillType, int skillCost) {
+        super(skillName, attackForm, skillType, skillCost);
     }
 
     @Override
@@ -34,6 +34,13 @@ public class Fireball extends Skill {
                 " into " + target.geteName() + "'s face, taking " + Integer.toString(spellDmg) + " dmg.");
         target.damaged(spellDmg);
         target.getCombatStats().addOTE(new OverTimeEffect(this, target, 5, 10, C.STATUS_BURNING, C.SKILL_TYPE_DOT));
+
+        caster.manaCost(skillCost);
+    }
+
+    @Override
+    public boolean skillCastAllowance(Entity caster) {
+        return caster.geteMana() >= skillCost;
     }
 
     @Override

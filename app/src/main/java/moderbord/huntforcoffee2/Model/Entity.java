@@ -154,7 +154,8 @@ public class Entity {
 
     /**
      * Equips a weapon to the entity in question
-     * @param i The item (weapon) that is to be equipped
+     *
+     * @param i       The item (weapon) that is to be equipped
      * @param offHand Set to true if the item is to be equipped in off-hand slot
      */
     public void equipWeapon(Item i, boolean offHand) {
@@ -204,36 +205,58 @@ public class Entity {
         //this.getInventory().remove(w);                  // ..and remove it from inventory
     }
 
-    public boolean isDualWielding(){
+    public boolean isDualWielding() {
         boolean dualWielding = (mainWep != null && offWep != null);
         return dualWielding;
     }
 
-    public void receiveItem(Item i){
+    public void receiveItem(Item i) {
         inventory.add(i);
     }
 
-    public void corrHealth(){
-        if (eHealth > eMaxHealth){
+    public void addSkill(Skill skill) {
+        this.skillset.add(skill);
+    }
+
+    public void corrHealth() {
+        if (eHealth > eMaxHealth) {
             eHealth = eMaxHealth;
         }
     }
 
-    public void corrMana(){
-        if (eMana > eMaxMana){
+    public void corrMana() {
+        if (eMana > eMaxMana) {
             eMana = eMaxMana;
         }
     }
 
-    public void corrFatique(){
-        if (eFatigue > eMaxFatigue){
+    public void corrFatigue() {
+        if (eFatigue > eMaxFatigue) {
             eFatigue = eMaxFatigue;
         }
     }
 
-    public void damaged (int dmg){
+    public void fatigueCost(int fatigue){
+        eFatigue += fatigue;
+    }
+
+    public void fatigueGain(int fatigue){
+        eFatigue += fatigue;
+        corrFatigue();
+    }
+
+    public void manaCost(int mana){
+        eMana -= mana;
+    }
+
+    public void manaGain(int mana){
+        eMana += mana;
+        corrMana();
+    }
+
+    public void damaged(int dmg) {
         eHealth -= dmg;
-        if (eHealth <= 0){
+        if (eHealth <= 0) {
             eHealth = 0;
             this.combatStats.setIsDefeated(true);
             this.combatStats.setIsDown(false);
@@ -241,17 +264,17 @@ public class Entity {
         }
     }
 
-    public void healed (int heal){
+    public void healed(int heal) {
         eHealth += heal;
         corrHealth();
     }
 
-    public String heShe(){
+    public String heShe() {
         String heshe = eGender.equals(C.GENDER_FEMALE) ? "she" : "he";
         return heshe;
     }
 
-    public String hisHer(){
+    public String hisHer() {
         String hisHer = eGender.equals(C.GENDER_FEMALE) ? "her" : "his";
         return hisHer;
     }

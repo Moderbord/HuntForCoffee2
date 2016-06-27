@@ -1,5 +1,6 @@
 package moderbord.huntforcoffee2.Controller;
 
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import moderbord.huntforcoffee2.Model.Skill;
 import moderbord.huntforcoffee2.Model.Skillset;
 import moderbord.huntforcoffee2.Model.item.Weapon;
 import moderbord.huntforcoffee2.Model.item.WeaponBuilder;
+import moderbord.huntforcoffee2.Model.skills.Bite;
 import moderbord.huntforcoffee2.Model.skills.Fireball;
 import moderbord.huntforcoffee2.Model.skills.NormalAttack;
 import moderbord.huntforcoffee2.Model.skills.Rejuvenate;
@@ -46,11 +48,11 @@ public class CombatControllerTest extends EventController {
     public int targetForm;
 
 
-    private Entity first = new EntityBuilder().seteName("Philip").seteGender(C.GENDER_MALE).seteMaxHealth(35).seteHealth(35).seteAgility(25).seteQuickness(36).seteAlly(true).createEntity();
-    private Entity second = new EntityBuilder().seteName("Lögdal").seteGender(C.GENDER_MALE).seteMaxHealth(70).seteHealth(10).seteAgility(70).seteQuickness(45).seteAlly(true).createEntity();
-    private Entity third = new EntityBuilder().seteName("Victor").seteGender(C.GENDER_MALE).seteMaxHealth(57).seteHealth(57).seteAgility(46).seteQuickness(68).seteAlly(true).createEntity();
-    private Entity fourth = new EntityBuilder().seteName("Hanna").seteGender(C.GENDER_FEMALE).seteMaxHealth(34).seteHealth(34).seteAgility(23).seteQuickness(41).seteAlly(true).createEntity();
-    private Entity fifth = new EntityBuilder().seteName("Draken").seteGender(C.GENDER_MALE).seteMaxHealth(156).seteHealth(156).seteIntellect(50).seteLevel(5).seteAlly(false).seteAgility(19).seteQuickness(12).createEntity();
+    private Entity first = new EntityBuilder().seteName("Philip").seteGender(C.GENDER_MALE).seteMaxHealth(35).seteHealth(35).seteMana(60).seteMaxMana(60).seteAgility(25).seteQuickness(36).seteAlly(true).createEntity();
+    private Entity second = new EntityBuilder().seteName("Lögdal").seteGender(C.GENDER_MALE).seteMaxHealth(70).seteHealth(10).seteMana(40).seteMaxMana(40).seteAgility(70).seteQuickness(45).seteAlly(true).createEntity();
+    private Entity third = new EntityBuilder().seteName("Victor").seteGender(C.GENDER_MALE).seteMaxHealth(57).seteHealth(57).seteMana(20).seteMaxMana(20).seteAgility(46).seteQuickness(68).seteAlly(true).createEntity();
+    private Entity fourth = new EntityBuilder().seteName("Hanna").seteGender(C.GENDER_FEMALE).seteMaxHealth(34).seteHealth(34).seteMana(120).seteMaxMana(120).seteAgility(23).seteQuickness(41).seteAlly(true).createEntity();
+    private Entity fifth = new EntityBuilder().seteName("Draken").seteGender(C.GENDER_MALE).seteMaxHealth(156).seteHealth(156).seteMana(300).seteMaxMana(300).seteIntellect(50).seteFatigue(0).seteMaxFatigue(50).seteLevel(5).seteAlly(false).seteAgility(19).seteQuickness(12).createEntity();
 
     public void prepareCombat() {
         Weapon bigSword = new WeaponBuilder().setName("Iron Greatsword").setTwoHanded(true).createWeapon();
@@ -60,6 +62,8 @@ public class CombatControllerTest extends EventController {
         Weapon smallHatchet = new WeaponBuilder().setName("Golden Hatchet").setWepType(C.WEAPON_TYPE_AXE).createWeapon();
         Weapon bow = new WeaponBuilder().setWepType(C.WEAPON_TYPE_BOW).setGearSlot(C.GEAR_SLOT_BACK_WEP).setName("Wooden Bow").createWeapon();
         Weapon rifle = new WeaponBuilder().setWepType(C.WEAPON_TYPE_CROSSBOW).setGearSlot(C.GEAR_SLOT_BACK_WEP).setName("Military Rifle").createWeapon();
+        Weapon rClaw = new WeaponBuilder().setWepType(C.WEAPON_TYPE_CLAWS).setGearSlot(C.GEAR_SLOT_MAIN_WEP).setName("left claw").setMinDmg(10).setMaxDmg(20).createWeapon();
+        Weapon lClaw = new WeaponBuilder().setWepType(C.WEAPON_TYPE_CLAWS).setGearSlot(C.GEAR_SLOT_OFF_WEP).setName("right claw").setMinDmg(10).setMaxDmg(20).createWeapon();
 
         first.receiveItem(bigSword);
         first.equipWeapon(bigSword, false);
@@ -74,17 +78,23 @@ public class CombatControllerTest extends EventController {
         fourth.equipWeapon(bigSword, false);
         fourth.equipWeapon(bigAxe, false);
 
+        fifth.receiveItem(rClaw);
+        fifth.receiveItem(lClaw);
+        fifth.equipWeapon(rClaw, false);
+        fifth.equipWeapon(lClaw, true);
+
         entityList.add(first);
         entityList.add(second);
         entityList.add(third);
         entityList.add(fourth);
         entityList.add(fifth);
-        fifth.getSkillset().add(Fireball.getInstance());
-        fifth.getSkillset().add(Stasis.getInstance());
-        second.getSkillset().add(Stasis.getInstance());
-        first.getSkillset().add(Rejuvenate.getInstance());
-        third.getSkillset().add(Sense.getInstance());
-        fourth.getSkillset().add(Revive.getInstance());
+        fifth.addSkill(Fireball.getInstance());
+        fifth.addSkill(Stasis.getInstance());
+        fifth.addSkill(Bite.getInstance());
+        second.addSkill(Stasis.getInstance());
+        first.addSkill(Rejuvenate.getInstance());
+        third.addSkill(Sense.getInstance());
+        fourth.addSkill(Revive.getInstance());
         first.getResistance().setResFire(10);
 
         ui.setEvent(nextEntity, 1, "Begin");
@@ -104,7 +114,6 @@ public class CombatControllerTest extends EventController {
         @Override
         public void onClick(View v) {
             ui.clearActionButtons();
-            displayCombatStatus();
             displayCasterActions();
         }
     };
@@ -135,7 +144,8 @@ public class CombatControllerTest extends EventController {
         for (Entity e : entityList) {
             String name = e.geteName();
             int health = e.geteHealth();
-            text.append(name + "  Health: " + health + " " + e.getCombatStats().getStatus() + "\n\n");
+            int mana = e.geteMana();
+            text.append(name + "  Health: " + health + "  Mana: " + mana + "  " + e.getCombatStats().getStatus() + "\n\n");
         }
         text.submit();
     }
@@ -251,7 +261,8 @@ public class CombatControllerTest extends EventController {
             Skillset skillset = caster.getSkillset();
             int x = 1;
             for (Skill s: skillset){
-                ui.setEvent(new SkillListener(s), x, s.getSkillName());
+                boolean clearCost = !s.skillCastAllowance(caster);
+                ui.setEvent(new SkillListener(s), x, s.getSkillName(), clearCost);
                 x++;
             }
             ui.setEvent(backPress, 10, "Back");
@@ -286,6 +297,7 @@ public class CombatControllerTest extends EventController {
                 onDefeated(e);
             }
         }
+        checkCombatStatus();
     }
 
     // Sets an entity as defeated and check for win/lose conditions
@@ -296,7 +308,6 @@ public class CombatControllerTest extends EventController {
         ecs.setIsDefeated(true);
         ecs.setIsActive(false);
         ecs.setIsDown(false);
-        checkCombatStatus();
     }
 
     // Checks if player has won or lost combat

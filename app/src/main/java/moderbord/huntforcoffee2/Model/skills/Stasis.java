@@ -15,13 +15,13 @@ public class Stasis extends Skill {
 
     public static Stasis getInstance() {
         if (instance == null){
-            instance = new Stasis("Stasis", C.TARGET_FORM_ALL, C.SKILL_TYPE_CC, 0);
+            instance = new Stasis("Stasis", C.TARGET_FORM_ALL, C.SKILL_TYPE_CC, 50);
         }
         return instance;
     }
 
-    public Stasis(String skillName, int targetForm, int skillType, int skillDuration) {
-        super(skillName, targetForm, skillType, skillDuration);
+    public Stasis(String skillName, int targetForm, int skillType, int skillCost) {
+        super(skillName, targetForm, skillType, skillCost);
     }
 
     @Override
@@ -31,6 +31,13 @@ public class Stasis extends Skill {
         EventController.text.append(caster.geteName() + " casts stasis on " + target.geteName() + ". " + target.geteName() + " becomes" +
                 " untargetable and unable to take any action.");
         target.getCombatStats().addOTE(new OverTimeEffect(this, target, duration, dmg, C.STATUS_STASIS, C.SKILL_TYPE_CC));
+
+        caster.manaCost(skillCost);
+    }
+
+    @Override
+    public boolean skillCastAllowance(Entity caster) {
+        return caster.geteMana() >= skillCost;
     }
 
 }

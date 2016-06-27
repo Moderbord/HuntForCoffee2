@@ -1,7 +1,5 @@
 package moderbord.huntforcoffee2.Model.skills;
 
-import java.util.Random;
-
 import moderbord.huntforcoffee2.Controller.EventController;
 import moderbord.huntforcoffee2.Model.Entity;
 import moderbord.huntforcoffee2.Model.Skill;
@@ -15,7 +13,6 @@ import moderbord.huntforcoffee2.Utils.Utils;
 
 public class NormalAttack extends Skill {
 
-    Random rand = new Random();
     private static NormalAttack instance;
 
     public static NormalAttack getInstance() {
@@ -47,7 +44,7 @@ public class NormalAttack extends Skill {
 
     private int performAttack(Weapon weapon, Entity caster) {
         int min = weapon.getMinDmg(), max = weapon.getMaxDmg(); //Retrieves the minimum and maximum damage from the weapon
-        int weaponDmg = rand.nextInt(max - min) + min; //Randomizes a number between the damage range of the weapon (can't be 0 unless minDmg is 0)
+        int weaponDmg = Utils.rand.nextInt(max - min) + min; //Randomizes a number between the damage range of the weapon (can't be 0 unless minDmg is 0)
         double dmgMlt = 1; //Damage multiplier which will be altered depending on player factors
 
         //TODO factors armour, strength, skills , etc

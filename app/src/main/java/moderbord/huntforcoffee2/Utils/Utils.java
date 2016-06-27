@@ -1,10 +1,14 @@
 package moderbord.huntforcoffee2.Utils;
 
+import java.util.Random;
+
 /**
  * Created by Oscilla on 2016-03-15.
  */
 
 public class Utils {
+
+    public static Random rand = new Random();
 
     public static String toUp(String str){
         return str.substring(0, 1).toUpperCase() + str.substring(1);

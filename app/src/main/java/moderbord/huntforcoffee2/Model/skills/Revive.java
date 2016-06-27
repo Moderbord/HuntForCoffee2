@@ -14,13 +14,13 @@ public class Revive extends Skill {
 
     public static Revive getInstance(){
         if (instance == null){
-            instance = new Revive("Revive", C.TARGET_FORM_DEFEATED, C.SKILL_TYPE_HOT, 0);
+            instance = new Revive("Revive", C.TARGET_FORM_DEFEATED, C.SKILL_TYPE_HOT, 100);
         }
         return instance;
     }
 
-    public Revive(String skillName, int targetForm, int skillType, int skillDuration) {
-        super(skillName, targetForm, skillType, skillDuration);
+    public Revive(String skillName, int targetForm, int skillType, int skillCost) {
+        super(skillName, targetForm, skillType, skillCost);
     }
 
     @Override
@@ -30,5 +30,13 @@ public class Revive extends Skill {
         target.getCombatStats().setIsActive(true);
         target.healed(15);
         EventController.text.append(target.geteName() + " got revived by " + caster.geteName());
+
+        caster.manaCost(skillCost);
     }
+
+    @Override
+    public boolean skillCastAllowance(Entity caster) {
+        return caster.geteMana() >= skillCost;
+    }
+
 }
